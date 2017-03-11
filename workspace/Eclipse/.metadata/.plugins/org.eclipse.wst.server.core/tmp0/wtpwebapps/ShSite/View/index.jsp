@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/site.css"/>
-<title>主页</title>
+<title>校园二手交易系统</title>
 </head>
 <body>
 	<%@ include file="header.jsp" %>

@@ -130,3 +130,11 @@
 127.0.0.1 - - [11/Mar/2017:19:48:01 +0800] "GET /ShSite/css/site.css HTTP/1.1" 304 -
 127.0.0.1 - - [11/Mar/2017:19:49:19 +0800] "GET /ShSite/index HTTP/1.1" 200 5765
 127.0.0.1 - - [11/Mar/2017:19:49:19 +0800] "GET /ShSite/css/site.css HTTP/1.1" 304 -
+127.0.0.1 - - [11/Mar/2017:20:10:32 +0800] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [11/Mar/2017:20:10:35 +0800] "GET /ShSite/ HTTP/1.1" 404 949
+127.0.0.1 - - [11/Mar/2017:20:10:49 +0800] "GET /ShSite/index HTTP/1.1" 200 5783
+127.0.0.1 - - [11/Mar/2017:20:10:49 +0800] "GET /ShSite/css/site.css HTTP/1.1" 304 -
+127.0.0.1 - - [11/Mar/2017:20:10:49 +0800] "GET /ShSite/js/jquery-1.10.2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [11/Mar/2017:20:10:49 +0800] "GET /ShSite/css/bootstrap-theme.min.css HTTP/1.1" 304 -
+127.0.0.1 - - [11/Mar/2017:20:10:49 +0800] "GET /ShSite/css/bootstrap.min.css HTTP/1.1" 304 -
+127.0.0.1 - - [11/Mar/2017:20:10:49 +0800] "GET /ShSite/js/bootstrap.min.js HTTP/1.1" 304 -

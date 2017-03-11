@@ -3,4 +3,14 @@
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Announcement"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Authority"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcollect"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcomment"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Good"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Goodtype"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Shrole"/>
+<fullyQualifiedTypeName name="com.zml.shsite.daos.HibernateBaseDao"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Shuser"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 </qualifiedTypeNameHistroy>
