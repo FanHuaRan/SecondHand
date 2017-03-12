@@ -1,0 +1,11 @@
+package com.zml.shsite.services;
+
+import java.util.List;
+
+import com.zml.shsite.models.Good;
+
+public interface IGoodService {
+	Good findById();
+	List<Good> findAll();
+	List<Good> findTopN(int count);
+}

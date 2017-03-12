@@ -57,7 +57,28 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-
+	public void delete(Integer id) {
+		try {
+			T persistentInstance=findById(id);
+			if(persistentInstance!=null){
+				getHibernateTemplate().delete(persistentInstance);
+			}
+		} catch (RuntimeException re) {
+			log.error("delete failed", re);
+			throw re;
+		}
+	}
+	public void deleteAll(){
+		try {
+			List<T> instances=findAll();
+			instances.stream().forEach(persistentInstance->{
+				delete(persistentInstance);
+			});
+		} catch (RuntimeException re) {
+			log.error("delete failed", re);
+			throw re;
+		}
+	}
 	public T findById(java.lang.Integer id) {
 		try {
 			T instance =(T)getHibernateTemplate().get(entityFullName, id);

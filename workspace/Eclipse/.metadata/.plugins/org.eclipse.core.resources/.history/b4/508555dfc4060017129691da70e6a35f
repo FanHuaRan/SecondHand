@@ -1,0 +1,52 @@
+package com.zml.shsite.services.impl;
+
+import java.util.List;
+
+import com.zml.shsite.models.Good;
+import com.zml.shsite.services.IGoodService;
+
+public class GoodServiceImpl implements IGoodService {
+
+	@Override
+	public Good findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Good> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Good> findTopN(int count) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void removeById(int id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void removeAll() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Good save(Good good) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Good update(Good good) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

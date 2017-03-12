@@ -1,0 +1,21 @@
+package com.zml.shsite.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class AccountController {
+	@RequestMapping("/Account/LogOn")
+	public String logOn(){
+		return "logon";
+	}
+	@RequestMapping("/Account/Register")
+	public String register(){
+		return "register";
+	}
+	@RequestMapping(value="/Account/Register",method=RequestMethod.POST)
+	public String register{
+		return "";
+	}
+}
