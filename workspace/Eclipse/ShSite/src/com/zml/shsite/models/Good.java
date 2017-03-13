@@ -16,10 +16,11 @@ public class Good implements java.io.Serializable {
 	private Shuser shuser;
 	private Goodtype goodtype;
 	private Timestamp desTime;
-	private Timestamp description;
+	private String description;
 	private String imageUrl;
 	private Short isSell;
 	private Float goodPrice;
+	private String goodName;
 	private Set goodcollects = new HashSet(0);
 	private Set goodcomments = new HashSet(0);
 
@@ -30,8 +31,8 @@ public class Good implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, Timestamp description, String imageUrl,
-			Short isSell, Float goodPrice) {
+	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, String description, String imageUrl,
+			Short isSell, Float goodPrice,String goodName) {
 		this.shuser = shuser;
 		this.goodtype = goodtype;
 		this.desTime = desTime;
@@ -39,16 +40,18 @@ public class Good implements java.io.Serializable {
 		this.imageUrl = imageUrl;
 		this.isSell = isSell;
 		this.goodPrice = goodPrice;
+		this.goodName=goodName;
 	}
 
 	/** full constructor */
-	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, Timestamp description, String imageUrl,
+	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, String description,String goodName,String imageUrl,
 			Short isSell, Float goodPrice, Set goodcollects, Set goodcomments) {
 		this.shuser = shuser;
 		this.goodtype = goodtype;
 		this.desTime = desTime;
 		this.description = description;
 		this.imageUrl = imageUrl;
+		this.goodName=goodName;
 		this.isSell = isSell;
 		this.goodPrice = goodPrice;
 		this.goodcollects = goodcollects;
@@ -89,11 +92,11 @@ public class Good implements java.io.Serializable {
 		this.desTime = desTime;
 	}
 
-	public Timestamp getDescription() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(Timestamp description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -135,6 +138,14 @@ public class Good implements java.io.Serializable {
 
 	public void setGoodcomments(Set goodcomments) {
 		this.goodcomments = goodcomments;
+	}
+
+	public String getGoodName() {
+		return goodName;
+	}
+
+	public void setGoodName(String goodName) {
+		this.goodName = goodName;
 	}
 
 }

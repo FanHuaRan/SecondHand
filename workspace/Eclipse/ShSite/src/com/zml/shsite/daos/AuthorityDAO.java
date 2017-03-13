@@ -2,8 +2,10 @@ package com.zml.shsite.daos;
 
 import java.util.List;
 import org.hibernate.LockMode;
+import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -23,6 +25,12 @@ import com.zml.shsite.models.Authority;
  */
 @Repository
 public class AuthorityDAO extends HibernateBaseDao<Authority> {
+	@Autowired
+	public AuthorityDAO(SessionFactory sessionFactory){
+		super();
+		this.setSessionFactory(sessionFactory);
+	}
+	
 	public static AuthorityDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (AuthorityDAO) ctx.getBean("AuthorityDAO");
 	}

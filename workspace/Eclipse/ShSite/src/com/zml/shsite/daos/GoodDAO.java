@@ -2,6 +2,8 @@ package com.zml.shsite.daos;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +27,11 @@ public class GoodDAO extends HibernateBaseDao<Good> {
 	public static final String IS_SELL = "isSell";
 	public static final String GOOD_PRICE = "goodPrice";
 
+	@Autowired
+	public GoodDAO(SessionFactory sessionFactory){
+		super();
+		this.setSessionFactory(sessionFactory);
+	}
 	
 	public List findByImageUrl(Object imageUrl) {
 		return findByProperty(IMAGE_URL, imageUrl);

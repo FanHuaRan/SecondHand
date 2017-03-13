@@ -50,6 +50,18 @@
 				</prop>
 			</props>
 		</property>
+			<property name="mappingResources">
+			<list>
+				<value>com/zml/shsite/models/Authority.hbm.xml</value>
+				<value>com/zml/shsite/models/Goodtype.hbm.xml</value>
+				<value>com/zml/shsite/models/Shrole.hbm.xml</value>
+				<value>com/zml/shsite/models/Shuser.hbm.xml</value>
+				<value>com/zml/shsite/models/Goodcomment.hbm.xml</value>
+				<value>com/zml/shsite/models/Announcement.hbm.xml</value>
+				<value>com/zml/shsite/models/Goodcollect.hbm.xml</value>
+				<value>com/zml/shsite/models/Good.hbm.xml</value>
+			</list>
+		</property>
 	</bean>
 	  <!-- 启用Spring注解 -->
     <context:annotation-config />

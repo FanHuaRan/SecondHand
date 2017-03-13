@@ -5,6 +5,7 @@ import java.util.List;
 import com.zml.shsite.models.Announcement;
 
 public interface IAnnouncementService {
+	List<Announcement> findTopNOrderByTime(int n);
 	Announcement findById(int id);
 	List<Announcement> findAll();
 	void removeById(int id);

@@ -3,8 +3,10 @@ package com.zml.shsite.daos;
 import java.sql.Timestamp;
 import java.util.List;
 import org.hibernate.LockMode;
+import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -27,7 +29,12 @@ public class AnnouncementDAO extends HibernateBaseDao<Announcement> {
 	// property constants
 	public static final String ANNO_CONTENT = "annoContent";
 	public static final String ANNOUNCE_TITLE = "announceTitle";
-
+	@Autowired
+	public AnnouncementDAO(SessionFactory sessionFactory){
+		super();
+		this.setSessionFactory(sessionFactory);
+	}
+	
 	public List findByAnnoContent(Object annoContent) {
 		return findByProperty(ANNO_CONTENT, annoContent);
 	}

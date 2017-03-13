@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -94,6 +95,28 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 			return  getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
+			throw re;
+		}
+	}
+	@SuppressWarnings("deprecation")
+	public List findTopNByHQL(String hql,int n){
+		try{
+			Query query=this.getSession().createQuery(hql);
+			query.setFirstResult(n);
+			List result=query.list();
+			this.getSession().close();
+			return result;
+		}catch(RuntimeException re){
+			log.error("find by "+hql+" name failed", re);
+			throw re;
+		}
+	}
+	@SuppressWarnings("deprecation")
+	public List findByHQL(String hql){
+		try{
+			return getHibernateTemplate().find(hql);
+		}catch(RuntimeException re){
+			log.error("find by "+hql+" name failed", re);
 			throw re;
 		}
 	}

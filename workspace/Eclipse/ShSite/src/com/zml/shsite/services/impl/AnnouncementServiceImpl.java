@@ -44,4 +44,11 @@ public class AnnouncementServiceImpl implements IAnnouncementService {
 	   return announcement;
 	}
 
+	@Override
+	public List<Announcement> findTopNOrderByTime(int n) {
+		// TODO Auto-generated method stub
+		String hql="from Announcement announcement order by announcement.annoTime asc"; 
+		return announcementDAO.findTopNByHQL(hql, n);
+	}
+
 }

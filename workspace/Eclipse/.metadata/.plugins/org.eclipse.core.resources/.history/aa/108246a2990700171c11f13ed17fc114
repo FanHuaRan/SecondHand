@@ -1,0 +1,30 @@
+package com.zml.shsite.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.zml.shsite.services.IGoodtypeService;
+
+@Controller
+@RequestMapping("/Account")
+public class AccountController {
+	@Autowired
+	private IGoodtypeService goodtypeService=null;
+	@RequestMapping("/LogOn")
+	public String logOn(Model model){
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		return "logon";
+	}
+	@RequestMapping("/Register")
+	public String register(){
+		return "register";
+	}
+	@RequestMapping(value="/Register",
+			method=RequestMethod.POST)
+	public String registerPost(){
+		return "";
+	}
+}

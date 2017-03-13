@@ -1,0 +1,28 @@
+*
+{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+#main
+{
+	padding: 70px 15px;
+}
+#footer{
+	clear: both;
+	padding: 10px;
+	text-align: center;
+	border-top: 1px dotted #8A8575;
+	border-bottom: 1px dotted #8A8575;
+	font-family: Constantia, Georgia, serif;
+}
+#homeannouce{
+	border: 1px dotted #8A8575;
+	padding:20px;
+}
+#homeannouce h3{
+	color:red;
+}
+#homeannouce ul li {
+	margin:20px;
+}

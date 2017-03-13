@@ -32,13 +32,13 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
 	//权限在Spring Security中是以我们平常认为的角色来体现的
     private List<GrantedAuthority> getGrantedAuthorities(Shuser shuser){ 
         //实例化权限集合
-    	final List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();  
-    	final Set<Authority> authorities2=shuser.getAuthorities();
-    	authorities2.stream().forEach(p->{
-    		 authorities.add(new SimpleGrantedAuthority(p.getShrole().getShRoleName())); 
-    	});
+    	final List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();  
+    	final Set<Authority> authorities=shuser.getAuthorities();
+    	for(Authority authority:authorities){
+    		grantedAuthorities.add(new SimpleGrantedAuthority(authority.getShrole().getShRoleName())); 
+    	}
         System.out.print("authorities :"+authorities);  
-        return authorities;  
+        return grantedAuthorities;  
     }  
 
 }
