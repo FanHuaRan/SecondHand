@@ -13,7 +13,6 @@ public class Goodtype implements java.io.Serializable {
 
 	private Integer goodTypeId;
 	private String goodTypeName;
-	private Set goods = new HashSet(0);
 
 	// Constructors
 
@@ -22,14 +21,14 @@ public class Goodtype implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Goodtype(String goodTypeName) {
-		this.goodTypeName = goodTypeName;
+	public Goodtype(Integer goodTypeId) {
+		this.goodTypeId = goodTypeId;
 	}
 
 	/** full constructor */
-	public Goodtype(String goodTypeName, Set goods) {
+	public Goodtype(Integer goodTypeId,String goodTypeName) {
+		this.goodTypeId = goodTypeId;
 		this.goodTypeName = goodTypeName;
-		this.goods = goods;
 	}
 
 	// Property accessors
@@ -49,13 +48,4 @@ public class Goodtype implements java.io.Serializable {
 	public void setGoodTypeName(String goodTypeName) {
 		this.goodTypeName = goodTypeName;
 	}
-
-	public Set getGoods() {
-		return this.goods;
-	}
-
-	public void setGoods(Set goods) {
-		this.goods = goods;
-	}
-
 }

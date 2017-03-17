@@ -13,7 +13,6 @@ public class Shrole implements java.io.Serializable {
 
 	private Short shRoleId;
 	private String shRoleName;
-	private Set authorities = new HashSet(0);
 
 	// Constructors
 
@@ -22,14 +21,14 @@ public class Shrole implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Shrole(String shRoleName) {
-		this.shRoleName = shRoleName;
+	public Shrole(Short shRoleId) {
+		this.shRoleId = shRoleId;
 	}
 
 	/** full constructor */
-	public Shrole(String shRoleName, Set authorities) {
+	public Shrole(Short shRoleId,String shRoleName) {
 		this.shRoleName = shRoleName;
-		this.authorities = authorities;
+		this.shRoleId = shRoleId;
 	}
 
 	// Property accessors
@@ -49,13 +48,4 @@ public class Shrole implements java.io.Serializable {
 	public void setShRoleName(String shRoleName) {
 		this.shRoleName = shRoleName;
 	}
-
-	public Set getAuthorities() {
-		return this.authorities;
-	}
-
-	public void setAuthorities(Set authorities) {
-		this.authorities = authorities;
-	}
-
 }

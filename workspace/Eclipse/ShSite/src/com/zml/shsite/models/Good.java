@@ -21,9 +21,6 @@ public class Good implements java.io.Serializable {
 	private Short isSell;
 	private Float goodPrice;
 	private String goodName;
-	private Set goodcollects = new HashSet(0);
-	private Set goodcomments = new HashSet(0);
-
 	// Constructors
 
 	/** default constructor */
@@ -45,7 +42,7 @@ public class Good implements java.io.Serializable {
 
 	/** full constructor */
 	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, String description,String goodName,String imageUrl,
-			Short isSell, Float goodPrice, Set goodcollects, Set goodcomments) {
+			Short isSell, Float goodPrice) {
 		this.shuser = shuser;
 		this.goodtype = goodtype;
 		this.desTime = desTime;
@@ -54,8 +51,6 @@ public class Good implements java.io.Serializable {
 		this.goodName=goodName;
 		this.isSell = isSell;
 		this.goodPrice = goodPrice;
-		this.goodcollects = goodcollects;
-		this.goodcomments = goodcomments;
 	}
 
 	// Property accessors
@@ -122,22 +117,6 @@ public class Good implements java.io.Serializable {
 
 	public void setGoodPrice(Float goodPrice) {
 		this.goodPrice = goodPrice;
-	}
-
-	public Set getGoodcollects() {
-		return this.goodcollects;
-	}
-
-	public void setGoodcollects(Set goodcollects) {
-		this.goodcollects = goodcollects;
-	}
-
-	public Set getGoodcomments() {
-		return this.goodcomments;
-	}
-
-	public void setGoodcomments(Set goodcomments) {
-		this.goodcomments = goodcomments;
 	}
 
 	public String getGoodName() {

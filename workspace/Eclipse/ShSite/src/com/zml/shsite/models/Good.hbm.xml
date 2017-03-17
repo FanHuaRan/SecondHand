@@ -34,17 +34,5 @@
         <property name="goodPrice" type="java.lang.Float">
             <column name="GoodPrice" precision="12" scale="0" not-null="true" />
         </property>
-        <set name="goodcollects" inverse="true">
-            <key>
-                <column name="GoodId" not-null="true" />
-            </key>
-            <one-to-many class="com.zml.shsite.models.Goodcollect" />
-        </set>
-        <set name="goodcomments" inverse="true">
-            <key>
-                <column name="GoodId" not-null="true" />
-            </key>
-            <one-to-many class="com.zml.shsite.models.Goodcomment" />
-        </set>
     </class>
 </hibernate-mapping>
