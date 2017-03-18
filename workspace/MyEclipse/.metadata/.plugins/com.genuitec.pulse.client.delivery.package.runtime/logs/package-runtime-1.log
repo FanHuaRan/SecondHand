@@ -1,4 +1,6 @@
-三月 13, 2017 2:42:03 下午 com.genuitec.pulse.client.deliverypackage.runtime.internal.Activator initializeLoggers
-信息: Package starting up at Mon Mar 13 14:42:03 CST 2017
-三月 13, 2017 2:42:07 下午 com.genuitec.pulse.client.deliverypackage.runtime.UpdatesService checkForWorkspaceUpdates
-信息: Latest version of package has already been enabled in the workspace; check finished in 15ms
+三月 18, 2017 5:36:04 下午 com.genuitec.pulse.client.deliverypackage.runtime.internal.Activator initializeLoggers
+信息: Package starting up at Sat Mar 18 17:36:04 CST 2017
+三月 18, 2017 5:36:06 下午 com.genuitec.pulse.client.deliverypackage.runtime.UpdatesService checkForWorkspaceUpdates
+信息: Latest version of package has already been enabled in the workspace; check finished in 105ms
+三月 18, 2017 5:36:16 下午 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+信息: Loading XML bean definitions from file [E:/项目/Secondhand/workspace/MyEclipse/ShSite/src/applicationContext.xml]

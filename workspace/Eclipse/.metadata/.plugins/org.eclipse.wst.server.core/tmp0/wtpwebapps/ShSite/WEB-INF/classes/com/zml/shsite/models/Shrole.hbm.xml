@@ -13,11 +13,5 @@
         <property name="shRoleName" type="java.lang.String">
             <column name="ShRoleName" length="10" not-null="true" />
         </property>
-        <set name="authorities" inverse="true">
-            <key>
-                <column name="ShRoleId" not-null="true" />
-            </key>
-            <one-to-many class="com.zml.shsite.models.Authority" />
-        </set>
     </class>
 </hibernate-mapping>

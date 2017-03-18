@@ -52,8 +52,8 @@
 		</property>
 			<property name="mappingResources">
 			<list>
-				<value>com/zml/shsite/models/Authority.hbm.xml</value>
-				<value>com/zml/shsite/models/Goodtype.hbm.xml</value>
+			    <value>com/zml/shsite/models/Authority.hbm.xml</value>
+			    <value>com/zml/shsite/models/Goodtype.hbm.xml</value>
 				<value>com/zml/shsite/models/Shrole.hbm.xml</value>
 				<value>com/zml/shsite/models/Shuser.hbm.xml</value>
 				<value>com/zml/shsite/models/Goodcomment.hbm.xml</value>

@@ -11,11 +11,12 @@ public class Goodcomment implements java.io.Serializable {
 	// Fields
 
 	private Integer goodCommentId;
-	private Shuser shuser;
-	private Good good;
+	private Integer shUserId;
+	private Integer goodId;
 	private Timestamp comTime;
 	private String comContent;
-
+	private Shuser shuser;
+	private Good good;
 	// Constructors
 
 	/** default constructor */
@@ -23,6 +24,12 @@ public class Goodcomment implements java.io.Serializable {
 	}
 
 	/** full constructor */
+	public Goodcomment(Integer shUserId,Integer goodId, Timestamp comTime, String comContent) {
+		this.shUserId = shUserId;
+		this.goodId = goodId;
+		this.comTime = comTime;
+		this.comContent = comContent;
+	}
 	public Goodcomment(Shuser shuser, Good good, Timestamp comTime, String comContent) {
 		this.shuser = shuser;
 		this.good = good;
@@ -70,6 +77,22 @@ public class Goodcomment implements java.io.Serializable {
 
 	public void setComContent(String comContent) {
 		this.comContent = comContent;
+	}
+
+	public Integer getShUserId() {
+		return shUserId;
+	}
+
+	public void setShUserId(Integer shUserId) {
+		this.shUserId = shUserId;
+	}
+
+	public Integer getGoodId() {
+		return goodId;
+	}
+
+	public void setGoodId(Integer goodId) {
+		this.goodId = goodId;
 	}
 
 }

@@ -27,9 +27,7 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public Shuser findByUserName(String name) {
-		return (Shuser) shuserDAO.findByShUserName(name).stream()
-											   .findFirst()
-											   .get();
+		return (Shuser) shuserDAO.findByShUserName(name).stream().findFirst().get();
 	}
 
 	@Override
@@ -52,6 +50,11 @@ public class UserServiceImpl implements IUserService {
 	public Shuser update(Shuser shuser) {
 		shuserDAO.update(shuser);
 		return shuser;
+	}
+
+	@Override
+	public List<Authority> findAuthoritys(int userId) {
+		return authorityDAO.findByShUserId(userId);
 	}
 
 }

@@ -3,6 +3,7 @@ package com.zml.shsite.services;
 import java.util.List;
 
 import com.zml.shsite.models.Announcement;
+import com.zml.shsite.models.Authority;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.models.Shuser;
 
@@ -14,6 +15,7 @@ import com.zml.shsite.models.Shuser;
 public interface IUserService {
 	Shuser findById(int id);
 	Shuser findByUserName(String name);
+	List<Authority> findAuthoritys(int userId);
 	List<Shuser> findAll();
 	void removeById(int id);
 	Shuser save(Shuser shuser);

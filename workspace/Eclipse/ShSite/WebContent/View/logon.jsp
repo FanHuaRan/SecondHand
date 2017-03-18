@@ -5,34 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/ShSite/css/site.css"/>
-<style type="text/css">
-	/* Form styles */
-legend
-{
-	padding: 10px;
-	font-weight: bold;
-}
-
-fieldset
-{
-	border: #9b9993 1px solid;
-	padding: 0 10px;
-	margin-bottom: 10px;
-	clear: left;
-}
-
-div.editor-field
-{
-	margin-bottom: 10px;
-}
-
-input[type=text], input[type=password], select
-{
-	border: 1px solid #8A8575;
-	width: 300px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
+<script src="/ShSite/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/ShSite/js/bootstrap.js"></script>
 <title>校园二手交易系统</title>
 </head>
 <body>

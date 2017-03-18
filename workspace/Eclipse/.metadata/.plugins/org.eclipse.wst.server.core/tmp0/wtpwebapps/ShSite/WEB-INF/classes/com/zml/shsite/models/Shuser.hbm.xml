@@ -28,29 +28,5 @@
         <property name="address" type="java.lang.String">
             <column name="Address" length="30" not-null="true" />
         </property>
-        <set name="goods" inverse="true">
-            <key>
-                <column name="ShUserId" not-null="true" />
-            </key>
-            <one-to-many class="com.zml.shsite.models.Good" />
-        </set>
-        <set name="goodcollects" inverse="true">
-            <key>
-                <column name="ShUserId" not-null="true" />
-            </key>
-            <one-to-many class="com.zml.shsite.models.Goodcollect" />
-        </set>
-        <set name="authorities" inverse="true" lazy="false">
-            <key>
-                <column name="ShUserId" not-null="true" />
-            </key>
-            <one-to-many class="com.zml.shsite.models.Authority" />
-        </set>
-        <set name="goodcomments" inverse="true" lazy="false">
-            <key>
-                <column name="ShUserId" not-null="true" />
-            </key>
-            <one-to-many class="com.zml.shsite.models.Goodcomment" />
-        </set>
     </class>
 </hibernate-mapping>

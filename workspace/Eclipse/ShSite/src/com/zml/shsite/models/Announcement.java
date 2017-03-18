@@ -14,7 +14,7 @@ public class Announcement implements java.io.Serializable {
 	private String annoContent;
 	private Timestamp annoTime;
 	private String announceTitle;
-
+	
 	// Constructors
 
 	/** default constructor */

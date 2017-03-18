@@ -28,14 +28,14 @@
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="org.hibernate.Query"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IAnnouncementService"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Announcement"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Shuser"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IUserService"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.UserServiceImpl"/>
-<fullyQualifiedTypeName name="com.zml.shsite.models.Authority"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IGoodService"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.GoodServiceImpl"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Authority"/>
 </qualifiedTypeNameHistroy>

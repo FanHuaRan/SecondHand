@@ -5,22 +5,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="css/site.css"/>
+<link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
+<script src="/ShSite/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/ShSite/js/bootstrap.js"></script>
 <title>校园二手交易系统</title>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
 	<div class="row" id="main">
 		<!-- 商品导航 -->
-	    <div class="col-lg-2">
-	    	<ul style="list-style-type:none">
-	    	<c:forEach items="${goodTypes}" var="goodType">
-			<li><a href="/Good/Browse?type=${goodType.getGoodTypeId()}">
-			<strong>${goodType.getGoodTypeName()}</strong>
-			</a></li>
-			</c:forEach>
-			</ul>
-	    </div>
+	    <%@ include file="catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
 			 <div id="homeannouce">

@@ -18,11 +18,6 @@ public class Shuser implements java.io.Serializable {
 	private String introduce;
 	private String phone;
 	private String address;
-	private Set goods = new HashSet(0);
-	private Set goodcollects = new HashSet(0);
-	private Set authorities = new HashSet(0);
-	private Set goodcomments = new HashSet(0);
-
 	// Constructors
 
 	/** default constructor */
@@ -37,21 +32,6 @@ public class Shuser implements java.io.Serializable {
 		this.introduce = introduce;
 		this.phone = phone;
 		this.address = address;
-	}
-
-	/** full constructor */
-	public Shuser(String shUserName, String password, Short gender, String introduce, String phone, String address,
-			Set goods, Set goodcollects, Set authorities, Set goodcomments) {
-		this.shUserName = shUserName;
-		this.password = password;
-		this.gender = gender;
-		this.introduce = introduce;
-		this.phone = phone;
-		this.address = address;
-		this.goods = goods;
-		this.goodcollects = goodcollects;
-		this.authorities = authorities;
-		this.goodcomments = goodcomments;
 	}
 
 	// Property accessors
@@ -110,38 +90,6 @@ public class Shuser implements java.io.Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public Set getGoods() {
-		return this.goods;
-	}
-
-	public void setGoods(Set goods) {
-		this.goods = goods;
-	}
-
-	public Set getGoodcollects() {
-		return this.goodcollects;
-	}
-
-	public void setGoodcollects(Set goodcollects) {
-		this.goodcollects = goodcollects;
-	}
-
-	public Set getAuthorities() {
-		return this.authorities;
-	}
-
-	public void setAuthorities(Set authorities) {
-		this.authorities = authorities;
-	}
-
-	public Set getGoodcomments() {
-		return this.goodcomments;
-	}
-
-	public void setGoodcomments(Set goodcomments) {
-		this.goodcomments = goodcomments;
 	}
 
 }

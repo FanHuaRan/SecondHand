@@ -13,20 +13,34 @@ public class Good implements java.io.Serializable {
 	// Fields
 
 	private Integer goodId;
-	private Shuser shuser;
-	private Goodtype goodtype;
+	private Integer shUserId;
+	private Integer goodTypeId;
 	private Timestamp desTime;
 	private String description;
 	private String imageUrl;
 	private Short isSell;
 	private Float goodPrice;
 	private String goodName;
+	private Shuser shuser;
+	private Goodtype goodtype;
+	
 	// Constructors
 
 	/** default constructor */
 	public Good() {
 	}
-
+	/** minimal constructor */
+	public Good(Integer shUserId,Integer goodTypeId, Timestamp desTime, String description, String imageUrl,
+			Short isSell, Float goodPrice,String goodName) {
+		this.shUserId = shUserId;
+		this.goodTypeId = goodTypeId;
+		this.desTime = desTime;
+		this.description = description;
+		this.imageUrl = imageUrl;
+		this.isSell = isSell;
+		this.goodPrice = goodPrice;
+		this.goodName=goodName;
+	}
 	/** minimal constructor */
 	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, String description, String imageUrl,
 			Short isSell, Float goodPrice,String goodName) {
@@ -125,6 +139,22 @@ public class Good implements java.io.Serializable {
 
 	public void setGoodName(String goodName) {
 		this.goodName = goodName;
+	}
+
+	public Integer getShUserId() {
+		return shUserId;
+	}
+
+	public void setShUserId(Integer shUserId) {
+		this.shUserId = shUserId;
+	}
+
+	public Integer getGoodTypeId() {
+		return goodTypeId;
+	}
+
+	public void setGoodTypeId(Integer goodTypeId) {
+		this.goodTypeId = goodTypeId;
 	}
 
 }

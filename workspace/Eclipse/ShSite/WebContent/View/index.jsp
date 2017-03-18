@@ -5,7 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="css/site.css"/>
+<link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
+<script src="/ShSite/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/ShSite/js/bootstrap.js"></script>
 <title>校园二手交易系统</title>
 </head>
 <body>

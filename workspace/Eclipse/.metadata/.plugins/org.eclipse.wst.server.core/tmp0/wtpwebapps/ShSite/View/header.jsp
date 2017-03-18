@@ -1,20 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="/ShSite/css/bootstrap.min.css"/>
-	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
-	<link rel="stylesheet" href="/ShSite/bootstrap-theme.min.css"/>
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="/ShSite/js/jquery-1.10.2.min.js"></script>
-	<script src="/ShSite/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="/ShSite/css/site.css"/>
-</head>
-<body>
-	  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
       	
       	 <div class="navbar-header">
@@ -94,6 +81,4 @@
           </ul>
         </div>
       </div>
-    </nav>
-</body>
-</html>
+ </nav>

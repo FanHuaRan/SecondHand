@@ -13,11 +13,5 @@
         <property name="goodTypeName" type="java.lang.String">
             <column name="GoodTypeName" length="20" not-null="true" />
         </property>
-        <set name="goods" inverse="true">
-            <key>
-                <column name="GoodTypeId" not-null="true" />
-            </key>
-            <one-to-many class="com.zml.shsite.models.Good" />
-        </set>
     </class>
 </hibernate-mapping>

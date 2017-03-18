@@ -10,11 +10,19 @@
             <column name="AuthorityId" />
             <generator class="identity" />
         </id>
-        <many-to-one name="shuser" class="com.zml.shsite.models.Shuser" fetch="select">
-            <column name="ShUserId" not-null="true" />
+        <property name="shRoleId" type="java.lang.Short">
+        	<column name="ShRoleId" not-null="true"></column>
+        </property>
+        <property name="shUserId" type="java.lang.Integer">
+        	<column name="ShUserId" not-null="true"></column>
+        </property>
+         <many-to-one name="shuser" class="com.zml.shsite.models.Shuser" 
+         	insert="false" update="false" fetch="select" lazy="false">
+            <column name="ShUserId" not-null="true"/>
         </many-to-one>
-        <many-to-one name="shrole" class="com.zml.shsite.models.Shrole" fetch="select" lazy="false">
-            <column name="ShRoleId" not-null="true" />
+        <many-to-one name="shrole" class="com.zml.shsite.models.Shrole" 
+       		insert="false" update="false" fetch="select" lazy="false">
+            <column name="ShRoleId" not-null="true"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

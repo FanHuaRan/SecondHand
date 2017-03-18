@@ -9,6 +9,8 @@ public class Authority implements java.io.Serializable {
 	// Fields
 
 	private Integer authorityId;
+	private Short shRoleId;
+	private Integer shUserId;
 	private Shuser shuser;
 	private Shrole shrole;
 
@@ -17,7 +19,10 @@ public class Authority implements java.io.Serializable {
 	/** default constructor */
 	public Authority() {
 	}
-
+	public Authority(Short shRoleId,Integer shUserId){
+		this.shRoleId=shRoleId;
+		this.shUserId=shUserId;
+	}
 	/** full constructor */
 	public Authority(Shuser shuser, Shrole shrole) {
 		this.shuser = shuser;
@@ -48,6 +53,22 @@ public class Authority implements java.io.Serializable {
 
 	public void setShrole(Shrole shrole) {
 		this.shrole = shrole;
+	}
+
+	public Integer getShUserId() {
+		return shUserId;
+	}
+
+	public void setShUserId(Integer shUserId) {
+		this.shUserId = shUserId;
+	}
+
+	public Short getShRoleId() {
+		return shRoleId;
+	}
+
+	public void setShRoleId(Short shRoleId) {
+		this.shRoleId = shRoleId;
 	}
 
 }

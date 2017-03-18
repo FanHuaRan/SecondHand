@@ -33,7 +33,7 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
     private List<GrantedAuthority> getGrantedAuthorities(Shuser shuser){ 
         //实例化权限集合
     	final List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();  
-    	final Set<Authority> authorities=shuser.getAuthorities();
+    	final List<Authority> authorities=userService.findAuthoritys(shuser.getShUserId());
     	for(Authority authority:authorities){
     		grantedAuthorities.add(new SimpleGrantedAuthority(authority.getShrole().getShRoleName())); 
     	}

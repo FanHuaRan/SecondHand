@@ -9,6 +9,8 @@ public class Goodcollect implements java.io.Serializable {
 	// Fields
 
 	private Integer goodCollectId;
+	private Integer shUserId;
+	private Integer goodId;
 	private Shuser shuser;
 	private Good good;
 
@@ -19,6 +21,10 @@ public class Goodcollect implements java.io.Serializable {
 	}
 
 	/** full constructor */
+	public Goodcollect(Integer shUserId,Integer goodId){
+		this.setShUserId(shUserId);
+		this.setGoodId(goodId);
+	}
 	public Goodcollect(Shuser shuser, Good good) {
 		this.shuser = shuser;
 		this.good = good;
@@ -48,6 +54,22 @@ public class Goodcollect implements java.io.Serializable {
 
 	public void setGood(Good good) {
 		this.good = good;
+	}
+
+	public Integer getShUserId() {
+		return shUserId;
+	}
+
+	public void setShUserId(Integer shUserId) {
+		this.shUserId = shUserId;
+	}
+
+	public Integer getGoodId() {
+		return goodId;
+	}
+
+	public void setGoodId(Integer goodId) {
+		this.goodId = goodId;
 	}
 
 }
