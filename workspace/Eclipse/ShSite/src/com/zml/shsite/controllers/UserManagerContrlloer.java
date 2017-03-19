@@ -25,14 +25,12 @@ public class UserManagerContrlloer {
 	}
 	@RequestMapping("/Details")
 	public String details(Integer id,Model model){
-		if(id==null){
+		Shuser shuser = null;
+		if(id==null||(shuser = userService.findById(id))==null){
 			throw new UserNotFoundException();
 		}
-		Shuser shuser = userService.findById(id);
-        if (shuser == null){
-        	throw new UserNotFoundException();
-        }
         model.addAttribute("goodTypes", goodtypeService.findAll());
+        model.addAttribute("shuser",shuser);
         return "usermanager/details";
 	}
 	@RequestMapping("/Create")
@@ -54,13 +52,10 @@ public class UserManagerContrlloer {
 	}
 	@RequestMapping("/Edit")
 	public String edit(Model model,Integer id){
-		if (id == null){
-            throw new UserNotFoundException();
-        }
-		Shuser shuser = userService.findById(id);
-        if (shuser == null){
-        	throw new UserNotFoundException();
-        }
+		Shuser shuser = null;
+		if(id==null||(shuser = userService.findById(id))==null){
+			throw new UserNotFoundException();
+		}
         model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("shuser",shuser);
 		return "usermanager/edit";
@@ -78,15 +73,12 @@ public class UserManagerContrlloer {
 	}
 	@RequestMapping("/Delete")
     public String Delete(Model model,Integer id){
-        if (id == null){
-            throw new UserNotFoundException();
-        }
-        Shuser shuser=userService.findById(id);
-        if (shuser == null){
-             throw new UserNotFoundException();
-        }
+		Shuser shuser = null;
+		if(id==null||(shuser = userService.findById(id))==null){
+			throw new UserNotFoundException();
+		}
         model.addAttribute("goodTypes", goodtypeService.findAll());
-        model.addAttribute(shuser);
+        model.addAttribute("shuser",shuser);
         return "usermanager/delete";
     }
 	@RequestMapping(value="/Delete",
@@ -94,7 +86,6 @@ public class UserManagerContrlloer {
     public String DeleteConfirmed(Shuser shuser)
     {
         userService.removeById(shuser.getShUserId());
-        //采用重定向
         return "redirect:/UserManager";
     }
 	

@@ -50,4 +50,9 @@ public class GoodServiceImpl implements IGoodService {
 		return good;
 	}
 
+	@Override
+	public List<Good> findByGoodType(int goodTypeId) {
+		return goodDao.findBygoodTypeId(goodTypeId);
+	}
+
 }

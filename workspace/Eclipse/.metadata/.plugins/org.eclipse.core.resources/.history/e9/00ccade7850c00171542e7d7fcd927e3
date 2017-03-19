@@ -1,0 +1,18 @@
+package com.zml.shsite.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.zml.shsite.models.Announcement;
+
+@Controller
+@RequestMapping("/Announcement")
+public class AnnouncementController {
+	@RequestMapping(value="/create",
+					method=RequestMethod.POST)
+	public String createAnno(Announcement announcement){
+		return null;
+	}
+
+}

@@ -7,6 +7,7 @@ import com.zml.shsite.models.Good;
 public interface IGoodService {
 	Good findById(int id);
 	List<Good> findAll();
+	List<Good> findByGoodType(int goodTypeId);
 	List<Good> findTopN(int count);
 	void removeById(int id);
 	void removeAll();

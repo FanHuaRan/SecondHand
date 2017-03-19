@@ -1,0 +1,36 @@
+package com.zml.shsite.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.zml.shsite.models.Announcement;
+import com.zml.shsite.services.IGoodService;
+import com.zml.shsite.services.IGoodtypeService;
+
+@Controller
+@RequestMapping("/Announcement")
+public class AnnouncementController {
+	@Autowired
+	private IGoodtypeService goodtypeService=null;
+	//创建评论
+	@RequestMapping("/create")
+	public String createAnnoPost(Model model){
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		return null;
+	}
+	//创建评论post
+	@RequestMapping(value="/create",
+					method=RequestMethod.POST)
+	public String createAnnoPost(Announcement announcement){
+		return null;
+	}
+	//删除评论
+	@RequestMapping(value="/delete",
+			method=RequestMethod.POST)
+	public String deleteAnno(Integer id){
+		return null;
+	}
+}

@@ -1,0 +1,35 @@
+package com.zml.shsite.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.zml.shsite.components.GoodNotFoundException;
+import com.zml.shsite.models.Good;
+import com.zml.shsite.services.IGoodService;
+import com.zml.shsite.services.IGoodtypeService;
+
+@Controller
+@RequestMapping("/GoodManager")
+public class GoodManagerController {
+	@Autowired
+	private IGoodtypeService goodtypeService=null;
+	@Autowired
+	private IGoodService goodService=null;
+	@RequestMapping
+	public String index(Model model){
+		model.addAttribute("goods", goodService.findAll());
+		return "goodmanager/index";
+	}
+	@RequestMapping("/Details")
+	public String detail(Integer id,Model model){
+		Good good=null;
+		if(id==null||(good=goodService.findById(id))==null){
+			throw new GoodNotFoundException();
+		}
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		model.addAttribute("good", good);
+		return "goodmanager/detail";
+	}
+}
