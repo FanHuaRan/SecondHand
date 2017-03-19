@@ -1,3 +1,0 @@
-eclipse.preferences.version=1
-module-start-timeout=300000
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="com.genuitec.embedded.tomcat.runtime.v70" id-set\="true" location\="D\:/Users/ASUS/AppData/Local/MyEclipse 2016 CI/plugins/com.genuitec.eclipse.server.embedded.tomcat.core_13.0.0.me201608181231/tomcat70" name\="MyEclipse Tomcat v7.0" runtime-type-id\="com.genuitec.embedded.tomcat.runtime.v70" timestamp\="0"/>\r\n  <runtime id\="Apache Tomcat v8.0" location\="D\:/green/tomcat/apache-tomcat-8.0.39" name\="Apache Tomcat v8.0" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.80" timestamp\="0"/>\r\n</runtimes>\r\n

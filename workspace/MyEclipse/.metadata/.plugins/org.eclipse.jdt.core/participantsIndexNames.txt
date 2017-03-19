@@ -1,3 +1,0 @@
-INDEX VERSION 1.127
-E:\ÏîÄ¿\Secondhand\workspace\MyEclipse\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1388145153.index
-\ShSite\src
