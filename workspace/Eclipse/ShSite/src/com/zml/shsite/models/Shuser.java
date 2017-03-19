@@ -1,8 +1,5 @@
 package com.zml.shsite.models;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Shuser entity. @author MyEclipse Persistence Tools
  */
@@ -10,7 +7,6 @@ import java.util.Set;
 public class Shuser implements java.io.Serializable {
 
 	// Fields
-
 	private Integer shUserId;
 	private String shUserName;
 	private String password;

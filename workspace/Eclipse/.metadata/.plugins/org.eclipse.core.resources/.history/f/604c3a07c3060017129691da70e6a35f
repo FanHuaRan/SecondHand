@@ -1,9 +1,0 @@
-package com.zml.shsite.services;
-/**
- * 用户服务
- * @author ASUS
- *
- */
-public interface IUserService {
-
-}

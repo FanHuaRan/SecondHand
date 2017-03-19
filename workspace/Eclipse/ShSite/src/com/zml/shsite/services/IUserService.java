@@ -18,6 +18,7 @@ public interface IUserService {
 	List<Authority> findAuthoritys(int userId);
 	List<Shuser> findAll();
 	void removeById(int id);
-	Shuser save(Shuser shuser);
+	//保存用户时 同时会增加权限
+	Shuser save(Shuser shuser,short roleId);
 	Shuser update(Shuser shuser);
 }

@@ -33,7 +33,8 @@
           </button>
           <a class="navbar-brand" href="/ShSite/">公告中心</a>
         </div>
-        
+        <!-- 只有管理员权限才能够看到这两个入口 -->
+        <security:authorize access="hasRole('Admin')">
           <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -41,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/ShSite/">用户管理</a>
+          <a class="navbar-brand" href="/ShSite/UserManager">用户管理</a>
         </div>
         
           <div class="navbar-header">
@@ -51,9 +52,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/ShSite/">商品管理</a>
+          <a class="navbar-brand" href="/ShSite/GoodManager">商品管理</a>
         </div>
-        
+         </security:authorize>
         
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

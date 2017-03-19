@@ -1,0 +1,101 @@
+package com.zml.shsite.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.zml.shsite.components.UserNotFoundException;
+import com.zml.shsite.models.Shuser;
+import com.zml.shsite.services.IGoodtypeService;
+import com.zml.shsite.services.IUserService;
+import com.zml.shsite.services.impl.UserServiceImpl;
+
+@RequestMapping("/UserManager")
+public class UserManagerContrlloer {
+	@Autowired
+	private IGoodtypeService goodtypeService=null;
+	@Autowired
+	private IUserService userService=null;
+	@RequestMapping("/index")
+	public String index(Model model){
+		return "usermanager/index";
+	}
+	@RequestMapping("/Details")
+	public String details(Integer id,Model model){
+		if(id==null){
+			throw new UserNotFoundException();
+		}
+		Shuser shuser = userService.findById(id);
+        if (shuser == null){
+        	throw new UserNotFoundException();
+         }
+         return new ModelAndView("storemanager/details","album",album);
+	}
+	@RequestMapping("/Create")
+	public String create(HttpServletRequest request,Model model){
+		List<Artist> artists=artistService.findArtists();
+		List<Genre> genres=genreService.findGenres();
+		model.addAttribute("artists",artists);
+		model.addAttribute("genres",genres);
+		return "storemanager/create";
+	}
+	@RequestMapping(value="/Create",
+					method=RequestMethod.POST)
+	public String create(Album album){
+		try{
+			albumService.createAlbum(album);
+	        return "redirect:/StoreManager";
+		}catch(Exception e){
+			logger.error(e.getMessage());
+			return "storemanager/create";
+		}
+	}
+	@RequestMapping("/Edit")
+	public String edit(HttpServletRequest request,Model model,Integer id){
+		if (id == null){
+            throw new UserNotFoundException();
+        }
+        Album album = albumService.findAlbumById(id);
+        if (album == null){
+             throw new UserNotFoundException();
+        }
+		List<Artist> artists=artistService.findArtists();
+		List<Genre> genres=genreService.findGenres();
+		model.addAttribute("artists",artists);
+		model.addAttribute("genres",genres);
+		model.addAttribute("album",album);
+		return "storemanager/edit";
+	}
+	@RequestMapping(value="/Edit",
+			method=RequestMethod.POST)
+	public String edit(Album album){
+		try{
+			albumService.editAlbum(album);
+		    return "redirect:/StoreManager";
+		}catch(Exception e){
+			logger.error(e.getMessage());
+			return "storemanager/edit";
+		}
+	}
+	@RequestMapping("/Delete")
+    public String Delete(Model model,Integer id){
+        if (id == null){
+            throw new UserNotFoundException();
+        }
+        Album album = albumService.findAlbumById(id);
+        if (album == null){
+             throw new UserNotFoundException();
+        }
+        model.addAttribute(album);
+        return "storemanager/delete";
+    }
+	@RequestMapping(value="/Delete",
+			method=RequestMethod.POST)
+    public String DeleteConfirmed(Album album)
+    {
+        albumService.deleteAlbum(album.getAlbumId());
+        //采用重定向
+        return "redirect:/StoreManager";
+    }
+	
+}

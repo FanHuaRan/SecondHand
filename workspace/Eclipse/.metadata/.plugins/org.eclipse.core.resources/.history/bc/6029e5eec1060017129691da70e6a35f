@@ -1,7 +1,0 @@
-package com.zml.shsite.services;
-
-import com.zml.shsite.models.Announcement;
-
-public interface IAnnouncementService {
-	Announcement findById();
-}

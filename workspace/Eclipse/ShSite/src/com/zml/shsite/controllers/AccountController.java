@@ -6,17 +6,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.zml.shsite.models.Shuser;
 import com.zml.shsite.services.IGoodtypeService;
 import com.zml.shsite.services.IUserService;
-import com.zml.shsite.services.impl.UserServiceImpl;
+import com.zml.shsite.services.impl.FileSaveServiceImpl;
+import com.zml.shsite.services.impl.IFileSaveService;
+import com.zml.shsite.viewmodels.RegisterViewModel;
 
 @Controller
 @RequestMapping("/Account")
 public class AccountController {
 	@Autowired
 	private IGoodtypeService goodtypeService=null;
+	@Autowired
 	private IUserService userService=null;
+	@Autowired
+	private IFileSaveService fileSaveService=null;
 	@RequestMapping("/LogOn")
 	public String logOn(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
@@ -25,16 +29,17 @@ public class AccountController {
 	@RequestMapping("/Register")
 	public String register(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
-		Shuser shuser=new Shuser();
-		model.addAttribute("shuser", shuser);
+		//Shuser shuser=new Shuser();
+		//model.addAttribute("shuser", shuser);
 		return "register";
 	}
 	@RequestMapping(value="/Register",
 			method=RequestMethod.POST)
-	public String registerPost(Shuser shuser){
-		if(userService.save(shuser)!=null){
-			return "redirect:/LogOn";
+	public String registerPost(RegisterViewModel registerViewModel){
+		if(userService.save(registerViewModel.toShuser(),(short)2)!=null){
+			fileSaveService.fileSave("headportraits", registerViewModel.getImgFile(), registerViewModel.getShUserName()+".jpg");
+			return "redirect:LogOn";
 		}
-		return "redirect:/register";
+		return "redirect:register";
 	}
 }

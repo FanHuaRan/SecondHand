@@ -41,8 +41,10 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public Shuser save(Shuser shuser) {
+	public Shuser save(Shuser shuser,short roleId){
 		shuserDAO.save(shuser);
+		Authority authority=new Authority(roleId,shuser.getShUserId());
+		authorityDAO.save(authority);
 		return shuser;
 	}
 

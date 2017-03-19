@@ -51,19 +51,13 @@
    </filter-mapping>
  
    <!-- 配置静态资源访问 -->
-   <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>/Resources</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>/Resources/*</url-pattern>
-  </servlet-mapping>
-  
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>*.png</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.jpg</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>default</servlet-name>
@@ -71,7 +65,11 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>default</servlet-name>
-    <url-pattern>*.jpg</url-pattern>
+    <url-pattern>*.html</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.css</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>default</servlet-name>
@@ -79,9 +77,24 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>default</servlet-name>
-    <url-pattern>*.css</url-pattern>
+    <url-pattern>*.map</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.eot</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.svg</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.ttf</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.woff</url-pattern>
+  </servlet-mapping>
   <!-- web前端控制器 可以返回视图 同时也支持返回json-->
   <servlet>
     <servlet-name>springweb</servlet-name>

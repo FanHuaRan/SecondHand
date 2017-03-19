@@ -1,0 +1,11 @@
+package com.zml.shsite.viewmodels;
+
+public class RegisterViewModel {
+	// Fields
+	private String shUserName;
+	private String password;
+	private Short gender;
+	private String introduce;
+	private String phone;
+	private String address;
+}

@@ -1,9 +1,0 @@
-package com.zml.shsite.services.impl;
-
-import org.springframework.stereotype.Service;
-
-import com.zml.shsite.services.IGoodtypeService;
-@Service
-public class GoodtypeServiceImpl implements IGoodtypeService {
-
-}

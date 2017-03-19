@@ -18,3 +18,7 @@
 1489831317817	Encapsulate field 'goodId'
 1489831453077	Encapsulate field 'shUserId'
 1489831457639	Encapsulate field 'goodId'
+1489840473194	Delete element
+1489840481731	Delete element
+1489840484823	Delete element
+1489850718788	Rename type 'AlbumNotFoundException'
