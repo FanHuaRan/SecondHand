@@ -1383,3 +1383,17 @@
 3月 20, 2017 14:05:13.53 [5360:2756:0320/140513.534:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
 3月 20, 2017 14:05:14.42 [5360:2756:0320/140514.420:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
 3月 20, 2017 14:05:17.11 [5360:2756:0320/140517.112:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+
+3月 20, 2017 18:08:31.79 NEW SESSION
+3月 20, 2017 18:08:31.79 [9284:3768:0320/180831.791:ERROR:angle_platform_impl.cc(33)] ANGLE Display::initialize error 5: DXGI 1.2 required to present to HWNDs owned by another process.
+3月 20, 2017 18:08:31.82 [9284:3768:0320/180831.791:ERROR:gl_surface_egl.cc(646)] eglInitialize D3D11 failed with error EGL_NOT_INITIALIZED, trying next display type
+3月 20, 2017 18:22:17.65 [9312:10184:0320/182217.653:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 20, 2017 18:22:17.84 [9312:10184:0320/182217.848:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 20, 2017 18:22:18.69 [9312:10184:0320/182218.698:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 20, 2017 18:22:18.82 [9312:10184:0320/182218.825:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 20, 2017 18:22:27.49 [9312:10184:0320/182227.496:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 20, 2017 18:22:27.69 [9312:10184:0320/182227.682:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 20, 2017 18:22:27.88 [9312:10184:0320/182227.885:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 20, 2017 18:22:28.76 [9312:10184:0320/182228.765:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 20, 2017 18:22:28.88 [9312:10184:0320/182228.884:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 20, 2017 18:22:39.35 [9312:10184:0320/182239.355:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101

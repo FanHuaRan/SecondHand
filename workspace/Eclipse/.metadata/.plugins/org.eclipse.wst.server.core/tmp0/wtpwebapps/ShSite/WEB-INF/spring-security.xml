@@ -28,9 +28,8 @@
   	   <security:form-login login-page="/Account/LogOn"   
         					authentication-failure-url="/Account/LogOn" 
         					always-use-default-target="true"
-        					default-target-url="/index"/> 
-        					<!--可以我们自己配置登录成功的代理-->
-        					<!-- authentication-success-handler-ref="authenticationSuccessHandler"/> -->
+        					authentication-success-handler-ref="authenticationSuccessHandler"/>
+        					<!--  default-target-url="/index"/> -->
         				
    	   <security:logout invalidate-session="true" 
    	  				    logout-success-url="/Account/LogOn"
@@ -46,4 +45,9 @@
         <security:authentication-provider user-service-ref="customUserDetailsService">
         </security:authentication-provider>
    </security:authentication-manager>
+    <!-- 配置登录成功后的处理器 -->
+   <bean id="authenticationSuccessHandler" class="com.zml.shsite.components.SimpleLoginSuccessHandler">  
+    <property name="defaultTargetUrl" value="/index"></property>  
+    <property name="forwardToDestination" value="false"></property>  
+   </bean>
 </beans>

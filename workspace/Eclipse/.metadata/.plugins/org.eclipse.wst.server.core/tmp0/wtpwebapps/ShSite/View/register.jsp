@@ -104,8 +104,7 @@
                         <label class="col-lg-3 control-label">个人介绍</label>
                         <div class="col-lg-5">
                             <textarea name="Introduce" style="height:100px;width:400px;" type="text" class="form-control"
-                            		 required data-bv-notempty-message="个人介绍不能够为空">
-                        	</textarea>
+                            		 required data-bv-notempty-message="个人介绍不能够为空"></textarea>
                         </div>
                     </div>
                     

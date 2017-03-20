@@ -45,13 +45,11 @@
 	        <dd>${shuser.getAddress()}</dd>
 	    </dl>
 		</div>
-		<p>
 		<form:form action="/ShiSite/UserManager/Delete" modelAttribute="shuser" method="POST">
 			<input type="submit" value="确定删除"/>
 		</form:form>
 		    <a href="/ShiSite/UserManager/Edit?id=${album.getAlbumId()}">编辑</a>
 		     <a href="/ShiSite/UserManager">返回管理主页</a>
-		</p>
 		</div>
 	</div>
 	<%@ include file="../footer.jsp" %>

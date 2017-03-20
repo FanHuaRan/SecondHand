@@ -1,11 +1,17 @@
 package com.zml.shsite.controllers;
 
+import java.sql.Timestamp;
+
+import javax.jws.WebParam.Mode;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.zml.shsite.components.exception.AnnounceNotFoundException;
 import com.zml.shsite.models.Announcement;
 import com.zml.shsite.services.IAnnouncementService;
 import com.zml.shsite.services.IGoodtypeService;
@@ -13,6 +19,7 @@ import com.zml.shsite.services.IGoodtypeService;
 @Controller
 @RequestMapping("/Announcement")
 public class AnnouncementController {
+	private static final Logger logger=Logger.getLogger(AnnouncementController.class);
 	@Autowired
 	private IAnnouncementService announcementService=null;
 	@Autowired
@@ -21,37 +28,70 @@ public class AnnouncementController {
 	public String index(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("announcements", announcementService.findAll());
-		return "anno/create";
+		return "anno/index";
 	}
 	//创建公告
-	@RequestMapping("/create")
-	public String createAnnoPost(Model model){
+	@RequestMapping("/Create")
+	public String create(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		return "anno/create";
 	}
 	//创建公告post
-	@RequestMapping(value="/create",
+	@RequestMapping(value="/Create",
 					method=RequestMethod.POST)
 	public String createAnnoPost(Announcement announcement){
-		return null;
+		try{
+			announcement.setAnnoTime(new Timestamp(System.currentTimeMillis()));
+			announcementService.save(announcement);
+			return "redirect:/";
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+			return "anno/create";
+		}
 	}
 	//修改公告
 	@RequestMapping("/Edit")
-	public String editAnnoPost(Model model){
+	public String edit(Integer id,Model model){
+		Announcement announcement=null;
+		if(id==null||(announcement=announcementService.findById(id))==null){
+			throw new AnnounceNotFoundException();
+		}
 		model.addAttribute("goodTypes", goodtypeService.findAll());
+		model.addAttribute("announcement",announcement);
 		return "anno/edit";
 	}
 	//修改公告post
 	@RequestMapping(value="/Edit",
 					method=RequestMethod.POST)
 	public String editAnnoPost(Announcement announcement){
-		return null;
+		try{
+			announcementService.update(announcement);
+			return "redirect:/";
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+			return "anno/edit";
+		}
 	}
 	//删除公告post
-	@RequestMapping(value="/delete",
-			method=RequestMethod.POST)
-	public String deleteAnno(Integer id){
-		announcementService.removeById(id);
-		return "redirect:/Announcement";
+	@RequestMapping("/Delete")
+	public String delete(Integer id,Model model){
+		Announcement announcement=null;
+		if(id==null||(announcement=announcementService.findById(id))==null){
+			throw new AnnounceNotFoundException();
+		}
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		model.addAttribute("announcement",announcement);
+		return "anno/delete";
+	}
+	
+	//删除公告post
+	@RequestMapping(value="/Delete",
+				   method=RequestMethod.POST)
+	public String deleteAnno(Announcement announcement){
+		if(announcement!=null){
+			announcementService.removeById(announcement.getAnnouncementId());
+			return "redirect:/";
+		}
+		else throw new AnnounceNotFoundException();
 	}
 }

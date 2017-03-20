@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.zml.shsite.components.GoodNotFoundException;
-import com.zml.shsite.components.GoodtypeNotFoundException;
+import com.zml.shsite.components.exception.GoodNotFoundException;
+import com.zml.shsite.components.exception.GoodtypeNotFoundException;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.models.Goodcollect;
 import com.zml.shsite.models.Goodcomment;
