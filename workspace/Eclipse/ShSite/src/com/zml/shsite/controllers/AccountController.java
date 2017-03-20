@@ -6,10 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.zml.shsite.services.IFileService;
 import com.zml.shsite.services.IGoodtypeService;
 import com.zml.shsite.services.IUserService;
-import com.zml.shsite.services.impl.FileSaveServiceImpl;
-import com.zml.shsite.services.impl.IFileSaveService;
+import com.zml.shsite.services.impl.FileServiceImpl;
 import com.zml.shsite.viewmodels.RegisterViewModel;
 
 @Controller
@@ -20,7 +20,7 @@ public class AccountController {
 	@Autowired
 	private IUserService userService=null;
 	@Autowired
-	private IFileSaveService fileSaveService=null;
+	private IFileService fileSaveService=null;
 	@RequestMapping("/LogOn")
 	public String logOn(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());

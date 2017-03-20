@@ -26,11 +26,25 @@ import com.zml.shsite.models.Goodcollect;
 @Repository
 public class GoodcollectDAO extends HibernateBaseDao<Goodcollect> {
 	private static final Logger log = LoggerFactory.getLogger(GoodcollectDAO.class);
+	public  static final String Sh_USER_Id = "shUserId";
+	public  static final String GOOD_Id =" goodId";
 	// property constants
 	@Autowired
 	public GoodcollectDAO(SessionFactory sessionFactory){
 		super();
 		this.setSessionFactory(sessionFactory);
+	}
+	public List<Goodcollect> findByShUserId(int id){
+		return findByProperty(Sh_USER_Id, id);
+	}
+	public List<Goodcollect> findByGoodId(int id){
+		return findByProperty(GOOD_Id, id);
+	}
+	public void deleteByShUserId(int id){
+		 deleteByProperty(Sh_USER_Id, id);
+	}
+	public void deleteByGoodId(int id){
+		 deleteByProperty(GOOD_Id, id);
 	}
 	public static GoodcollectDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (GoodcollectDAO) ctx.getBean("GoodcollectDAO");

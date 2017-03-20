@@ -17,7 +17,6 @@
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="org.hibernate.Query"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IAnnouncementService"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IUserService"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.UserServiceImpl"/>
@@ -41,15 +40,19 @@
 <fullyQualifiedTypeName name="com.zml.shsite.components.GoodtypeNotFoundException"/>
 <fullyQualifiedTypeName name="com.zml.shsite.components.GoodNotFoundException"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Good"/>
-<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcollect"/>
-<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcomment"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Announcement"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.AnnouncementServiceImpl"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="com.zml.shsite.daos.GoodcollectDAO"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcomment"/>
+<fullyQualifiedTypeName name="com.zml.shsite.daos.GoodcommentDAO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcollect"/>
 </qualifiedTypeNameHistroy>

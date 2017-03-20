@@ -35,6 +35,12 @@ public class AuthorityDAO extends HibernateBaseDao<Authority> {
 	public List<Authority> findByShUserId(int id){
 		return findByProperty(Sh_USER_Id, id);
 	}
+	public void deleteByShRoleId(int id){
+		 deleteByProperty(SH_ROLE_Id, id);
+	}
+	public void deleteByShUserId(int id){
+		 deleteByProperty(Sh_USER_Id, id);
+	}
 	public static AuthorityDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (AuthorityDAO) ctx.getBean("AuthorityDAO");
 	}

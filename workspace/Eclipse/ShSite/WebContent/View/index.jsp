@@ -4,12 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap.css">
+<link rel="stylesheet" href="/ShSite/css/bootstrapValidator.css"/>
 <link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
 <script src="/ShSite/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="/ShSite/js/bootstrap.js"></script>
+<script src="/ShSite/js/bootstrap.js"	type="text/javascript"></script>
+<script type="text/javascript" src="/ShSite/js/bootstrapValidator.js"></script>
+<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
 <title>校园二手交易系统</title>
 </head>
 <body>
@@ -19,6 +20,7 @@
 	    <%@ include file="catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+			 <%@ include file="announcecarousel.jsp" %>
 			 <div id="homeannouce">
 			     <!--  
 				  <h3 style="color: red;">公告栏</h3>
@@ -47,7 +49,7 @@
 		      	  <c:forEach items="${goods}" var="good">
 					<div>
 		  				<a href="/ShSite/Good/Details?id=${good.getGoodId()}">
-		   				 <img alt="${good.getGoodName()}" src="/ShSite/goodimages/三星.jpg"/>
+		   				 <img alt="${good.getGoodName()}" src="/ShSite/${good.getImageUrl()}"/>
 	               		 <span>${good.getGoodName()}</span>
 		 				</a>
 				    </div>

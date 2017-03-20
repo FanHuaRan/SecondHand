@@ -8,10 +8,10 @@
 <link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap.css">
 <link rel="stylesheet" href="/ShSite/css/bootstrapValidator.css"/>
 <link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
 <script src="/ShSite/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="/ShSite/js/bootstrap.js" type="text/javascript"></script>
+<script src="/ShSite/js/bootstrap.js"	type="text/javascript"></script>
 <script type="text/javascript" src="/ShSite/js/bootstrapValidator.js"></script>
+<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
 <title>校园二手交易系统</title>
 </head>
 <body>

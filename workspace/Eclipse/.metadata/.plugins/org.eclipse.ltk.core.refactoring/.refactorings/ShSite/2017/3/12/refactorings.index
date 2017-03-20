@@ -14,3 +14,15 @@
 1489913434076	Rename field 'goodtypeServiceImpl'
 1489913447664	Rename field 'goodServiceImpl'
 1489913454687	Rename field 'goodtypeServiceImpl'
+1489920241582	Rename resource '三星.jpg'
+1489920247817	Rename resource '五三.jpg'
+1489920253960	Rename resource '眼镜盒.jpg'
+1489922439831	Rename resource 'Site.css'
+1489933740600	Copy file
+1489936375397	Move compilation unit
+1489936395202	Rename type 'IFileSaveService'
+1489936445279	Rename type 'FileSaveServiceImpl'
+1489936842481	Copy compilation unit
+1489936852768	Rename type 'AnnounceNotFoundException2'
+1489989766848	Rename resource 'Admin.jpg'
+1489989812818	Rename resource '1.jpg'

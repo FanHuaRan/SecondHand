@@ -58,6 +58,16 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	public void deleteByProperty(String propertyName, Object value) {
+		try {
+			List<T> instances=findByProperty(propertyName, value);
+			instances.stream().forEach(instance->getHibernateTemplate().delete(instance));
+		} catch (RuntimeException re) {
+			log.error("delete failed", re);
+			throw re;
+		}
+	}
+	
 	public void delete(Integer id) {
 		try {
 			T persistentInstance=findById(id);

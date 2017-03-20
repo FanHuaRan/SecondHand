@@ -1,0 +1,9 @@
+﻿*
+{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+#main{
+	margin-top:60px;
+}

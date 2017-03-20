@@ -4,12 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap.css">
+<link rel="stylesheet" href="/ShSite/css/bootstrapValidator.css"/>
 <link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
 <script src="/ShSite/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="/ShSite/js/bootstrap.js"></script>
+<script src="/ShSite/js/bootstrap.js"	type="text/javascript"></script>
+<script type="text/javascript" src="/ShSite/js/bootstrapValidator.js"></script>
+<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
 <title>校园二手交易系统</title>
 </head>
 <body>
@@ -35,13 +36,18 @@
 		    <tr>
 		        <td>${user.getShUserId()}</td>
 		        <td>${user.getShUserName()}</td>
-		        <td>${user.getGender()}</td>
+		        <c:if test="${user.getGender()==0}">
+		       		 <td>男</td>
+				</c:if>
+				 <c:if test="${user.getGender()==1}">
+		       		 <td>女</td>
+				</c:if>
 		        <td>${user.getAddress()}</td>
 		        <td>${user.getPhone()}</td>
 		        <td>
-		        	<a href="/ShSite/UserManager/Edit?id=${album.getAlbumId()}">编辑</a>
-		            <a href="/ShSite/UserManager/Details?id=${album.getAlbumId()}">详情</a>
-		        	<a href="/ShSite/UserManager/Delete?id=${album.getAlbumId()}">删除</a>
+		        	<a href="/ShSite/UserManager/Details?id=${user.getShUserId()}">详情</a>
+		        	<a href="/ShSite/UserManager/Edit?id=${user.getShUserId()}">编辑</a>
+		        	<a href="/ShSite/UserManager/Delete?id=${user.getShUserId()}">删除</a>
 		        </td>
 		   	 </tr>
 			</c:forEach>

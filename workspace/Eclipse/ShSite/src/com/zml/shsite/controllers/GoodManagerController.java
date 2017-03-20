@@ -74,7 +74,7 @@ public class GoodManagerController {
 		}
 	}
 	@RequestMapping("/Delete")
-    public String Delete(Model model,Integer id){
+    public String delete(Model model,Integer id){
 		Good good=null;
 		if(id==null||(good = goodService.findById(id))==null){
 			throw new UserNotFoundException();
@@ -85,7 +85,7 @@ public class GoodManagerController {
     }
 	@RequestMapping(value="/Delete",
 			method=RequestMethod.POST)
-    public String DeleteConfirmed(Shuser shuser)
+    public String deleteConfirmed(Shuser shuser)
     {
 		goodService.removeById(shuser.getShUserId());
         //采用重定向
