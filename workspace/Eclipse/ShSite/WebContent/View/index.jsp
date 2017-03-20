@@ -11,6 +11,7 @@
 <script src="/ShSite/js/bootstrap.js"	type="text/javascript"></script>
 <script type="text/javascript" src="/ShSite/js/bootstrapValidator.js"></script>
 <link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
+<link href="/ShSite/css/carousel.css" rel="stylesheet">
 <title>校园二手交易系统</title>
 </head>
 <body>
@@ -21,30 +22,6 @@
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
 			 <%@ include file="announcecarousel.jsp" %>
-			 <div id="homeannouce">
-			     <!--  
-				  <h3 style="color: red;">公告栏</h3>
-			      <ul style="margin-left:20px">
-			       <c:forEach items="${announcements}" var="announcement">
-			         	<li><p><strong>${announcement.getAnnounceTitle()}</strong>
-					           <u>${announcement.getAnnoContent()}</u>
-					           <em>${announcement.getAnnoTime()}</em>
-			         	 </p>
-			          	</li>
-					</c:forEach>
-				 </ul>
-				 -->
-				<div class="row">		      
-				        <c:forEach items="${announcements}" var="announcement">
-							<div class="col-lg-3">
-				         		<p><strong>${announcement.getAnnounceTitle()}</strong></p>
-					            <p><u>${announcement.getAnnoContent()}</u></p>
-					            <p><em>${announcement.getAnnoTime()}</em></p>
-				          	<p><a class="btn btn-info" href="#" role="button">详细&raquo;</a></p>
-				       		</div>
-						</c:forEach>
-				</div>	
-		      </div>
 		      <div class="goods">
 		      	  <c:forEach items="${goods}" var="good">
 					<div>

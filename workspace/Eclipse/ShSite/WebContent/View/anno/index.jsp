@@ -20,7 +20,16 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
-			
+			<div>
+				  <c:forEach items="${announcements}" var="announcement">
+							<div class="col-lg-3">
+				         		<p><strong>${announcement.getAnnounceTitle()}</strong></p>
+					            <p><u>${announcement.getAnnoContent()}</u></p>
+					            <p><em>${announcement.getAnnoTime()}</em></p>
+				          	<p><a class="btn btn-info" href="#" role="button">详细&raquo;</a></p>
+				       		</div>
+				 </c:forEach>
+			</div>
 		</div>
 	</div>
 	<%@ include file="../footer.jsp" %>
