@@ -32,9 +32,13 @@ public class AnnouncementController {
 	}
 	
 	@RequestMapping("/Details")
-	public String details(Model model){
+	public String details(Integer id,Model model){
+		Announcement announcement=null;
+		if(id==null||(announcement=announcementService.findById(id))==null){
+			throw new AnnounceNotFoundException();
+		}
 		model.addAttribute("goodTypes", goodtypeService.findAll());
-		model.addAttribute("announcements", announcementService.findAll());
+		model.addAttribute("announcement",announcement);
 		return "anno/details";
 	}
 	
