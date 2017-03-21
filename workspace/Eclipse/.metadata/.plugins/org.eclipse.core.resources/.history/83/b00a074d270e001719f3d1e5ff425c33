@@ -1,0 +1,36 @@
+﻿*
+{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+#main{
+	margin-top:60px;
+}
+#footer
+{
+	clear: both;
+	padding: 10px;
+	text-align: center;
+	border-top: 1px dotted #8A8575;
+	border-bottom: 1px dotted #8A8575;
+	font-family: Constantia, Georgia, serif;
+}
+#catalogueul{
+	list-style-type:none;
+	margin-left:40px;
+	line-height:50px;
+	font-size:17px;
+}
+.goods{
+	
+}
+.goodbottom{
+	width:100%;
+}
+.goodbottom .namespan{
+	width:100px; 
+	height:20px; 
+	line-height:20px; 
+	text-align:center; 
+}

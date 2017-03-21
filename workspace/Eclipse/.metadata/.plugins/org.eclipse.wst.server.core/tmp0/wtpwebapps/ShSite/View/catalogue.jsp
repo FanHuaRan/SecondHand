@@ -5,7 +5,7 @@
 <div class="col-lg-2">
 	<ul id="catalogueul">
 	    <c:forEach items="${goodTypes}" var="goodType">
-		<li><a href="/ShSite/Good/Browse?type=${goodType.getGoodTypeId()}">
+		<li><a href="/ShSite/Good/Browse?id=${goodType.getGoodTypeId()}">
 		<strong>${goodType.getGoodTypeName()}</strong>
 		</a></li>
 		</c:forEach>

@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<!-- 商品目录 -->
+<div class="row">
+  <c:forEach items="${goods}" var="good">
+  		<div>
+		  	<a href="/ShSite/Good/Details?id=${good.getGoodId()}">
+		   	<img style="" alt="${good.getGoodName()}" src="/ShSite/goodimages/${good.getGoodId()}.jpg"/>
+	         <span>${good.getGoodName()}</span>
+	         <p>
+	         <span>¥{good.goodPrice()}</span> 
+	         <span>评论12</span>
+	         <span>收藏12</span>
+	         </p>
+		 	</a>
+		 </div>
+  </c:forEach>
+</div>
+	

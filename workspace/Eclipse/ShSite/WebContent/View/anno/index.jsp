@@ -15,22 +15,24 @@
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
-	<div class="row" id="main">
+	<div class="row" id="main">         
 		<!-- 商品导航 -->
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
-			<div>
-				  <c:forEach items="${announcements}" var="announcement">
-							<div class="col-lg-3">
-				         		<p><strong>${announcement.getAnnounceTitle()}</strong></p>
-					            <p><u>${announcement.getAnnoContent()}</u></p>
-					            <p><em>${announcement.getAnnoTime()}</em></p>
-				          	<p><a class="btn btn-info" href="#" role="button">详细&raquo;</a></p>
-				       		</div>
-				 </c:forEach>
-			</div>
-		</div>
+		    <h1>公告栏</h1>
+			 <c:forEach items="${announcements}" var="announcement">
+			 <div class="alert alert-info"  style="margin:5px">
+			<ul style="list-style-type:none;">
+				<li><strong class="text-danger">${announcement.getAnnounceTitle()}:</strong>
+				<a class="btn btn-info pull-right" href="/ShSite/Announcement/Details?id=${announcement.getAnnouncementId()}" 
+					role="button" >详细&raquo;</a>${announcement.getAnnoContent()} 
+				<em class="text-danger pull-right">${announcement.getAnnoTime()}s</em>
+				</li>
+			</ul>
+		     </div>
+		 </c:forEach>
+	</div>
 	</div>
 	<%@ include file="../footer.jsp" %>
 </body>

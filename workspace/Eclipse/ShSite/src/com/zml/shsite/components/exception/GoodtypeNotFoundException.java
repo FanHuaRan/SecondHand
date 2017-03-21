@@ -3,7 +3,7 @@ package com.zml.shsite.components.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No such Album")  // 404
+@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No such GoodType")  // 404
 public class GoodtypeNotFoundException extends RuntimeException {
 
 	/**

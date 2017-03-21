@@ -30,6 +30,21 @@ public class AnnouncementController {
 		model.addAttribute("announcements", announcementService.findAll());
 		return "anno/index";
 	}
+	
+	@RequestMapping("/Details")
+	public String details(Model model){
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		model.addAttribute("announcements", announcementService.findAll());
+		return "anno/details";
+	}
+	
+	@RequestMapping("/Manager")
+	public String manager(Model model){
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		model.addAttribute("announcements", announcementService.findAll());
+		return "anno/manager";
+	}
+	
 	//创建公告
 	@RequestMapping("/Create")
 	public String create(Model model){

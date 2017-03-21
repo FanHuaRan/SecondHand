@@ -22,16 +22,7 @@
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
 			 <%@ include file="announcecarousel.jsp" %>
-		      <div class="goods">
-		      	  <c:forEach items="${goods}" var="good">
-					<div>
-		  				<a href="/ShSite/Good/Details?id=${good.getGoodId()}">
-		   				 <img alt="${good.getGoodName()}" src="/ShSite/goodimages/${good.getGoodId()}.jpg"/>
-	               		 <span>${good.getGoodName()}</span>
-		 				</a>
-				    </div>
-				</c:forEach>
-		      </div>
+		     <%@ include file="goodlist.jsp" %>
 		</div>
 	</div>
 	<%@ include file="footer.jsp" %>
