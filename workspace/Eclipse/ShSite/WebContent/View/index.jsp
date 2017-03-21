@@ -26,7 +26,7 @@
 		      	  <c:forEach items="${goods}" var="good">
 					<div>
 		  				<a href="/ShSite/Good/Details?id=${good.getGoodId()}">
-		   				 <img alt="${good.getGoodName()}" src="/ShSite/${good.getImageUrl()}"/>
+		   				 <img alt="${good.getGoodName()}" src="/ShSite/goodimages/${good.getGoodId()}.jpg"/>
 	               		 <span>${good.getGoodName()}</span>
 		 				</a>
 				    </div>

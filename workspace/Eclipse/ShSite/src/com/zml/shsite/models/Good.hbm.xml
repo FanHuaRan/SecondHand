@@ -22,9 +22,6 @@
         <property name="description" type="java.lang.String">
             <column name="Description" length="50" not-null="true" />
         </property>
-        <property name="imageUrl" type="java.lang.String">
-            <column name="ImageUrl" length="30" not-null="true" />
-        </property>
          <property name="goodName" type="java.lang.String">
             <column name="GoodName" length="10" not-null="true" />
         </property>

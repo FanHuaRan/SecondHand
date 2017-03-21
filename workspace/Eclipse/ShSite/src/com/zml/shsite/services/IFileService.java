@@ -7,6 +7,10 @@ import org.springframework.web.multipart.MultipartFile;
  *
  */
 public interface IFileService {
-	 boolean fileSave(String destinationDir, MultipartFile file, String filename);
-	 boolean fileDelete(String fileName);
+	 boolean saveUserImage(MultipartFile file,int userId);
+	 boolean saveGoodImage(MultipartFile file,int goodId);
+	 boolean saveOrUpdateUserImage(MultipartFile file,int userId);
+	 boolean saveOrUpdateGoodImage(MultipartFile file,int goodId);
+	 boolean deleteUserImage(int userId);
+	 boolean deleteGoodImage(int goodId);
 }

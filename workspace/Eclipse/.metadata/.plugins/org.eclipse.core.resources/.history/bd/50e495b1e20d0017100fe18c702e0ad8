@@ -1,0 +1,67 @@
+package com.zml.shsite.services;
+
+import javax.annotation.Resource;
+import javax.servlet.ServletContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.zml.shsite.components.FileComponentUtil;
+
+public class FileServiceImpl implements IFileService {
+	private static String HEAD_PORTRAITS="/headportraits";
+	private static String GOOD_IMAGES="/goodimages";
+	static{
+		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();  
+		 shoppingComponet=wac.getBean(ServletContext.class);
+	}
+	@Autowired
+	private FileComponentUtil fileComponentUtil=null;
+	@Resource  
+	private  servletContext;   
+	
+	@Override
+	public boolean saveUserImage(MultipartFile file, int userId) {
+		return fileComponentUtil.fileSave(getRealFilePath(HEAD_PORTRAITS), file,String.valueOf(userId));
+	}
+
+	@Override
+	public boolean saveGoodImage(MultipartFile file, int goodId) {
+		return fileComponentUtil.fileSave(desDir, file, filename)
+		return false;
+	}
+
+	@Override
+	public boolean saveOrUpdateUserImage(MultipartFile file, int userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean saveOrUpdateGoodImage(MultipartFile file,int goodId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteUserImage(int userId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteGoodImage(int goodId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private String getRootWebDir(){
+		return servletContext.getRealPath("/");
+	}
+	private String getRealFilePath(String relaPath){
+		String root=getRootWebDir();
+		return String.format("%s//%s", root,relaPath);
+	}
+}

@@ -32,3 +32,8 @@
 1490002196896	Move compilation units
 1490003537312	Copy file
 1490003550023	Rename resource 'index2.jsp'
+1490063050907	Move compilation unit
+1490063415421	Rename method 'SaveFileFromInputStream'
+1490063481908	Rename type 'FileServiceImpl'
+1490066338215	Move compilation unit
+1490066641261	Rename resource 'Admin.jpg'

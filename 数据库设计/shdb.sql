@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50707
 File Encoding         : 65001
 
-Date: 2017-03-20 22:40:33
+Date: 2017-03-21 11:25:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -65,7 +65,6 @@ CREATE TABLE `good` (
   `GoodName` varchar(10) NOT NULL,
   `DesTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Description` varchar(50) NOT NULL,
-  `ImageUrl` varchar(30) NOT NULL,
   `IsSell` tinyint(4) NOT NULL,
   `GoodPrice` float NOT NULL,
   PRIMARY KEY (`GoodId`),
@@ -76,9 +75,9 @@ CREATE TABLE `good` (
 -- ----------------------------
 -- Records of good
 -- ----------------------------
-INSERT INTO `good` VALUES ('101', '101', '1', 'Samsung', '2017-03-19 18:43:18', 'wodei jlgjadhgljhfdjhgjdshgjfdjj', 'goodimages/101.jpg', '0', '3000');
-INSERT INTO `good` VALUES ('102', '102', '2', '五年高考三年模拟', '2017-03-19 18:43:13', '就会受到客观环境都卡死联合国4', 'goodimages/102.jpg', '0', '50');
-INSERT INTO `good` VALUES ('110', '106', '10', '眼镜盒', '2017-03-19 18:48:57', '可爱，很喜欢', 'goodimages/110.jpg', '0', '20');
+INSERT INTO `good` VALUES ('101', '101', '1', 'Samsung', '2017-03-19 18:43:18', 'wodei jlgjadhgljhfdjhgjdshgjfdjj', '0', '3000');
+INSERT INTO `good` VALUES ('102', '102', '2', '五年高考三年模拟', '2017-03-19 18:43:13', '就会受到客观环境都卡死联合国4', '0', '50');
+INSERT INTO `good` VALUES ('110', '106', '10', '眼镜盒', '2017-03-19 18:48:57', '可爱，很喜欢', '0', '20');
 
 -- ----------------------------
 -- Table structure for goodcollect

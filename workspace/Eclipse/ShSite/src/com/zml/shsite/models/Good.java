@@ -17,7 +17,6 @@ public class Good implements java.io.Serializable {
 	private Integer goodTypeId;
 	private Timestamp desTime;
 	private String description;
-	private String imageUrl;
 	private Short isSell;
 	private Float goodPrice;
 	private String goodName;
@@ -30,38 +29,35 @@ public class Good implements java.io.Serializable {
 	public Good() {
 	}
 	/** minimal constructor */
-	public Good(Integer shUserId,Integer goodTypeId, Timestamp desTime, String description, String imageUrl,
-			Short isSell, Float goodPrice,String goodName) {
+	public Good(Integer shUserId,Integer goodTypeId, Timestamp desTime, String description, Short isSell, 
+			Float goodPrice,String goodName) {
 		this.shUserId = shUserId;
 		this.goodTypeId = goodTypeId;
 		this.desTime = desTime;
 		this.description = description;
-		this.imageUrl = imageUrl;
 		this.isSell = isSell;
 		this.goodPrice = goodPrice;
 		this.goodName=goodName;
 	}
 	/** minimal constructor */
-	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, String description, String imageUrl,
-			Short isSell, Float goodPrice,String goodName) {
+	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, String description,Short isSell,
+			Float goodPrice,String goodName) {
 		this.shuser = shuser;
 		this.goodtype = goodtype;
 		this.desTime = desTime;
 		this.description = description;
-		this.imageUrl = imageUrl;
 		this.isSell = isSell;
 		this.goodPrice = goodPrice;
 		this.goodName=goodName;
 	}
 
 	/** full constructor */
-	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, String description,String goodName,String imageUrl,
+	public Good(Shuser shuser, Goodtype goodtype, Timestamp desTime, String description,String goodName,
 			Short isSell, Float goodPrice) {
 		this.shuser = shuser;
 		this.goodtype = goodtype;
 		this.desTime = desTime;
 		this.description = description;
-		this.imageUrl = imageUrl;
 		this.goodName=goodName;
 		this.isSell = isSell;
 		this.goodPrice = goodPrice;
@@ -107,14 +103,6 @@ public class Good implements java.io.Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getImageUrl() {
-		return this.imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
 	}
 
 	public Short getIsSell() {

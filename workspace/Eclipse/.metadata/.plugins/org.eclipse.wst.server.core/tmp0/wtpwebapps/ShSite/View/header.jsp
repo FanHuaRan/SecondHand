@@ -81,7 +81,7 @@
 		    -->    
           	   <!-- 如果已经授权则显示退出链接 -->
             <security:authorize access="isAuthenticated()">
-            	<li><img alt="头像" height="50" width="40" src="/ShSite/headportraits/<security:authentication property="name"/>.jpg"/></li>
+            	<li><img alt="头像" height="50" width="40" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/></li>
             	<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                		<security:authentication property="name"/> 
