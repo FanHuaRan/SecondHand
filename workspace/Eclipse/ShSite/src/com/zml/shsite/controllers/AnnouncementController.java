@@ -66,7 +66,7 @@ public class AnnouncementController {
 	public String editAnnoPost(Announcement announcement){
 		try{
 			announcementService.update(announcement);
-			return "redirect:/";
+			return "redirect:/Announcement";
 		}catch (Exception e) {
 			logger.error(e.getMessage());
 			return "anno/edit";
@@ -90,7 +90,7 @@ public class AnnouncementController {
 	public String deleteAnno(Announcement announcement){
 		if(announcement!=null){
 			announcementService.removeById(announcement.getAnnouncementId());
-			return "redirect:/";
+			return "redirect:/Announcement";
 		}
 		else throw new AnnounceNotFoundException();
 	}

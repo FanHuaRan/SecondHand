@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!-- 商品导航 -->
 <div class="col-lg-2">
-	<ul style="list-style-type:none">
+	<ul id="catalogueul">
 	    <c:forEach items="${goodTypes}" var="goodType">
 		<li><a href="/ShSite/Good/Browse?type=${goodType.getGoodTypeId()}">
 		<strong>${goodType.getGoodTypeName()}</strong>

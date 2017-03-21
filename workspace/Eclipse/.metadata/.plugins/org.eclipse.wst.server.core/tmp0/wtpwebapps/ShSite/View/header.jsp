@@ -31,7 +31,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/ShSite/">商品发布</a>
+          <a class="navbar-brand" href="/ShSite/Good/Publish">商品发布</a>
         </div>
         
          <div class="navbar-header">

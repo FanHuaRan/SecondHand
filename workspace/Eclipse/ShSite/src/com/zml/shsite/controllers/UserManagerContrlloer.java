@@ -65,7 +65,7 @@ public class UserManagerContrlloer {
 	public String edit(Shuser shuser,Model model){
 		try{
 			userService.update(shuser);
-		    return "redirect:/StoreManager";
+		    return "redirect:/UserManager";
 		}catch(Exception e){
 			model.addAttribute("goodTypes", goodtypeService.findAll());
 			return "usermanager/edit";

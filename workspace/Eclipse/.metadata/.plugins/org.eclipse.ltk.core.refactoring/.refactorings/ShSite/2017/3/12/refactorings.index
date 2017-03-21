@@ -37,3 +37,7 @@
 1490063481908	Rename type 'FileServiceImpl'
 1490066338215	Move compilation unit
 1490066641261	Rename resource 'Admin.jpg'
+1490071214665	Copy file
+1490071508640	Rename resource 'register.jsp'
+1490071727770	Move 'image-file-visible.js' to 'js'
+1490073019508	Delete element
