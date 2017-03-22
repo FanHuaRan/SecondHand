@@ -1,0 +1,5 @@
+package com.zml.shsite.services;
+
+public class ICreateGoodViewModel {
+
+}

@@ -22,6 +22,12 @@ public class AccountController {
 	private IUserService userService=null;
 	@Autowired
 	private IFileService fileSaveService=null;
+	
+	@RequestMapping("/PersonCenter")
+	public String personCenter(Model model){
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		return "personcenter";
+	}
 	@RequestMapping("/LogOn")
 	public String logOn(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());

@@ -1,0 +1,22 @@
+package com.zml.shsite.services.impl;
+
+import java.util.List;
+
+import com.zml.shsite.models.Good;
+import com.zml.shsite.services.IQueryStatistics;
+
+public class QueryStatisticsImpl implements IQueryStatistics {
+
+	@Override
+	public List<Integer> statisGoodCommentCount(List<Good> goods) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Integer> statisGoodCollectCount(List<Good> goods) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

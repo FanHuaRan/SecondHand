@@ -32,10 +32,11 @@
         					<!--  default-target-url="/index"/> -->
         				
    	   <security:logout invalidate-session="true" 
+   	   					delete-cookies = "JSESSIONID"
    	  				    logout-success-url="/Account/LogOn"
 						logout-url="/Account/LogOut"/>
        <!-- 同一时间内允许同一账号保持4个在线,error-if-maximum-exceeded="true"表示第第四个以后的登不进去 -->
-	  <security:session-management>
+	  <security:session-management invalid-session-url="/Account/LogOn" >
 			<security:concurrency-control max-sessions="4" error-if-maximum-exceeded="true"/>
 	  </security:session-management>
    </security:http>    

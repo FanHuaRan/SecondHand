@@ -1,0 +1,27 @@
+package com.zml.shsite.viewmodels;
+
+import com.zml.shsite.models.Good;
+
+public class GoodViewModel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2356240052263698854L;
+	
+	private int commentCount;
+	private int collectCount;
+	
+	public int getCommentCount() {
+		return commentCount;
+	}
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
+	}
+	public int getCollectCount() {
+		return collectCount;
+	}
+	public void setCollectCount(int collectCount) {
+		this.collectCount = collectCount;
+	}
+	
+}

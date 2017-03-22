@@ -5,14 +5,14 @@
 <div class="row goods">
     <c:forEach items="${goods}" var="good">
   		<div class="col-md-2">
-		  	<a href="/ShSite/Good/Details?id=${good.getGoodId()}">
-		   	<img style="width:200px;height:200px;" alt="${good.getGoodName()}" src="/ShSite/goodimages/${good.getGoodId()}.jpg"/>
+		  	<a href="/ShSite/Good/Details?id=${good.getGood().getGoodId()}">
+		   	<img style="width:200px;height:200px;" alt="${good.getGood().getGoodName()}" src="/ShSite/goodimages/${good.getGood().getGoodId()}.jpg"/>
 	        <div class="goodbottom">
-	         <span class="namespan">${good.getGoodName()}</span>
+	         <span class="namespan">${good.getGood().getGoodName()}</span>
 	         <p>
-	         <span>¥${good.getGoodPrice()}</span> 
-	         <span>评论12</span>
-	         <span>收藏12</span>
+	         <span>¥${good.getGood().getGoodPrice()}</span> 
+	         <span>评论${good.getCommentCount()}</span>
+	         <span>收藏${good.getCollectCount()}</span>
 	         </p>
 	        </div>
 		 	</a>

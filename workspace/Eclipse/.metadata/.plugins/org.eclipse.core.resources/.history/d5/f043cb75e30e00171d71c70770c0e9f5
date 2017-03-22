@@ -1,0 +1,8 @@
+package com.zml.shsite.viewmodels;
+
+import com.zml.shsite.models.Good;
+
+public class GoodViewModel extends Good {
+	private int commentCount;
+	private int collectCount;
+}

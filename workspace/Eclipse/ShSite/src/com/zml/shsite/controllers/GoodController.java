@@ -16,9 +16,11 @@ import com.zml.shsite.components.exception.GoodtypeNotFoundException;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.models.Goodcollect;
 import com.zml.shsite.models.Goodcomment;
+import com.zml.shsite.services.ICreateGoodViewModel;
 import com.zml.shsite.services.IFileService;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
+import com.zml.shsite.services.impl.CreateGoodViewModelImpl;
 
 @Controller
 @RequestMapping("/Good")
@@ -29,10 +31,12 @@ public class GoodController {
 	private IGoodService goodService=null;
 	@Autowired
 	private IFileService fileSerice=null;
+	@Autowired
+	private ICreateGoodViewModel createGoodViewModel=null;
 	@RequestMapping
 	public String index(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
-		model.addAttribute("goods", goodService.findAll());
+		model.addAttribute("goods", createGoodViewModel.create(goodService.findAll()));
 		return "good/index";
 	}
 	
@@ -42,7 +46,7 @@ public class GoodController {
 			throw new GoodtypeNotFoundException();
 		}
 		model.addAttribute("goodTypes", goodtypeService.findAll());
-		model.addAttribute("goods", goodService.findByGoodType(id));
+		model.addAttribute("goods", createGoodViewModel.create(goodService.findAll()));
 		return "good/browse";
 	}
 	
@@ -53,7 +57,7 @@ public class GoodController {
 			throw new GoodNotFoundException();
 		}
 		model.addAttribute("goodTypes", goodtypeService.findAll());
-		model.addAttribute("good", good);
+		model.addAttribute("good", createGoodViewModel.create(good));
 		return "good/details";
 	}
 	//商品发布

@@ -126,7 +126,7 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 		try{
 			return getHibernateTemplate().find(hql);
 		}catch(RuntimeException re){
-			log.error("find by "+hql+" name failed", re);
+			log.error("find by "+hql+" failed", re);
 			throw re;
 		}
 	}
