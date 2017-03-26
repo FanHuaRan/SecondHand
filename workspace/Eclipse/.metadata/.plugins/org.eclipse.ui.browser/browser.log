@@ -1525,3 +1525,7 @@
 3月 21, 2017 12:13:29.44 NEW SESSION
 3月 21, 2017 12:13:29.44 [5572:8864:0321/121329.444:ERROR:angle_platform_impl.cc(33)] ANGLE Display::initialize error 5: DXGI 1.2 required to present to HWNDs owned by another process.
 3月 21, 2017 12:13:29.46 [5572:8864:0321/121329.444:ERROR:gl_surface_egl.cc(646)] eglInitialize D3D11 failed with error EGL_NOT_INITIALIZED, trying next display type
+
+3月 26, 2017 18:58:27.64 NEW SESSION
+3月 26, 2017 18:58:27.64 [9400:5288:0326/185827.636:ERROR:angle_platform_impl.cc(33)] ANGLE Display::initialize error 5: DXGI 1.2 required to present to HWNDs owned by another process.
+3月 26, 2017 18:58:27.68 [9400:5288:0326/185827.636:ERROR:gl_surface_egl.cc(646)] eglInitialize D3D11 failed with error EGL_NOT_INITIALIZED, trying next display type

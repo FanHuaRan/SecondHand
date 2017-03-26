@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.zml.shsite.services.impl.FileSaveServiceImpl"/>
-<fullyQualifiedTypeName name="com.zml.shsite.services.impl.IFileSaveService"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Authority"/>
 <fullyQualifiedTypeName name="java.lang.Byte"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IGoodtypeService"/>
@@ -49,15 +47,17 @@
 <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IQueryStatistics"/>
-<fullyQualifiedTypeName name="com.zml.shsite.daos.CommonStatistics"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="com.zml.shsite.viewmodels.GoodViewModel"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Good"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="com.zml.shsite.services.ICreateGoodViewModel"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.CreateGoodViewModelImpl"/>
+<fullyQualifiedTypeName name="com.zml.shsite.services.ICreateGoodViewModel"/>
+<fullyQualifiedTypeName name="com.zml.shsite.daos.CommonStatistics"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="org.springframework.orm.hibernate3.support.HibernateDaoSupport"/>
+<fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 </qualifiedTypeNameHistroy>
