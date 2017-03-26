@@ -8,7 +8,7 @@ public interface IGoodService {
 	Good findById(int id);
 	List<Good> findAll();
 	List<Good> findByGoodType(int goodTypeId);
-	List<Good> findTopN(int count);
+	List<Good> findTopOrderByTime(int count);
 	void removeById(int id);
 	void removeAll();
 	Good save(Good good);

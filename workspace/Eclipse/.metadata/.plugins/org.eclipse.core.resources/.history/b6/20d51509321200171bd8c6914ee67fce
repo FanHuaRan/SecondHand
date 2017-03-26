@@ -1,0 +1,26 @@
+package com.zml.shsite.test;
+
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.zml.shsite.models.Good;
+@RunWith(SpringJUnit4ClassRunner.class)    
+@ContextConfiguration(locations = {"classpath*:applicationContext.xml"})
+public class CreateGoodViewModelTestCase {
+
+	@Test
+	public void testCreateGood() {
+		Good good=new Good();
+		good.setGoodId(101);
+	}
+
+	@Test
+	public void testCreateListOfGood() {
+		fail("Not yet implemented");
+	}
+
+}

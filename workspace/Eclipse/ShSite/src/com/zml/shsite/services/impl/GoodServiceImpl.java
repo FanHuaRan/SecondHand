@@ -30,13 +30,14 @@ public class GoodServiceImpl implements IGoodService {
 	}
 
 	@Override
-	public List<Good> findTopN(int count) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Good> findTopOrderByTime(int count) {
+		return goodDao.findTopNByHQL("from Good  order by desTime asc ", 4);
 	}
 
 	@Override
 	public void removeById(int id) {
+		goodcommentDAO.deleteByGoodId(id);
+		goodcollectDAO.deleteByGoodId(id);
 		goodDao.delete(id);
 	}
 

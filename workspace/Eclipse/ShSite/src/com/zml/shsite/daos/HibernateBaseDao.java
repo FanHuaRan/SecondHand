@@ -99,21 +99,22 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	public List findAll() {
+	@SuppressWarnings("unchecked")
+	public List<T> findAll() {
 		try {
 			String queryString = "from " +entityName;
-			return  getHibernateTemplate().find(queryString);
+			return  (List<T>) getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
 			throw re;
 		}
 	}
 	@SuppressWarnings("deprecation")
-	public List findTopNByHQL(String hql,int n){
+	public List<T> findTopNByHQL(String hql,int n){
 		try{
 			Query query=this.getSession().createQuery(hql);
-			query.setFirstResult(n);
-			List result=query.list();
+			query.setMaxResults(n);
+			List<T> result=query.list();
 			this.getSession().close();
 			return result;
 		}catch(RuntimeException re){
@@ -121,27 +122,27 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	@SuppressWarnings("deprecation")
-	public List findByHQL(String hql){
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	public List<T> findByHQL(String hql){
 		try{
-			return getHibernateTemplate().find(hql);
+			return (List<T>) getHibernateTemplate().find(hql);
 		}catch(RuntimeException re){
 			log.error("find by "+hql+" failed", re);
 			throw re;
 		}
 	}
-	public List findByProperty(String propertyName, Object value) {
+	public List<T> findByProperty(String propertyName, Object value) {
 		try {
 			String queryString = "from "+entityName+" as model where model." + propertyName + "= ?";
-			return getHibernateTemplate().find(queryString, value);
+			return (List<T>) getHibernateTemplate().find(queryString, value);
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
 		}
 	}
-	public List findByExample(T instance) {
+	public List<T> findByExample(T instance) {
 		try {
-			List results = getHibernateTemplate().findByExample(instance);
+			List<T> results = getHibernateTemplate().findByExample(instance);
 			return results;
 		} catch (RuntimeException re) {
 			log.error("find by example failed", re);
@@ -151,7 +152,7 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 	
 	public T merge(T detachedInstance) {
 		try {
-			T result = (T)getHibernateTemplate().merge(detachedInstance);
+			T result = getHibernateTemplate().merge(detachedInstance);
 			return result;
 		} catch (RuntimeException re) {
 			log.error("merge failed", re);

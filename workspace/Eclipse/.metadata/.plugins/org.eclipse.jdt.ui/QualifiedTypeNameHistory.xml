@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.zml.shsite.models.Authority"/>
 <fullyQualifiedTypeName name="java.lang.Byte"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IGoodtypeService"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.GoodtypeServiceImpl"/>
@@ -11,7 +10,6 @@
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.AnnouncementServiceImpl"/>
 <fullyQualifiedTypeName name="com.zml.shsite.daos.GoodcollectDAO"/>
-<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcomment"/>
 <fullyQualifiedTypeName name="com.zml.shsite.daos.GoodcommentDAO"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Goodcollect"/>
 <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetails"/>
@@ -48,16 +46,18 @@
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IQueryStatistics"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="com.zml.shsite.viewmodels.GoodViewModel"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="com.zml.shsite.models.Good"/>
-<fullyQualifiedTypeName name="com.zml.shsite.services.impl.CreateGoodViewModelImpl"/>
-<fullyQualifiedTypeName name="com.zml.shsite.services.ICreateGoodViewModel"/>
 <fullyQualifiedTypeName name="com.zml.shsite.daos.CommonStatistics"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="org.springframework.orm.hibernate3.support.HibernateDaoSupport"/>
 <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.zml.shsite.viewmodels.GoodViewModel"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.zml.shsite.test.CreateGoodViewModelTestCase"/>
+<fullyQualifiedTypeName name="com.zml.shsite.services.ICreateGoodViewModel"/>
+<fullyQualifiedTypeName name="com.zml.shsite.services.impl.CreateGoodViewModelImpl"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcomment"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Good"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

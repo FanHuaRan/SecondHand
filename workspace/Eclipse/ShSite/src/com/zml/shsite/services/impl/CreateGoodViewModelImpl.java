@@ -1,5 +1,6 @@
 package com.zml.shsite.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +16,20 @@ public class CreateGoodViewModelImpl implements ICreateGoodViewModel {
 	private CommonStatistics commonStatistics=null;
 	@Override
 	public GoodViewModel create(Good good) {
-		// TODO Auto-generated method stub
-		return null;
+		int id=good.getGoodId();
+		long collectCount=(long)commonStatistics.statisUniqueResult("select count(*) from Goodcollect where goodId =?",id);
+		long commentCount=(long)commonStatistics.statisUniqueResult("select count(*) from Goodcomment where goodId =?",id);
+		GoodViewModel goodViewModel=new GoodViewModel(good);
+		goodViewModel.setCollectCount(collectCount);
+		goodViewModel.setCommentCount(commentCount);
+		return goodViewModel;
 	}
 
 	@Override
 	public List<GoodViewModel> create(List<Good> goods) {
-		// TODO Auto-generated method stub
-		return null;
+		final List<GoodViewModel> goodViewModels=new ArrayList<>();
+		goods.forEach(good->goodViewModels.add(create(good)));
+		return goodViewModels;
 	}
 
 }

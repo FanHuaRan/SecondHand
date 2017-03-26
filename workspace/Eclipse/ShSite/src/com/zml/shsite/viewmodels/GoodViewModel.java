@@ -4,21 +4,21 @@ import com.zml.shsite.models.Good;
 
 public class GoodViewModel{
 	private Good good;
-	private int commentCount;
-	private int collectCount;
+	private long commentCount;
+	private long collectCount;
 	public GoodViewModel(Good good){
 		this.setGood(good);
 	}
-	public int getCommentCount() {
+	public long getCommentCount() {
 		return commentCount;
 	}
-	public void setCommentCount(int commentCount) {
+	public void setCommentCount(long commentCount) {
 		this.commentCount = commentCount;
 	}
-	public int getCollectCount() {
+	public long getCollectCount() {
 		return collectCount;
 	}
-	public void setCollectCount(int collectCount) {
+	public void setCollectCount(long collectCount) {
 		this.collectCount = collectCount;
 	}
 	public Good getGood() {

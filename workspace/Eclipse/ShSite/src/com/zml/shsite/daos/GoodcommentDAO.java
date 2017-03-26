@@ -46,11 +46,11 @@ public class GoodcommentDAO extends HibernateBaseDao<Goodcomment> {
 		return findByProperty(COM_TIME, comContent);
 	}
 	
-	public List<Goodcollect> findByShUserId(int id){
+	public List<Goodcomment> findByShUserId(int id){
 		return findByProperty(Sh_USER_Id, id);
 	}
 	
-	public List<Goodcollect> findByGoodId(int id){
+	public List<Goodcomment> findByGoodId(int id){
 		return findByProperty(GOOD_Id, id);
 	}
 	

@@ -1,7 +1,5 @@
 package com.zml.shsite.controllers;
 
-import java.lang.ProcessBuilder.Redirect;
-import java.nio.file.Files;
 import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,6 @@ import com.zml.shsite.services.ICreateGoodViewModel;
 import com.zml.shsite.services.IFileService;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
-import com.zml.shsite.services.impl.CreateGoodViewModelImpl;
 
 @Controller
 @RequestMapping("/Good")
@@ -46,7 +43,7 @@ public class GoodController {
 			throw new GoodtypeNotFoundException();
 		}
 		model.addAttribute("goodTypes", goodtypeService.findAll());
-		model.addAttribute("goods", createGoodViewModel.create(goodService.findAll()));
+		model.addAttribute("goods", createGoodViewModel.create(goodService.findByGoodType(id)));
 		return "good/browse";
 	}
 	

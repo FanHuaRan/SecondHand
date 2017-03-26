@@ -17,12 +17,12 @@ public class CommonStatistics extends HibernateDaoSupport {
 	public CommonStatistics(SessionFactory sessionFactory){
 		this.setSessionFactory(sessionFactory);
 	}
-	public Object statisUniqueResult(String hql,List<Object> params){
+	public Object statisUniqueResult(String hql,Object ...params){
 		try {
 			Query query = this.getSession().createQuery(hql);
 			if(params!=null){
-				for (int i = 0; i < params.size(); i++) {
-					query.setParameter(i, params.get(i));
+				for (int i = 0; i < params.length; i++) {
+					query.setParameter(i, params[i]);
 				}
 			}
 			Object result=query.uniqueResult();
@@ -34,12 +34,12 @@ public class CommonStatistics extends HibernateDaoSupport {
 		}
 	}
 	
-	public List statisMoreResult(String hql,List<Object> params){
+	public List statisMoreResult(String hql,Object ...params){
 		try {
 			Query query = this.getSession().createQuery(hql);
 			if(params!=null){
-				for (int i = 0; i < params.size(); i++) {
-					query.setParameter(i, params.get(i));
+				for (int i = 0; i < params.length; i++) {
+					query.setParameter(i, params[i]);
 				}
 			}
 			List results=query.list();
