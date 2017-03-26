@@ -1,9 +1,0 @@
-package com.zml.shsite.services;
-
-import java.util.List;
-
-import com.zml.shsite.models.Goodcollect;
-
-public class IGoodCollectService {
- List<Goodcollect> findGoodCollectsByUserId(); 
-}

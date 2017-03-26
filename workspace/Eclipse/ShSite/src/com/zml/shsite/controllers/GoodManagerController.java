@@ -22,6 +22,7 @@ public class GoodManagerController {
 	private IGoodService goodService=null;
 	@RequestMapping
 	public String index(Model model){
+		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("goods", goodService.findAll());
 		return "goodmanager/index";
 	}
