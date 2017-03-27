@@ -106,12 +106,12 @@ public class AnnouncementController {
 	//删除公告post
 	@RequestMapping(value="/DeleteConfirm",
 				    method=RequestMethod.POST)
-	public String deleteAnno(Integer id){
-		Announcement announcement=null;
-		if(id==null||(announcement=announcementService.findById(id))==null){
-			throw new AnnounceNotFoundException();
-		}
-		announcementService.removeById(id);
+	public String deleteAnno(){
+//		Announcement announcement=null;
+//		if(id==null||(announcement=announcementService.findById(id))==null){
+//			throw new AnnounceNotFoundException();
+//		}
+//		announcementService.removeById(id);
 		return "redirect:/Announcement";
 	}
 }

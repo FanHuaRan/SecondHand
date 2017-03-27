@@ -104,7 +104,7 @@ public class AnnouncementController {
 	}
 	
 	//删除公告post
-	@RequestMapping(value="/DeleteConfirm",
+	@RequestMapping(value="/Delete",
 				    method=RequestMethod.POST)
 	public String deleteAnno(Integer id){
 		Announcement announcement=null;

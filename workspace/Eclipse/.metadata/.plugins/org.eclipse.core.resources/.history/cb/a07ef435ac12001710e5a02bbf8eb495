@@ -41,7 +41,7 @@ dt{
 		        <dd>${announcement.getAnnoTime()}</dd>
 		    </dl>
 		    <form action="/ShSite/Announcement/DeleteConfirm" method="post">
-		    	<input type="hidden" name="id" value="${announcement.getAnnouncementId()}" /> 
+		    	<!-- <input type="hidden" name="id" value="${announcement.getAnnouncementId()}" /> -->
 				<input type="submit" value="确定删除"/>
 			</form>
 		    <a href="/ShiSite/Announcement/Edit?id=${announcement.getAnnouncementId()}">修改</a>

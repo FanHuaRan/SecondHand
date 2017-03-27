@@ -40,9 +40,10 @@ dt{
 		        <dt>发布时间:</dt>
 		        <dd>${announcement.getAnnoTime()}</dd>
 		    </dl>
-		    <form:form action="/ShiSite/Announcement/Delete" method="POST" modelAttribute="announcement">
-				<from:input type="submit" value="确定删除"/>
-			</form:form>
+		    <form action="/ShSite/Announcement/DeleteConfirm" method="post">
+		    	<input type="hidden" name="id" value="${announcement.getAnnouncementId()}" /> 
+				<input type="submit" value="确定删除"/>
+			</form>
 		    <a href="/ShiSite/Announcement/Edit?id=${announcement.getAnnouncementId()}">修改</a>
 		     <a href="/ShiSite/Announcement">返回公告主页</a>
 		</div>

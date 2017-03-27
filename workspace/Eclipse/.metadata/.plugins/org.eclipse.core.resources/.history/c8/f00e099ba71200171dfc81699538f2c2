@@ -91,10 +91,10 @@ public class AnnouncementController {
 			return "anno/edit";
 		}
 	}
-	//删除公告
+	//删除公告post
 	@RequestMapping("/Delete")
-	public String delete(Integer id,Model model){
-		Announcement announcement=null;
+	public String delete(Announcement announcement,Model model){
+		Integer id=0;
 		if(id==null||(announcement=announcementService.findById(id))==null){
 			throw new AnnounceNotFoundException();
 		}
@@ -104,14 +104,13 @@ public class AnnouncementController {
 	}
 	
 	//删除公告post
-	@RequestMapping(value="/DeleteConfirm",
-				    method=RequestMethod.POST)
-	public String deleteAnno(Integer id){
-		Announcement announcement=null;
-		if(id==null||(announcement=announcementService.findById(id))==null){
-			throw new AnnounceNotFoundException();
+	@RequestMapping(value="/Delete",
+				   method=RequestMethod.POST)
+	public String deleteAnno(Announcement announcement){
+		if(announcement!=null){
+			announcementService.removeById(announcement.getAnnouncementId());
+			return "redirect:/Announcement";
 		}
-		announcementService.removeById(id);
-		return "redirect:/Announcement";
+		else throw new AnnounceNotFoundException();
 	}
 }

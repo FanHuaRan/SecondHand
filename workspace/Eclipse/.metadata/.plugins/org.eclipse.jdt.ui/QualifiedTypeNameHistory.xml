@@ -45,7 +45,6 @@
 <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IQueryStatistics"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.zml.shsite.daos.CommonStatistics"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="org.springframework.orm.hibernate3.support.HibernateDaoSupport"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="com.zml.shsite.models.Goodcomment"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Good"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>
