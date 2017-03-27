@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-4.1.xsd 
+   http://www.springframework.org/schema/mvc 
+   http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+   http://www.springframework.org/schema/security
+   http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+   <security:global-method-security
+	jsr250-annotations="enabled" pre-post-annotations="enabled"
+	secured-annotations="enabled" />
+    <!-- 配置下面代码返回json不会出错 -->
+	<mvc:annotation-driven>
+		 <mvc:message-converters register-defaults="true">   
+	        <bean id="fastJsonHttpMessageConverter" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">  
+	            <property name="supportedMediaTypes">  
+	                <list>  
+	                    <value>application/json;charset=UTF-8</value>  
+	                </list>  
+	            </property>  
+	        </bean>  
+	    </mvc:message-converters>  
+	 </mvc:annotation-driven>
+	<context:component-scan base-package="com.zml.shsite.controllers" />
+	
+	<!-- 在Spring配置文件中配置ViewResolver -->
+	<!-- InternalResourceViewResolver：用于支持Servlet、JSP视图解析； viewClass：JstlView表示JSP模板页面需要使用JSTL标签库，classpath中必须包含jstl的相关jar包； 
+		prefix和suffix：查找视图页面的前缀和后缀（前缀[逻辑视图名]后缀）， 比如传进来的逻辑视图名为hello，则该该jsp视图页面应该存放在“WEB-INF/jsp/hello.jsp”； -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/View/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"/>
+		<!-- 指定所上传文件的总大小不能超过500KB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
+		<property name="maxUploadSize" value="500000"/>
+	</bean>
+	
+	<!-- SpringMVC在超出上传文件限制时，会抛出org.springframework.web.multipart.MaxUploadSizeExceededException -->
+	<!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到/WEB-INF/jsp/error_fileupload.jsp页面 -->
+	<!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的，而且此时还没有进入到Controller方法中 -->
+	<!--  <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">error_fileupload</prop>
+			</props>
+		</property>
+	</bean>
+		-->
+</beans>

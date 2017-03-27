@@ -33,7 +33,6 @@ public class ShuserDAO extends HibernateBaseDao<Shuser> {
 	public static final String INTRODUCE = "introduce";
 	public static final String PHONE = "phone";
 	public static final String ADDRESS = "address";
-	
 	@Autowired
 	public ShuserDAO(SessionFactory sessionFactory){
 		super();

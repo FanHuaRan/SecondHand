@@ -9,10 +9,9 @@ import com.zml.shsite.daos.GoodDAO;
 import com.zml.shsite.daos.GoodcollectDAO;
 import com.zml.shsite.daos.GoodcommentDAO;
 import com.zml.shsite.models.Good;
-import com.zml.shsite.models.Goodcomment;
-import com.zml.shsite.services.IGoodService;
+import com.zml.shsite.services.IGoodService; 
 @Service
-public class GoodServiceImpl implements IGoodService {
+public  class GoodServiceImpl implements IGoodService {
 	@Autowired
 	private GoodcollectDAO goodcollectDAO=null;
 	@Autowired 
@@ -31,7 +30,7 @@ public class GoodServiceImpl implements IGoodService {
 
 	@Override
 	public List<Good> findTopOrderByTime(int count) {
-		return goodDao.findTopNByHQL("from Good  order by desTime asc ", 4);
+		return goodDao.findTopNByHQL("from Good order by desTime asc ", 4);
 	}
 
 	@Override
@@ -63,6 +62,11 @@ public class GoodServiceImpl implements IGoodService {
 	@Override
 	public List<Good> findByGoodType(int goodTypeId) {
 		return goodDao.findBygoodTypeId(goodTypeId);
+	}
+
+	@Override
+	public List<Good> findByUserId(int id) {
+		return goodDao.findByShUserId(id);
 	}
 
 }

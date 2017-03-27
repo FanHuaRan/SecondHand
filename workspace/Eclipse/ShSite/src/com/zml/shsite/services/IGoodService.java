@@ -9,6 +9,7 @@ public interface IGoodService {
 	List<Good> findAll();
 	List<Good> findByGoodType(int goodTypeId);
 	List<Good> findTopOrderByTime(int count);
+	List<Good> findByUserId(int id);
 	void removeById(int id);
 	void removeAll();
 	Good save(Good good);

@@ -112,5 +112,20 @@
   <session-config>
   	<session-timeout>20</session-timeout>
   </session-config>
-  
+    <!-- 配置错误页面 -->
+  <error-page>
+    <error-code>403</error-code>
+    <location>/Status/403</location>
+  </error-page>
+  <error-page>
+	    <error-code>404</error-code>
+	    <location>/Status/404</location>
+  </error-page>
+  <!-- 便于观察错误 所以500响应暂时不配置错误页 -->
+  <!--  
+  <error-page>
+	    <error-code>500</error-code>
+	    <location>/Status/500</location>
+  </error-page>
+  -->
 </web-app>

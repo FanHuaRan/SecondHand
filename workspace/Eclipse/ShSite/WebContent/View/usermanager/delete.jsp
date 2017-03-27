@@ -45,9 +45,10 @@
 	        <dd>${shuser.getAddress()}</dd>
 	    </dl>
 		</div>
-		<form:form action="/ShiSite/UserManager/Delete" modelAttribute="shuser" method="POST">
+		<form action="/ShiSite/UserManager/Delete"  method="POST">
+			<input type="hidden" name="id" value="${shuser.getShUserId()}"/>
 			<input type="submit" value="确定删除"/>
-		</form:form>
+		</form>
 		    <a href="/ShiSite/UserManager/Edit?id=${album.getAlbumId()}">编辑</a>
 		     <a href="/ShiSite/UserManager">返回管理主页</a>
 		</div>

@@ -27,7 +27,7 @@
 		  <property name="user" value="root"></property>
 		  <property name="password" value="123"></property>
 		  <property name="minPoolSize"><value>1</value></property>
-		  <property name="maxPoolSize"><value>20</value></property>
+		  <property name="maxPoolSize"><value>100</value></property>
 		  <property name="maxIdleTime"><value>1800</value></property>
 		  <property name="acquireIncrement"><value>2</value></property>
 		  <property name="maxStatements"><value>0</value></property>

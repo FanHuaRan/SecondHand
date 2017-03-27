@@ -1,0 +1,5 @@
+package com.zml.shsite.controllers;
+
+public class StatusController {
+
+}

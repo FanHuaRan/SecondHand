@@ -9,21 +9,19 @@
   <bean id="customUserDetailsService" 
   class="com.zml.shsite.services.impl.CustomUserDetailsServiceImpl" />  
   
-   <!--  配置登录成功后的处理器 暂时不需要
-   <bean id="authenticationSuccessHandler" class="pers.fhr.musicstore.component.SimpleLoginSuccessHandler">  
-    <property name="defaultTargetUrl" value="/index"></property>  
-    <property name="forwardToDestination" value="true"></property>  
-	</bean>
-	-->
   <!-- 配置相关资源的访问权限 -->
   <security:http auto-config="true" use-expressions="true">
   	  <!-- 配置相关地址的访问权限 -->
   	  <!--  
-  	  <security:intercept-url pattern="/Checkout" access="hasRole('Admin') or hasRole('User')"/>
+  	  <security:intercept-url pattern="/Account/PersonCenter" access="hasRole('Admin') or hasRole('User')"/>
+  	  <security:intercept-url pattern="/Account/CollectCenter/*" access="hasRole('Admin') or hasRole('User')"/>
+  	  <security:intercept-url pattern="/Announcement" access="hasRole('Admin') or hasRole('User')"/>
+      <security:intercept-url pattern="/Announcement/Details" access="hasRole('Admin') or hasRole('User')"/>
+      <security:intercept-url pattern="/Account/PersonCenter" access="hasRole('Admin') or hasRole('User')"/>
       <security:intercept-url pattern="/Checkout/*" access="hasRole('Admin') or hasRole('User')"/>
       <security:intercept-url pattern="/StoreManager/*" access="hasRole('Admin')"/>
-            <security:intercept-url pattern="/StoreManager" access="hasRole('Admin')"/>
-       -->
+      <security:intercept-url pattern="/StoreManager" access="hasRole('Admin')"/>
+      -->
       <!-- 配置登录页面和登录成功页面 如果不配置将会使用Spring Security自带的页面-->
   	   <security:form-login login-page="/Account/LogOn"   
         					authentication-failure-url="/Account/LogOn" 

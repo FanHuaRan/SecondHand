@@ -27,6 +27,7 @@ public class GoodDAO extends HibernateBaseDao<Good> {
 	public static final String IS_SELL = "isSell";
 	public static final String GOOD_PRICE = "goodPrice";
 	public static final String GOOD_TYPE_ID = "goodTypeId";
+	public static final String SH_USER_ID = "shUserId";
 	@Autowired
 	public GoodDAO(SessionFactory sessionFactory){
 		super();
@@ -48,7 +49,9 @@ public class GoodDAO extends HibernateBaseDao<Good> {
 	public List findBygoodTypeId(Object goodPrice) {
 		return findByProperty(GOOD_TYPE_ID, goodPrice);
 	}
-	
+	public List findByShUserId(Object shUserId) {
+		return findByProperty(SH_USER_ID, shUserId);
+	}
 	public static GoodDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (GoodDAO) ctx.getBean("GoodDAO");
 	}

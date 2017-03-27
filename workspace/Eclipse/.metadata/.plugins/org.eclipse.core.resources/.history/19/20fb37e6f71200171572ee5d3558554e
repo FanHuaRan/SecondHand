@@ -1,0 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap.css">
+<link rel="stylesheet" href="/ShSite/css/bootstrapValidator.css"/>
+<link rel="stylesheet" type="text/css" href="/ShSite/css/bootstrap-theme.css">
+<script src="/ShSite/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/ShSite/js/bootstrap.js"	type="text/javascript"></script>
+<script type="text/javascript" src="/ShSite/js/bootstrapValidator.js"></script>
+<link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
+<link href="/ShSite/css/carousel.css" rel="stylesheet">
+<title>校园二手交易系统</title>
+</head>
+<body>
+	<%@ include file="../header.jsp" %>
+	<div class="row" id="main">
+		<!-- 商品导航 -->
+	    <%@ include file="../catalogue.jsp" %>
+	    <!-- 主框架 -->
+		<div class="container col-lg-10">
+			<!-- 商品信息 -->
+			<div class="row" style="height:250px;margin-top:20px;">
+				<div class="col-md-3">
+					<img alt="头像" style="width:200px;height:200px;" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
+				</div>
+				<div class="col-md-4" style="font-size:18px; line-height:24px;">
+					<p style="width:200px;"><span style="font-size:35px;"><strong>${sessionScope.user.getShUserName()}</strong></span>
+						 <c:if test="${sessionScope.user.getGender()==0}">
+			       		 <span style="float:right">男</span>
+						</c:if>
+						 <c:if test="${sessionScope.user.getGender()==1}">
+				       		 <span style="float:right">女</span>
+						</c:if>
+					</p>
+				     <p>${sessionScope.user.getIntroduce()}<p>
+					 <p>联系方式：${sessionScope.user.getPhone()}</p>
+					 <p>交易地址：${sessionScope.user.getAddress()}</p>
+				</div>
+				<div class="col-md-2">
+				   	<p><button type="button" class="btn btn-sm btn-info">编辑个人信息</button></p>
+				</div>
+			</div>
+			
+			<div>
+			<h2>商品描述</h2>
+			<p>${good.getDescription()}</p>
+			</div>
+			
+			<div>
+				<h2>留言板：</h2>
+				<div>
+					<img alt="头像" height="50" width="40" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
+					<textarea></textarea>
+					<button type="button" class="btn btn-sm btn-info">发表评论</button>
+				</div>
+				<c:forEach items="comments" var="comments">
+				</c:forEach>
+			
+			</div>
+			
+		</div>
+	</div>
+	<%@ include file="../footer.jsp" %>
+</body>
+</html>

@@ -1,12 +1,19 @@
 package com.zml.shsite.daos;
+import java.awt.print.Paper;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.sql.SQLException;
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.LockMode;
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.impl.CriteriaImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 /**
  * Hibernate Dao泛型基类
@@ -21,12 +28,13 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 	private String entityName=null;
 	//实体名带包
 	private String entityFullName=null;
+	private Class<T> entityClass;
 	
 	@SuppressWarnings("unchecked")
 	public HibernateBaseDao(){
 		Type genType = getClass().getGenericSuperclass();
 		Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
-		Class<T> entityClass = (Class<T>) params[0];
+		entityClass = (Class<T>) params[0];
 		entityName = entityClass.getSimpleName();
 		entityFullName = entityClass.getName();
 	}
@@ -109,13 +117,18 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 			throw re;
 		}
 	}
-	@SuppressWarnings("deprecation")
-	public List<T> findTopNByHQL(String hql,int n){
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	public List<T> findTopNByHQL(final String hql,int n){
 		try{
-			Query query=this.getSession().createQuery(hql);
-			query.setMaxResults(n);
-			List<T> result=query.list();
-			this.getSession().close();
+			List<T> result=(List<T>) this.getHibernateTemplate().execute(new HibernateCallback<Object>() {
+				@Override
+				public Object doInHibernate(Session arg0) throws HibernateException, SQLException {
+					Query query=arg0.createQuery(hql);
+					query.setMaxResults(n);
+					List<T> result=query.list();
+					return result;
+				}
+			});
 			return result;
 		}catch(RuntimeException re){
 			log.error("find by "+hql+" name failed", re);
@@ -123,9 +136,9 @@ public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {
 		}
 	}
 	@SuppressWarnings({ "deprecation", "unchecked" })
-	public List<T> findByHQL(String hql){
+	public List<T> findByHQL(String hql,Object ...params){
 		try{
-			return (List<T>) getHibernateTemplate().find(hql);
+			return (List<T>) getHibernateTemplate().find(hql,params);
 		}catch(RuntimeException re){
 			log.error("find by "+hql+" failed", re);
 			throw re;

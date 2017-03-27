@@ -100,9 +100,9 @@
                		 <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="/ShSite/Account/PersonCenter">个人中心</a></li>
-                  <li><a href="#">我要发布</a></li>
-                  <li><a href="/ShSite/Account/GoodCollect">我的收藏</a></li>
+                  <li><a href="/ShSite/Account/PersonCenter/${sessionScope.user.getShUserId()}">个人中心</a></li>
+                  <li><a href="/ShSite/Good/Publish">我要发布</a></li>
+                  <li><a href="/ShSite/Account/CollectCenter/${sessionScope.user.getShUserId()}">我的收藏</a></li>
                   <li><a href="/ShSite/Account/LogOut">退出登录</a></li>
                 </ul>
               </li>

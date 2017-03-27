@@ -10,7 +10,7 @@
             <column name="GoodCollectId" />
             <generator class="identity" />
         </id>
-         <property name="shUserId" type="java.lang.Short">
+         <property name="shUserId" type="java.lang.Integer">
         	<column name="ShUserId" not-null="true"></column>
         </property>
         <property name="goodId" type="java.lang.Integer">

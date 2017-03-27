@@ -15,6 +15,7 @@ import com.zml.shsite.models.Shuser;
 public interface IUserService {
 	Shuser findById(int id);
 	Shuser findByUserName(String name);
+	List<Shuser> findByRoleId(int roleId);
 	List<Authority> findAuthoritys(int userId);
 	List<Shuser> findAll();
 	void removeById(int id);

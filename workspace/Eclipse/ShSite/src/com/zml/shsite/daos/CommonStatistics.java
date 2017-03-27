@@ -1,11 +1,15 @@
 package com.zml.shsite.daos;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -17,16 +21,22 @@ public class CommonStatistics extends HibernateDaoSupport {
 	public CommonStatistics(SessionFactory sessionFactory){
 		this.setSessionFactory(sessionFactory);
 	}
-	public Object statisUniqueResult(String hql,Object ...params){
+	@SuppressWarnings("unchecked")
+	public Object statisUniqueResult(final String hql,Object ...params){
 		try {
-			Query query = this.getSession().createQuery(hql);
-			if(params!=null){
-				for (int i = 0; i < params.length; i++) {
-					query.setParameter(i, params[i]);
+			 Object result=this.getHibernateTemplate().execute(new HibernateCallback() {
+				@Override
+				public Object doInHibernate(Session arg0) throws HibernateException, SQLException {
+					Query query = arg0.createQuery(hql);
+					if(params!=null){
+						for (int i = 0; i < params.length; i++) {
+							query.setParameter(i, params[i]);
+						}
+					}
+					Object result=query.uniqueResult();
+					return result;
 				}
-			}
-			Object result=query.uniqueResult();
-			this.getSession().close();
+			});
 			return result;
 		} catch (RuntimeException e) {
 			logger.error(e);

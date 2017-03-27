@@ -2,7 +2,10 @@ package com.zml.shsite.controllers;
 
 import java.sql.Timestamp;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +17,14 @@ import com.zml.shsite.components.exception.GoodtypeNotFoundException;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.models.Goodcollect;
 import com.zml.shsite.models.Goodcomment;
+import com.zml.shsite.models.Shuser;
 import com.zml.shsite.services.ICreateGoodViewModel;
 import com.zml.shsite.services.IFileService;
+import com.zml.shsite.services.IGoodCollectService;
+import com.zml.shsite.services.IGoodCommentService;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
+import com.zml.shsite.services.impl.GoodCollectServiceImpl;
 
 @Controller
 @RequestMapping("/Good")
@@ -30,6 +37,10 @@ public class GoodController {
 	private IFileService fileSerice=null;
 	@Autowired
 	private ICreateGoodViewModel createGoodViewModel=null;
+	@Autowired
+	private IGoodCollectService goodCollectService=null;
+	@Autowired
+	private IGoodCommentService goodCommentService=null;
 	@RequestMapping
 	public String index(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
@@ -48,16 +59,25 @@ public class GoodController {
 	}
 	
 	@RequestMapping("/Details")
-	public String details(Integer id,Model model){
+	public String details(Integer id,Model model,HttpSession httpSession){
 		Good good=null;
 		if(id==null||(good=goodService.findById(id))==null){
 			throw new GoodNotFoundException();
 		}
 		model.addAttribute("goodTypes", goodtypeService.findAll());
-		model.addAttribute("good", createGoodViewModel.create(good));
+		model.addAttribute("good", good);
+		model.addAttribute("comments",goodCommentService.findGoodCommentByGoodId(id));
+		if(httpSession.getValue("user")!=null){
+			Shuser shuser=(Shuser)httpSession.getValue("user");
+			model.addAttribute("iscollect",goodCollectService.isCollect(id,shuser.getShUserId()));
+		}
+		else{
+			model.addAttribute("iscollect",false);
+		}
 		return "good/details";
 	}
 	//商品发布
+	@Secured({"Admin","User"})
 	@RequestMapping("/Publish")
 	public String publish(Integer id,Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
@@ -65,6 +85,7 @@ public class GoodController {
 		return "good/publish";
 	}
 	//商品发布post
+	@Secured({"Admin","User"})
 	@RequestMapping(value="/Publish",
 					method=RequestMethod.POST)
 	public String publishPost(Good good,MultipartFile imgFile,Model model){
@@ -79,12 +100,14 @@ public class GoodController {
 	}
 	
 	//商品收藏post
+	@Secured({"Admin","User"})
 	@RequestMapping(value="/GoodCollect",
 					method=RequestMethod.POST)
 	public String goodCollect(Goodcollect goodcollect){
 		return null;
 	}
 	//商品评论post
+	@Secured({"Admin","User"})
 	@RequestMapping(value="/GoodComment",
 						method=RequestMethod.POST)
 	public String goodComment(Goodcomment goodcomment){

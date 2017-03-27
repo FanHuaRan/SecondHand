@@ -59,4 +59,13 @@ public class UserServiceImpl implements IUserService {
 		return authorityDAO.findByShUserId(userId);
 	}
 
+	@Override
+	public List<Shuser> findByRoleId(int roleId){
+		return shuserDAO.findByHQL("select shuser "
+				+ "from Shuser as shuser,Authority as authority,Shrole as shrole "
+				+ "where shuser.shUserId = authority.shUserId "
+				+ "and authority.shRoleId = shrole.shRoleId "
+				+ "and shrole.shRoleId = "+roleId);
+	}
+
 }

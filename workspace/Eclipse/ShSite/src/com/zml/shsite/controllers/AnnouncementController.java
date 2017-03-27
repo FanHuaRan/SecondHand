@@ -6,6 +6,7 @@ import javax.jws.WebParam.Mode;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,13 +25,14 @@ public class AnnouncementController {
 	private IAnnouncementService announcementService=null;
 	@Autowired
 	private IGoodtypeService goodtypeService=null;
+	@Secured({"Admin","User"})
 	@RequestMapping
 	public String index(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("announcements", announcementService.findAll());
 		return "anno/index";
 	}
-	
+	@Secured({"Admin","User"})
 	@RequestMapping("/Details")
 	public String details(Integer id,Model model){
 		Announcement announcement=null;
@@ -41,21 +43,22 @@ public class AnnouncementController {
 		model.addAttribute("announcement",announcement);
 		return "anno/details";
 	}
-	
+	@Secured({"Admin"})
 	@RequestMapping("/Manager")
 	public String manager(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("announcements", announcementService.findAll());
 		return "anno/manager";
 	}
-	
 	//创建公告
+	@Secured({"Admin"})
 	@RequestMapping("/Create")
 	public String create(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		return "anno/create";
 	}
 	//创建公告post
+	@Secured({"Admin"})
 	@RequestMapping(value="/Create",
 					method=RequestMethod.POST)
 	public String createAnnoPost(Announcement announcement){
@@ -69,6 +72,7 @@ public class AnnouncementController {
 		}
 	}
 	//修改公告
+	@Secured({"Admin"})
 	@RequestMapping("/Edit")
 	public String edit(Integer id,Model model){
 		Announcement announcement=null;
@@ -91,7 +95,9 @@ public class AnnouncementController {
 			return "anno/edit";
 		}
 	}
+	
 	//删除公告
+	@Secured({"Admin"})
 	@RequestMapping("/Delete")
 	public String delete(Integer id,Model model){
 		Announcement announcement=null;
@@ -104,6 +110,7 @@ public class AnnouncementController {
 	}
 	
 	//删除公告post
+	@Secured({"Admin"})
 	@RequestMapping(value="/DeleteConfirm",
 				    method=RequestMethod.POST)
 	public String deleteAnno(Integer id){

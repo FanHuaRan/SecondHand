@@ -2,24 +2,21 @@ package com.zml.shsite.controllers;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.zml.shsite.models.Announcement;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.services.IAnnouncementService;
 import com.zml.shsite.services.ICreateGoodViewModel;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
-import com.zml.shsite.services.impl.CreateGoodViewModelImpl;
-import com.zml.shsite.services.impl.GoodServiceImpl;
-import com.zml.shsite.services.impl.GoodtypeServiceImpl;
-import com.zml.shsite.test.CreateGoodViewModelTestCase;
 
 @Controller
 public class HomeController {
+	private final static Logger logger = Logger.getLogger(HomeController.class);
 	@Autowired
 	private IGoodtypeService goodtypeService=null;
 	@Autowired

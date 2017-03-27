@@ -1,6 +1,7 @@
 package com.zml.shsite.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.zml.shsite.models.Shuser;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
 
+@Secured({"Admin"})
 @Controller
 @RequestMapping("/GoodManager")
 public class GoodManagerController {
