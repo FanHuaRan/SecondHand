@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
-<fullyQualifiedTypeName name="java.lang.reflect.Method"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
-<fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
-<fullyQualifiedTypeName name="com.zml.shsite.services.IFileService"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
 <fullyQualifiedTypeName name="java.lang.ProcessBuilder.Redirect"/>
-<fullyQualifiedTypeName name="java.sql.Timestamp"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.Short"/>
 <fullyQualifiedTypeName name="javax.jws.WebParam.Mode"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Announcement"/>
@@ -26,9 +19,7 @@
 <fullyQualifiedTypeName name="com.zml.shsite.test.CreateGoodViewModelTestCase"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.ICreateGoodViewModel"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.CreateGoodViewModelImpl"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="javax.websocket.server.PathParam"/>
-<fullyQualifiedTypeName name="com.zml.shsite.components.exception.UserNotFoundException"/>
 <fullyQualifiedTypeName name="java.util.stream.Collector"/>
 <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
@@ -46,18 +37,27 @@
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.GoodServiceImpl"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IGoodService"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IGoodCollectService"/>
-<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcollect"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.GoodCollectServiceImpl"/>
-<fullyQualifiedTypeName name="com.zml.shsite.models.Good"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcomment"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IGoodCommentService"/>
 <fullyQualifiedTypeName name="com.zml.shsite.daos.GoodcommentDAO"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Shuser"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Good"/>
+<fullyQualifiedTypeName name="com.zml.shsite.components.exception.GoodNotFoundException"/>
+<fullyQualifiedTypeName name="com.zml.shsite.services.IUserService"/>
+<fullyQualifiedTypeName name="com.zml.shsite.services.impl.UserServiceImpl"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UsernameNotFoundException"/>
+<fullyQualifiedTypeName name="com.zml.shsite.components.exception.UserNotFoundException"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcollect"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.zml.shsite.models.Goodcomment"/>
 </qualifiedTypeNameHistroy>

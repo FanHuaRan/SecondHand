@@ -1,19 +1,23 @@
 package com.zml.shsite.controllers;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.zml.shsite.components.exception.GoodNotFoundException;
 import com.zml.shsite.components.exception.GoodtypeNotFoundException;
+import com.zml.shsite.components.exception.UserNotFoundException;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.models.Goodcollect;
 import com.zml.shsite.models.Goodcomment;
@@ -24,7 +28,9 @@ import com.zml.shsite.services.IGoodCollectService;
 import com.zml.shsite.services.IGoodCommentService;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
+import com.zml.shsite.services.IUserService;
 import com.zml.shsite.services.impl.GoodCollectServiceImpl;
+import com.zml.shsite.services.impl.UserServiceImpl;
 
 @Controller
 @RequestMapping("/Good")
@@ -35,6 +41,8 @@ public class GoodController {
 	private IGoodService goodService=null;
 	@Autowired
 	private IFileService fileSerice=null;
+	@Autowired
+	private IUserService userService=null;
 	@Autowired
 	private ICreateGoodViewModel createGoodViewModel=null;
 	@Autowired
@@ -103,14 +111,35 @@ public class GoodController {
 	@Secured({"Admin","User"})
 	@RequestMapping(value="/GoodCollect",
 					method=RequestMethod.POST)
-	public String goodCollect(Goodcollect goodcollect){
-		return null;
+	@ResponseBody
+	public boolean goodCollect(Integer goodId,Integer userId){
+		if(goodId==null||goodService.findById(goodId)==null){
+			return false;
+		}
+		if(userId==null||userService.findById(userId)==null){
+			return false;
+		}
+		Goodcollect goodcollect=new Goodcollect(userId, goodId);
+		goodCollectService.saveGoodCollect(goodcollect);
+		return true;
 	}
 	//商品评论post
 	@Secured({"Admin","User"})
 	@RequestMapping(value="/GoodComment",
 						method=RequestMethod.POST)
-	public String goodComment(Goodcomment goodcomment){
-		return null;
+	@ResponseBody
+	public boolean goodComment(Integer goodId,Integer userId,String comment){
+		if(goodId==null||goodService.findById(goodId)==null){
+			return false;
+		}
+		if(userId==null||userService.findById(userId)==null){
+			return false;
+		}
+		if(comment==null||comment.equals("")){
+			return false;
+		}
+		Goodcomment goodcomment=new Goodcomment(userId, goodId, new Timestamp(System.currentTimeMillis()), comment);
+		goodCommentService.save(goodcomment);
+		return true;
 	}
 }
