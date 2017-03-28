@@ -506,3 +506,17 @@
 127.0.0.1 - - [28/Mar/2017:22:37:31 +0800] "GET /ShSite/Good/Details?id=101 HTTP/1.1" 200 16834
 127.0.0.1 - - [28/Mar/2017:22:37:34 +0800] "POST /ShSite/Good/CancelCollect HTTP/1.1" 200 14
 127.0.0.1 - - [28/Mar/2017:22:37:35 +0800] "POST /ShSite/Good/GoodCollect HTTP/1.1" 200 15
+127.0.0.1 - - [28/Mar/2017:22:45:38 +0800] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [28/Mar/2017:22:45:40 +0800] "GET /ShSite/ HTTP/1.1" 404 3868
+127.0.0.1 - - [28/Mar/2017:22:45:40 +0800] "GET /favicon.ico HTTP/1.1" 404 973
+127.0.0.1 - - [28/Mar/2017:22:45:53 +0800] "GET /ShSite/index HTTP/1.1" 200 9504
+127.0.0.1 - - [28/Mar/2017:22:45:53 +0800] "GET /ShSite/goodimages/113.jpg HTTP/1.1" 404 3868
+127.0.0.1 - - [28/Mar/2017:22:45:58 +0800] "GET /ShSite/Announcement HTTP/1.1" 200 6825
+127.0.0.1 - - [28/Mar/2017:22:46:00 +0800] "GET /ShSite/Announcement/Details?id=2 HTTP/1.1" 200 8335
+127.0.0.1 - - [28/Mar/2017:22:46:00 +0800] "GET /ShSite/goodimages/009.jpg HTTP/1.1" 404 3868
+127.0.0.1 - - [28/Mar/2017:22:46:06 +0800] "GET /ShSite/css/bootstrap.css.map HTTP/1.1" 200 245960
+127.0.0.1 - - [28/Mar/2017:22:46:06 +0800] "GET /ShSite/css/bootstrap-theme.css.map HTTP/1.1" 200 38388
+127.0.0.1 - - [28/Mar/2017:22:49:41 +0800] "GET /ShSite/Announcement/Details?id=2 HTTP/1.1" 200 8341
+127.0.0.1 - - [28/Mar/2017:22:49:41 +0800] "GET /ShSite/resources/images/009.jpg HTTP/1.1" 200 37336
+127.0.0.1 - - [28/Mar/2017:22:50:26 +0800] "GET /ShSite/Announcement/Details?id=2 HTTP/1.1" 200 8342
+127.0.0.1 - - [28/Mar/2017:22:50:26 +0800] "GET /ShSite/resources/images/009.jpg HTTP/1.1" 304 -

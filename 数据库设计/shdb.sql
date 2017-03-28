@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50707
 File Encoding         : 65001
 
-Date: 2017-03-21 11:25:35
+Date: 2017-03-28 22:39:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,6 @@ CREATE TABLE `announcement` (
 -- ----------------------------
 -- Records of announcement
 -- ----------------------------
-INSERT INTO `announcement` VALUES ('1', '新版本上线 大家多留意', '2017-03-13 00:00:00', '1号公告');
 INSERT INTO `announcement` VALUES ('2', '优惠多多，全场打折，请大家为我们多提意见', '2017-03-10 00:00:00', '2号公告');
 INSERT INTO `announcement` VALUES ('3', '全场半价', '2017-03-11 09:01:00', '3号公告');
 INSERT INTO `announcement` VALUES ('4', '请大家关注我们的微信', '2017-03-12 00:00:00', '4号公告');
@@ -47,12 +46,14 @@ CREATE TABLE `authority` (
   PRIMARY KEY (`AuthorityId`),
   KEY `FK_Reference_1` (`ShUserId`),
   KEY `FK_Reference_2` (`ShRoleId`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of authority
 -- ----------------------------
 INSERT INTO `authority` VALUES ('1', '1', '1');
+INSERT INTO `authority` VALUES ('3', '114', '2');
+INSERT INTO `authority` VALUES ('4', '115', '2');
 
 -- ----------------------------
 -- Table structure for good
@@ -70,14 +71,15 @@ CREATE TABLE `good` (
   PRIMARY KEY (`GoodId`),
   KEY `FK_Reference_5` (`ShUserId`),
   KEY `FK_Reference_6` (`GoodTypeId`)
-) ENGINE=MyISAM AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of good
 -- ----------------------------
-INSERT INTO `good` VALUES ('101', '101', '1', 'Samsung', '2017-03-19 18:43:18', 'wodei jlgjadhgljhfdjhgjdshgjfdjj', '0', '3000');
+INSERT INTO `good` VALUES ('101', '101', '1', 'Samsung', '2017-03-19 18:43:18', 'wodei jlgjadhgljhfdjhgjdshgjfdjj 阿萨斯', '1', '3000');
 INSERT INTO `good` VALUES ('102', '102', '2', '五年高考三年模拟', '2017-03-19 18:43:13', '就会受到客观环境都卡死联合国4', '0', '50');
 INSERT INTO `good` VALUES ('110', '106', '10', '眼镜盒', '2017-03-19 18:48:57', '可爱，很喜欢', '0', '20');
+INSERT INTO `good` VALUES ('113', '1', '1', '测试商品2', '2017-03-21 18:24:03', '沙发沙发斯蒂芬第三个', '1', '9.88');
 
 -- ----------------------------
 -- Table structure for goodcollect
@@ -90,11 +92,12 @@ CREATE TABLE `goodcollect` (
   PRIMARY KEY (`GoodCollectId`),
   KEY `FK_Reference_3` (`ShUserId`),
   KEY `FK_Reference_4` (`GoodId`)
-) ENGINE=MyISAM AUTO_INCREMENT=10203 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10211 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of goodcollect
 -- ----------------------------
+INSERT INTO `goodcollect` VALUES ('10210', '1', '101');
 
 -- ----------------------------
 -- Table structure for goodcomment
@@ -109,11 +112,19 @@ CREATE TABLE `goodcomment` (
   PRIMARY KEY (`GoodCommentId`),
   KEY `FK_Reference_7` (`GoodId`),
   KEY `FK_Reference_8` (`ShUserId`)
-) ENGINE=MyISAM AUTO_INCREMENT=102002 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=102010 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of goodcomment
 -- ----------------------------
+INSERT INTO `goodcomment` VALUES ('102002', '101', '1', '2017-03-28 13:07:35', '测试留言哦哦');
+INSERT INTO `goodcomment` VALUES ('102003', '101', '1', '2017-03-28 13:15:01', '暗示法撒发放');
+INSERT INTO `goodcomment` VALUES ('102004', '101', '1', '2017-03-28 13:16:24', '测试公告3');
+INSERT INTO `goodcomment` VALUES ('102005', '101', '1', '2017-03-28 13:18:24', '测试留言444');
+INSERT INTO `goodcomment` VALUES ('102006', '101', '1', '2017-03-28 13:20:45', '测试留言5555');
+INSERT INTO `goodcomment` VALUES ('102007', '101', '1', '2017-03-28 13:21:41', '测试留言666');
+INSERT INTO `goodcomment` VALUES ('102008', '101', '1', '2017-03-28 13:22:19', '测试留言6666');
+INSERT INTO `goodcomment` VALUES ('102009', '101', '1', '2017-03-28 17:19:05', '留言咯');
 
 -- ----------------------------
 -- Table structure for goodtype
@@ -168,7 +179,7 @@ CREATE TABLE `shuser` (
   `Phone` varchar(15) NOT NULL,
   `Address` varchar(30) NOT NULL,
   PRIMARY KEY (`ShUserId`)
-) ENGINE=MyISAM AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=116 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shuser
@@ -181,7 +192,9 @@ INSERT INTO `shuser` VALUES ('105', 'Emma', '333', '0', '我是个美丽的女�
 INSERT INTO `shuser` VALUES ('106', '许飞', '444', '0', '我是一个男人。', '13645214789', '实验楼');
 INSERT INTO `shuser` VALUES ('107', '刘备', '555', '0', '我是一个奇男子。', '15642154212', '北苑11栋');
 INSERT INTO `shuser` VALUES ('108', '关羽', '666', '0', '我是一个男生。', '18814545874', '北苑3栋');
-INSERT INTO `shuser` VALUES ('1', 'Admin', '123', '0', '管理员', '15454874545', '北苑');
+INSERT INTO `shuser` VALUES ('1', 'Admin', '123', '0', '我是管理员 哈哈哈 啊哈哈哈 啊哈哈哈', '15454874545', '北苑');
 INSERT INTO `shuser` VALUES ('111', '4554878', '123', '1', '3444365', '454', '12');
 INSERT INTO `shuser` VALUES ('112', '测试用户22', '12345678', '1', '  试试saf       asf               	', '124545454455', 'asfasfdsafds');
 INSERT INTO `shuser` VALUES ('113', '测试用户333', '12345678', '1', '                     afsasf', '14547714454', 'asfsa');
+INSERT INTO `shuser` VALUES ('114', '测试用户3333', '12345678', '0', 'asfafdssgf', '1548787844', 'sfaffa');
+INSERT INTO `shuser` VALUES ('115', '测试用户4444', '12345678', '0', 'asfaaf', 'asfasf', 'asf');
