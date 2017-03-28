@@ -29,6 +29,19 @@
                           if(data>0){
                         	  alert("收藏成功");
                         	  $("#collectp").html('<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	data-id="'+data+'">取消收藏</button>');
+                        	  $("#cancelBtt").click(function () {
+                              	var collectId=$(this).attr("data-id");
+                                  $.post("/ShSite/Good/CancelCollect"
+                                            , {collectId: collectId}
+                                            , function (data) {
+                                                console.log(data);
+                                                if(data==true){
+                                              	  var goodId=$("#sendCommentBtt").attr("data-goodid");
+                                                	  var userId=$("#sendCommentBtt").attr("data-id");
+                                              	  $("#collectp").html('<button type="button" id="collectBtt" class="btn btn-sm btn-info" data-goodid="'+goodId+'" data-id="'+userId+'">加入收藏</button>');
+                                                }
+                                            });
+                                  });
                           }
                           else{
                         	  alert("收藏失败");
@@ -45,6 +58,37 @@
                         	  var goodId=$("#sendCommentBtt").attr("data-goodid");
                           	  var userId=$("#sendCommentBtt").attr("data-id");
                         	  $("#collectp").html('<button type="button" id="collectBtt" class="btn btn-sm btn-info" data-goodid="'+goodId+'" data-id="'+userId+'">加入收藏</button>');
+                        	  $("#collectBtt").click(function () {
+                              	var goodId=$(this).attr("data-goodid");
+                              	var userId=$(this).attr("data-id");
+                                  $.post("/ShSite/Good/GoodCollect"
+                                            , { goodId: goodId,userId:userId}
+                                            , function (data) {
+                                                // Successful requests get here
+                                                // Update the page elements
+                                                console.log(data);
+                                                if(data>0){
+                                              	  alert("收藏成功");
+                                              	  $("#collectp").html('<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	data-id="'+data+'">取消收藏</button>');
+                                              	  $("#cancelBtt").click(function () {
+                                                    	var collectId=$(this).attr("data-id");
+                                                        $.post("/ShSite/Good/CancelCollect"
+                                                                  , {collectId: collectId}
+                                                                  , function (data) {
+                                                                      console.log(data);
+                                                                      if(data==true){
+                                                                    	  var goodId=$("#sendCommentBtt").attr("data-goodid");
+                                                                      	  var userId=$("#sendCommentBtt").attr("data-id");
+                                                                    	  $("#collectp").html('<button type="button" id="collectBtt" class="btn btn-sm btn-info" data-goodid="'+goodId+'" data-id="'+userId+'">加入收藏</button>');
+                                                                      }
+                                                                  });
+                                                        });
+                                                }
+                                                else{
+                                              	  alert("收藏失败");
+                                                }
+                                            });
+                                  });
                           }
                       });
             });
@@ -90,19 +134,27 @@
 				<div class="col-md-4" style="font-size:18px; line-height:24px;">
 		         <h2>${good.getGoodName()}</h2>
 		         <p style="color:#F00">¥${good.getGoodPrice()}</p> 
-		         <p>卖家：${good.getShuser().getShUserName()}</p>
-		         <p>联系方式：${good.getShuser().getPhone()}</p>
-		         <p>交易地址：${good.getShuser().getAddress()}</p>
-		         <p id="collectp">
-		         <c:if test="${iscollect==true}">
-		         	<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	
-		         			data-id="${collectId}">取消收藏</button>
-		         </c:if>
-		         <c:if test="${iscollect==false}">
-		         	<button type="button" id="collectBtt" class="btn btn-sm btn-info"	
-		         			 data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">加入收藏</button>
-		         </c:if>
-		         </p>
+		         <security:authorize access="isAuthenticated()">
+		         	<p>卖家：${good.getShuser().getShUserName()}</p>
+		            <p>联系方式：${good.getShuser().getPhone()}</p>
+		            <p>交易地址：${good.getShuser().getAddress()}</p>
+		            <p id="collectp">
+			         <c:if test="${iscollect==true}">
+			         	<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	
+			         			data-id="${collectId}">取消收藏</button>
+			         </c:if>
+			         <c:if test="${iscollect==false}">
+			         	<button type="button" id="collectBtt" class="btn btn-sm btn-info"	
+			         			 data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">加入收藏</button>
+			         </c:if>
+			         </p>
+		         </security:authorize>
+		         <security:authorize ifNotGranted="Admin,User">
+	           		<p>卖家：XXX</p>
+			        <p>联系方式: XXXXXXXXX</p>
+			        <p>交易地址：XXXXXXXXX</p>
+           		</security:authorize>
+		     
 				</div>
 			</div>
 			
@@ -110,9 +162,10 @@
 			<strong>商品描述</strong>
 			<p>${good.getDescription()}</p>
 			</div>
-			
+			   
 			<div  id="commentdivs" style="border: 1px solid #8A8575;width:600px;margin-top:20px;">
 				<h2>留言板：</h2>
+				<security:authorize access="isAuthenticated()">
 				<div>
 					<img alt="头像" height="50" width="50"
 					 src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
@@ -120,6 +173,7 @@
 					<button type="button" class="btn btn-sm btn-info" 
 							id="sendCommentBtt" data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">发表评论</button>
 				</div>
+				</security:authorize>
 				<c:forEach items="${comments}" var="goodComment">
 					<div>
 					<img alt="头像" height="50" width="40" 

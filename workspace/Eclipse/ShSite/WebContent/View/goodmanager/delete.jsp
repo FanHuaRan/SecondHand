@@ -47,7 +47,7 @@ dt{
 					</c:if>
 		    </dl>
 		    <form action="/ShSite/GoodManager/Delete" method="POST">
-		    	<input type="hidden" name=id value="${good.getGoodId()}"/>
+		    	<input type="hidden" name="id" value="${good.getGoodId()}"/>
 				<input type="submit" value="确定删除"/>
 			</form>
 		    <a href="/ShiSite/GoodManager/Edit?id=${announcement.getAnnouncementId()}">修改</a>

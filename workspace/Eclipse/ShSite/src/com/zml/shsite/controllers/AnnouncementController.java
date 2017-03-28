@@ -32,7 +32,6 @@ public class AnnouncementController {
 		model.addAttribute("announcements", announcementService.findAll());
 		return "anno/index";
 	}
-	@Secured({"Admin","User"})
 	@RequestMapping("/Details")
 	public String details(Integer id,Model model){
 		Announcement announcement=null;
@@ -43,7 +42,6 @@ public class AnnouncementController {
 		model.addAttribute("announcement",announcement);
 		return "anno/details";
 	}
-	@Secured({"Admin"})
 	@RequestMapping("/Manager")
 	public String manager(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
@@ -51,14 +49,12 @@ public class AnnouncementController {
 		return "anno/manager";
 	}
 	//创建公告
-	@Secured({"Admin"})
 	@RequestMapping("/Create")
 	public String create(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		return "anno/create";
 	}
 	//创建公告post
-	@Secured({"Admin"})
 	@RequestMapping(value="/Create",
 					method=RequestMethod.POST)
 	public String createAnnoPost(Announcement announcement){
@@ -72,7 +68,6 @@ public class AnnouncementController {
 		}
 	}
 	//修改公告
-	@Secured({"Admin"})
 	@RequestMapping("/Edit")
 	public String edit(Integer id,Model model){
 		Announcement announcement=null;
@@ -97,7 +92,6 @@ public class AnnouncementController {
 	}
 	
 	//删除公告
-	@Secured({"Admin"})
 	@RequestMapping("/Delete")
 	public String delete(Integer id,Model model){
 		Announcement announcement=null;
@@ -110,7 +104,6 @@ public class AnnouncementController {
 	}
 	
 	//删除公告post
-	@Secured({"Admin"})
 	@RequestMapping(value="/DeleteConfirm",
 				    method=RequestMethod.POST)
 	public String deleteAnno(Integer id){

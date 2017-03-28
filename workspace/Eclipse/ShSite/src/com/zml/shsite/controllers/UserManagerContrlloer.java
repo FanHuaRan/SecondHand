@@ -23,15 +23,12 @@ public class UserManagerContrlloer {
 	private IUserService userService=null;
 	@Autowired
 	private IFileService fileService=null;
-	
-	@Secured({"Admin"})
 	@RequestMapping
 	public String index(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("users", userService.findByRoleId(2));
 		return "usermanager/index";
 	}
-	@Secured({"Admin"})
 	@RequestMapping("/Details")
 	public String details(Integer id,Model model){
 		Shuser shuser = null;
@@ -42,20 +39,20 @@ public class UserManagerContrlloer {
         model.addAttribute("shuser",shuser);
         return "usermanager/details";
 	}
-	@Secured({"Admin"})
 	@RequestMapping("/Create")
 	public String create(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("shuser",new Shuser());
 		return "usermanager/create";
 	}
-	@Secured({"Admin"})
 	@RequestMapping(value="/Create",
 					method=RequestMethod.POST)
-	public String create(Shuser shuser,Model model){
+	public String create(RegisterViewModel registerViewModel,Model model){
 		try{
+			Shuser shuser=registerViewModel.toShuser();
 			userService.save(shuser,(short)2);
-	        return "redirect:/UserManager";
+	        fileService.saveOrUpdateUserImage(registerViewModel.getImgFile(),shuser.getShUserId());
+			return "redirect:/UserManager";
 		}catch(Exception e){
 			model.addAttribute("goodTypes", goodtypeService.findAll());
 			return "usermanager/create";

@@ -69,4 +69,10 @@ public  class GoodServiceImpl implements IGoodService {
 		return goodDao.findByShUserId(id);
 	}
 
+	@Override
+	public List<Good> findByNameKey(String key) {
+		String hql="from Good as good where good.goodName like '%"+key+"%'";
+		return goodDao.findByHQL(hql);
+	}
+
 }

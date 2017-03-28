@@ -81,16 +81,15 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
           	<!-- 搜索框 -->
-          	<!--  
-	            <li>
-	           	<form  class="navbar-form" role="search">
+	          <li>
+	           	<form class="navbar-form" role="search" action="/ShSite/Good/Search" method="post">
 		        <div class="form-group" >
-		            <input type="text" class="form-control" placeholder="请输入你想搜索的二货">
+		            <input type="text" name="key" class="form-control" placeholder="请输入你想搜索的二货" style="width:400px;"/>
 		         </div>
-		         <button type="submit" class="btn btn-default navbar-btn">搜索</button>
+		            <button type="submit" class="btn btn-success navbar-btn">搜索</button>
 		        </form>
-		        </li>
-		    -->    
+		      </li>
+		    
           	   <!-- 如果已经授权则显示退出链接 -->
             <security:authorize access="isAuthenticated()">
             	<li><img alt="头像" height="50" width="40" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/></li>

@@ -56,6 +56,12 @@ public class GoodController {
 		model.addAttribute("goods", createGoodViewModel.create(goodService.findAll()));
 		return "good/index";
 	}
+	@RequestMapping(value="/Search",method=RequestMethod.POST)
+	public String search(String key,Model model){
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		model.addAttribute("goods", createGoodViewModel.create(goodService.findByNameKey(key)));
+		return "good/search";
+	}
 	
 	@RequestMapping("/Browse")
 	public String browse(Integer id,Model model){
@@ -88,7 +94,6 @@ public class GoodController {
 		return "good/details";
 	}
 	//商品发布
-	@Secured({"Admin","User"})
 	@RequestMapping("/Publish")
 	public String publish(Integer id,Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
@@ -96,7 +101,6 @@ public class GoodController {
 		return "good/publish";
 	}
 	//商品发布post
-	@Secured({"Admin","User"})
 	@RequestMapping(value="/Publish",
 					method=RequestMethod.POST)
 	public String publishPost(Good good,MultipartFile imgFile,Model model){

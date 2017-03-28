@@ -1536,3 +1536,8 @@
 3月 28, 2017 17:23:19.16 [5400:6884:0328/172319.159:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
 3月 28, 2017 17:50:39.45 [5400:6884:0328/175039.454:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
 3月 28, 2017 17:50:49.47 [5400:6884:0328/175049.475:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+
+3月 28, 2017 21:41:18.99 NEW SESSION
+3月 28, 2017 21:41:18.99 [10856:11684:0328/214118.986:ERROR:angle_platform_impl.cc(33)] ANGLE Display::initialize error 5: DXGI 1.2 required to present to HWNDs owned by another process.
+3月 28, 2017 21:41:18.99 [10856:11684:0328/214118.986:ERROR:gl_surface_egl.cc(646)] eglInitialize D3D11 failed with error EGL_NOT_INITIALIZED, trying next display type
+3月 28, 2017 21:48:11.42 [1228:12224:0328/214811.427:ERROR:CONSOLE(130)] "Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('http://www.baidu.com') does not match the recipient window's origin ('https://www.google.co.jp').", source: chrome-search://most-visited/single.js (130)

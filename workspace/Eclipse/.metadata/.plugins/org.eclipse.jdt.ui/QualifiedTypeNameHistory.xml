@@ -46,12 +46,10 @@
 <fullyQualifiedTypeName name="org.apache.tomcat.jni.File"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.FileServiceImpl"/>
 <fullyQualifiedTypeName name="com.zml.shsite.viewmodels.RegisterViewModel"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.zml.shsite.components.exception.GoodNotFoundException"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
 <fullyQualifiedTypeName name="com.zml.shsite.daos.GoodDAO"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="com.zml.shsite.daos.GoodcollectDAO"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Shuser"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
 </qualifiedTypeNameHistroy>

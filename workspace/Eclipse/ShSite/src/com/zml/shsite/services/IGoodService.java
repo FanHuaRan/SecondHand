@@ -6,6 +6,7 @@ import com.zml.shsite.models.Good;
 
 public interface IGoodService {
 	Good findById(int id);
+	List<Good> findByNameKey(String key);
 	List<Good> findAll();
 	List<Good> findByGoodType(int goodTypeId);
 	List<Good> findTopOrderByTime(int count);
