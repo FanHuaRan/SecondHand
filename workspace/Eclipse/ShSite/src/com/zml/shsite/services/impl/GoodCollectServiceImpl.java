@@ -1,6 +1,7 @@
 package com.zml.shsite.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,17 @@ public class GoodCollectServiceImpl implements IGoodCollectService{
 	}
 
 	@Override
-	public boolean isCollect(int goodId, int userId) {
-		 return !goodcollectDAO.findByHQL("from Goodcollect where goodId=? and shUserId=? ",goodId,userId).isEmpty();
+	public int isCollect(int goodId, int userId) {
+		 Optional<Goodcollect> goodcollect=goodcollectDAO.findByHQL("from Goodcollect where goodId=? and shUserId=? ",goodId,userId).stream().findFirst();
+		 if(goodcollect.isPresent()){
+			 return goodcollect.get().getGoodCollectId();
+		 }
+		 return -1;
+	}
+
+	@Override
+	public Goodcollect findById(int id) {
+		return goodcollectDAO.findById(id);
 	}
 
 }

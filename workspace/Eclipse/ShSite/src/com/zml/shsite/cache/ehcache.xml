@@ -20,38 +20,4 @@
         timeToIdleSeconds="0"
         timeToLiveSeconds="0"/>
         
-    <cache name="albumCache"
-        maxElementsInMemory="1000"
-        eternal="false"
-        overflowToDisk="true"
-        timeToIdleSeconds="0"
-        timeToLiveSeconds="1200"/>
-        
-	<cache name="cartCache"
-        maxElementsInMemory="1000"
-        eternal="false"
-        overflowToDisk="true"
-         timeToIdleSeconds="0"
-        timeToLiveSeconds="1200"/>
-     
-  	 <cache name="genreCache"
-        maxElementsInMemory="1000"
-        eternal="false"
-        overflowToDisk="true"
-        timeToIdleSeconds="0"
-        timeToLiveSeconds="0"/>
-        
-    <cache name="orderCache"
-        maxElementsInMemory="1000"
-        eternal="false"
-        overflowToDisk="true"
-        timeToIdleSeconds="0"
-        timeToLiveSeconds="1200"/>
-        
-    <cache name="orderdetailCache"
-        maxElementsInMemory="1000"
-        eternal="false"
-        overflowToDisk="true"
-         timeToIdleSeconds="0"
-        timeToLiveSeconds="1200"/>
 </ehcache>

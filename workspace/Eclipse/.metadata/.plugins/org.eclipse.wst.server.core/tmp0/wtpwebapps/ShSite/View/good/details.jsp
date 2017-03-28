@@ -26,12 +26,25 @@
                           // Successful requests get here
                           // Update the page elements
                           console.log(data);
-                          if(data==true){
+                          if(data>0){
                         	  alert("收藏成功");
-                        	  $("#collectp").html("已收藏")
+                        	  $("#collectp").html('<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	data-id="'+data+'">取消收藏</button>');
                           }
                           else{
                         	  alert("收藏失败");
+                          }
+                      });
+            });
+        $("#cancelBtt").click(function () {
+        	var collectId=$(this).attr("data-id");
+            $.post("/ShSite/Good/CancelCollect"
+                      , {collectId: collectId}
+                      , function (data) {
+                          console.log(data);
+                          if(data==true){
+                        	  var goodId=$("#sendCommentBtt").attr("data-goodid");
+                          	  var userId=$("#sendCommentBtt").attr("data-id");
+                        	  $("#collectp").html('<button type="button" id="collectBtt" class="btn btn-sm btn-info" data-goodid="'+goodId+'" data-id="'+userId+'">加入收藏</button>');
                           }
                       });
             });
@@ -82,7 +95,8 @@
 		         <p>交易地址：${good.getShuser().getAddress()}</p>
 		         <p id="collectp">
 		         <c:if test="${iscollect==true}">
-		         	<c:out value="已收藏"></c:out>
+		         	<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	
+		         			data-id="${collectId}">取消收藏</button>
 		         </c:if>
 		         <c:if test="${iscollect==false}">
 		         	<button type="button" id="collectBtt" class="btn btn-sm btn-info"	

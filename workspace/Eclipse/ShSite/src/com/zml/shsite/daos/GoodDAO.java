@@ -34,23 +34,26 @@ public class GoodDAO extends HibernateBaseDao<Good> {
 		this.setSessionFactory(sessionFactory);
 	}
 	
-	public List findByImageUrl(Object imageUrl) {
+	public List<Good> findByImageUrl(Object imageUrl) {
 		return findByProperty(IMAGE_URL, imageUrl);
 	}
 
-	public List findByIsSell(Object isSell) {
+	public List<Good> findByIsSell(Object isSell) {
 		return findByProperty(IS_SELL, isSell);
 	}
 
-	public List findByGoodPrice(Object goodPrice) {
+	public List<Good> findByGoodPrice(Object goodPrice) {
 		return findByProperty(GOOD_PRICE, goodPrice);
 	}
 	
-	public List findBygoodTypeId(Object goodPrice) {
+	public List<Good> findBygoodTypeId(Object goodPrice) {
 		return findByProperty(GOOD_TYPE_ID, goodPrice);
 	}
-	public List findByShUserId(Object shUserId) {
+	public List<Good> findByShUserId(Object shUserId) {
 		return findByProperty(SH_USER_ID, shUserId);
+	}
+	public void deleteByShUserId(Object shUserId){
+		deleteByProperty(SH_USER_ID, shUserId);
 	}
 	public static GoodDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (GoodDAO) ctx.getBean("GoodDAO");

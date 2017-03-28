@@ -6,13 +6,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.zml.shsite.components.exception.GoodNotFoundException;
 import com.zml.shsite.components.exception.UserNotFoundException;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.models.Shuser;
+import com.zml.shsite.services.IFileService;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
+import com.zml.shsite.services.IUserService;
+import com.zml.shsite.services.impl.FileServiceImpl;
 
 @Secured({"Admin"})
 @Controller
@@ -22,6 +26,10 @@ public class GoodManagerController {
 	private IGoodtypeService goodtypeService=null;
 	@Autowired
 	private IGoodService goodService=null;
+	@Autowired
+	private IUserService userService=null;
+	@Autowired
+	private IFileService fileService=null;
 	@RequestMapping
 	public String index(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
@@ -36,7 +44,7 @@ public class GoodManagerController {
 		}
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("good", good);
-		return "goodmanager/detail";
+		return "goodmanager/details";
 	}
 	@RequestMapping("/Create")
 	public String create(Model model){
@@ -61,16 +69,20 @@ public class GoodManagerController {
 		if(id==null||(good = goodService.findById(id))==null){
 			throw new UserNotFoundException();
 		}
+		model.addAttribute("users",userService.findAll());
         model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("good",good);
 		return "goodmanager/edit";
 	}
 	@RequestMapping(value="/Edit",
 			method=RequestMethod.POST)
-	public String edit(Good good,Model model){
+	public String edit(Good good,MultipartFile imgFile,Model model){
 		try{
 			goodService.update(good);
-		    return "redirect:/StoreManager";
+			if(!imgFile.isEmpty()){
+				fileService.saveOrUpdateGoodImage(imgFile, good.getGoodId());
+			}
+		    return "redirect:/GoodManager";
 		}catch(Exception e){
 			model.addAttribute("goodTypes", goodtypeService.findAll());
 			return "goodmanager/edit";
@@ -88,9 +100,10 @@ public class GoodManagerController {
     }
 	@RequestMapping(value="/Delete",
 			method=RequestMethod.POST)
-    public String deleteConfirmed(Shuser shuser)
+    public String deleteConfirmed(Integer id)
     {
-		goodService.removeById(shuser.getShUserId());
+		goodService.removeById(id);
+		fileService.deleteGoodImage(id);
         //采用重定向
         return "redirect:/GoodManager";
     }

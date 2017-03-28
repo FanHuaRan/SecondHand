@@ -1529,3 +1529,10 @@
 3月 26, 2017 18:58:27.64 NEW SESSION
 3月 26, 2017 18:58:27.64 [9400:5288:0326/185827.636:ERROR:angle_platform_impl.cc(33)] ANGLE Display::initialize error 5: DXGI 1.2 required to present to HWNDs owned by another process.
 3月 26, 2017 18:58:27.68 [9400:5288:0326/185827.636:ERROR:gl_surface_egl.cc(646)] eglInitialize D3D11 failed with error EGL_NOT_INITIALIZED, trying next display type
+
+3月 28, 2017 17:11:40.52 NEW SESSION
+3月 28, 2017 17:11:40.52 [9068:3152:0328/171140.524:ERROR:angle_platform_impl.cc(33)] ANGLE Display::initialize error 5: DXGI 1.2 required to present to HWNDs owned by another process.
+3月 28, 2017 17:11:40.55 [9068:3152:0328/171140.524:ERROR:gl_surface_egl.cc(646)] eglInitialize D3D11 failed with error EGL_NOT_INITIALIZED, trying next display type
+3月 28, 2017 17:23:19.16 [5400:6884:0328/172319.159:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 28, 2017 17:50:39.45 [5400:6884:0328/175039.454:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 28, 2017 17:50:49.47 [5400:6884:0328/175049.475:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101

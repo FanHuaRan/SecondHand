@@ -26,25 +26,32 @@ dt{
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
-			<p>你确定删除该公告？</p>
+			<p>你确定删除该商品吗？</p>
 			<dl class="dl-horizontal">
-		        <dt>公告编号:</dt>
-		        <dd>${announcement.getAnnouncementId()}</dd>
-		        
-		        <dt>公告标题：</dt>
-		        <dd>${announcement.getAnnounceTitle()}</dd>
-		        
-		        <dt>公告内容：</dt>
-			 	<dd>${announcement.getAnnoContent()}</dd>
-				
-		        <dt>发布时间:</dt>
-		        <dd>${announcement.getAnnoTime()}</dd>
+			    	<dt>商品编号</dt>
+			        <dd>${good.getGoodId()}</dd>
+			    	<dt>商品名称</dt>
+			    	<dd>${good.getGoodName()}</dd>
+			        <dt>发布用户</dt>
+			        <dd>${good.getShuser().getShUserName()}</dd>
+			        <dt>商品类型</dt>
+			         <dd>${good.getGoodtype().getGoodTypeName()}</dd>
+			        <dt>商品价格</dt>
+			         <dd>${good.getGoodPrice()}</dd>
+			        <dt>是否已交易</dt>
+			         <c:if test="${good.getIsSell()==0}">
+			       		 <dd>未售</dd>
+					</c:if>
+					 <c:if test="${good.getIsSell()==1}">
+			       		 <dd>已售</dd>
+					</c:if>
 		    </dl>
-		    <form:form action="/ShiSite/Announcement/Delete" method="POST" modelAttribute="announcement">
+		    <form action="/ShSite/GoodManager/Delete" method="POST">
+		    	<input type="hidden" name=id value="${good.getGoodId()}"/>
 				<input type="submit" value="确定删除"/>
-			</form:form>
-		    <a href="/ShiSite/Announcement/Edit?id=${announcement.getAnnouncementId()}">修改</a>
-		     <a href="/ShiSite/Announcement">返回公告主页</a>
+			</form>
+		    <a href="/ShiSite/GoodManager/Edit?id=${announcement.getAnnouncementId()}">修改</a>
+		     <a href="/ShiSite/GoodManager">返回商品管理主页</a>
 		</div>
 	</div>
 	<%@ include file="../footer.jsp" %>

@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zml.shsite.components.exception.UserNotFoundException;
 import com.zml.shsite.models.Shuser;
+import com.zml.shsite.services.IFileService;
 import com.zml.shsite.services.IGoodtypeService;
 import com.zml.shsite.services.IUserService;
+import com.zml.shsite.viewmodels.RegisterViewModel;
 
 @Controller
 @RequestMapping("/UserManager")
@@ -19,6 +21,9 @@ public class UserManagerContrlloer {
 	private IGoodtypeService goodtypeService=null;
 	@Autowired
 	private IUserService userService=null;
+	@Autowired
+	private IFileService fileService=null;
+	
 	@Secured({"Admin"})
 	@RequestMapping
 	public String index(Model model){
@@ -56,7 +61,6 @@ public class UserManagerContrlloer {
 			return "usermanager/create";
 		}
 	}
-	@Secured({"Admin"})
 	@RequestMapping("/Edit")
 	public String edit(Model model,Integer id){
 		Shuser shuser = null;
@@ -67,19 +71,22 @@ public class UserManagerContrlloer {
 		model.addAttribute("shuser",shuser);
 		return "usermanager/edit";
 	}
-	@Secured({"Admin"})
 	@RequestMapping(value="/Edit",
 			method=RequestMethod.POST)
-	public String edit(Shuser shuser,Model model){
+	public String edit(RegisterViewModel registerViewModel,Model model){
 		try{
+			Shuser shuser=registerViewModel.toShuser();
 			userService.update(shuser);
+			if(!registerViewModel.getImgFile().isEmpty()){
+				fileService.saveOrUpdateUserImage(registerViewModel.getImgFile(),shuser.getShUserId());
+			}
 		    return "redirect:/UserManager";
 		}catch(Exception e){
 			model.addAttribute("goodTypes", goodtypeService.findAll());
 			return "usermanager/edit";
 		}
 	}
-	@Secured({"Admin"})
+	
 	@RequestMapping("/Delete")
     public String Delete(Model model,Integer id){
 		Shuser shuser = null;
@@ -90,7 +97,6 @@ public class UserManagerContrlloer {
         model.addAttribute("shuser",shuser);
         return "usermanager/delete";
     }
-	@Secured({"Admin"})
 	@RequestMapping(value="/Delete",
 			method=RequestMethod.POST)
     public String DeleteConfirmed(Integer id)
@@ -99,6 +105,7 @@ public class UserManagerContrlloer {
 			throw new UserNotFoundException();
 		}
         userService.removeById(id);
+        fileService.deleteUserImage(id);
         return "redirect:/UserManager";
     }
 	

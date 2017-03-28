@@ -3,17 +3,17 @@ package com.zml.shsite.controllers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.websocket.server.PathParam;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.zml.shsite.components.FileComponentUtil;
+import com.zml.shsite.components.exception.GoodNotFoundException;
 import com.zml.shsite.components.exception.UserNotFoundException;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.models.Goodcollect;
@@ -24,7 +24,6 @@ import com.zml.shsite.services.IGoodCollectService;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
 import com.zml.shsite.services.IUserService;
-import com.zml.shsite.services.impl.GoodServiceImpl;
 import com.zml.shsite.viewmodels.GoodViewModel;
 import com.zml.shsite.viewmodels.RegisterViewModel;
 
@@ -36,7 +35,7 @@ public class AccountController {
 	@Autowired
 	private IUserService userService=null;
 	@Autowired
-	private IFileService fileSaveService=null;
+	private IFileService fileService=null;
 	@Autowired
 	private IGoodCollectService goodCollectService=null;
 	@Autowired
@@ -72,12 +71,11 @@ public class AccountController {
 	public String registerPost(RegisterViewModel registerViewModel){
 		Shuser shuser=registerViewModel.toShuser();
 		if(userService.save(shuser,(short)2)!=null){
-			fileSaveService.saveUserImage(registerViewModel.getImgFile(),shuser.getShUserId());
+			fileService.saveUserImage(registerViewModel.getImgFile(),shuser.getShUserId());
 			return "redirect:LogOn";
 		}
 		return "redirect:register";
 	}
-	@Secured({"Admin","User"})
 	@RequestMapping("/CollectCenter/{id}")
 	public String goodCollectCenter(@PathVariable Integer id,Model model){
 		Shuser shuser=null;
@@ -89,6 +87,54 @@ public class AccountController {
 		model.addAttribute("goods", goodViewModels);
 		return "collectcenter";
 	}
+	
+	@RequestMapping("/PersonInfoUpdate/{id}")
+	public String personInfoUpdate(@PathVariable Integer id,Model model){
+		Shuser shuser=null;
+		if(id==null||(shuser=userService.findById(id))==null){
+			throw new UserNotFoundException();
+		}
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		model.addAttribute("shuser", shuser);
+		return "personinfoupdate";
+	}
+	@RequestMapping("/GoodDeal")
+	public String goodDeal(Integer id,Model model){
+		Good good=null;
+		if(id==null||(good=goodService.findById(id))==null){
+			throw new GoodNotFoundException();
+		}
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		model.addAttribute("good",good);
+		return "gooddeal";
+	}
+	@RequestMapping(value="/GoodDelete",
+					method=RequestMethod.POST)
+	public String goodDelete(Integer id,Model model,HttpSession httpSession){
+		if(id==null||goodService.findById(id)==null){
+			throw new GoodNotFoundException();
+		}
+		goodService.removeById(id);
+		fileService.deleteGoodImage(id);
+		Shuser shuser=(Shuser) httpSession.getAttribute("user");
+	    return "redirect:/Account/PersonCenter/"+shuser.getShUserId();
+	}
+	@RequestMapping(value="/GoodEdit",
+			method=RequestMethod.POST)
+	public String edit(Good good,MultipartFile imgFile,Model model,HttpSession httpSession){
+		try{
+			goodService.update(good);
+			if(!imgFile.isEmpty()){
+				fileService.saveOrUpdateGoodImage(imgFile, good.getGoodId());
+			}
+			Shuser shuser=(Shuser) httpSession.getAttribute("user");
+		    return "redirect:/Account/PersonCenter/"+shuser.getShUserId();
+		}catch(Exception e){
+			model.addAttribute("goodTypes", goodtypeService.findAll());
+			return "goodmanager/edit";
+		}
+	}
+	
 	private List<GoodViewModel> getGoodCollectViewModels(Integer id) {
 		List<Goodcollect> goodcollects=goodCollectService.findGoodCollectsByUserId(id);
 		List<Good> goods=goodcollects.stream().map(goodcollect->goodcollect.getGood()).collect(Collectors.toList());

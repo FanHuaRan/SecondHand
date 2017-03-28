@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zml.shsite.daos.AuthorityDAO;
+import com.zml.shsite.daos.GoodDAO;
+import com.zml.shsite.daos.GoodcollectDAO;
+import com.zml.shsite.daos.GoodcommentDAO;
 import com.zml.shsite.daos.ShroleDAO;
 import com.zml.shsite.daos.ShuserDAO;
 import com.zml.shsite.models.Authority;
@@ -19,7 +22,12 @@ public class UserServiceImpl implements IUserService {
 	private ShroleDAO shroleDAO=null;
 	@Autowired
 	private AuthorityDAO authorityDAO=null;
-	
+	@Autowired
+	private GoodDAO goodDAO=null;
+	@Autowired
+	private GoodcommentDAO goodcommentDAO=null;
+	@Autowired
+	private GoodcollectDAO goodcollectDAO=null;
 	@Override
 	public Shuser findById(int id) {
 		return shuserDAO.findById(id);
@@ -37,6 +45,10 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public void removeById(int id) {
+		authorityDAO.deleteByShUserId(id);
+		goodDAO.deleteByShUserId(id);
+		goodcommentDAO.deleteByShUserId(id);
+		goodcollectDAO.deleteByShUserId(id);
 		shuserDAO.delete(id);
 	}
 

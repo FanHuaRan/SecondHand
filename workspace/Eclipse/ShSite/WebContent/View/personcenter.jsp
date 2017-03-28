@@ -41,7 +41,7 @@
 					 <p>交易地址：${sessionScope.user.getAddress()}</p>
 				</div>
 				<div class="col-md-2">
-				   	<p><button type="button" class="btn btn-sm btn-info">编辑个人信息</button></p>
+				   	<p><a href="/ShSite/Account/PersonInfoUpdate/${sessionScope.user.getShUserId()}"><button type="button" class="btn btn-sm btn-info">编辑个人信息</button></p></a>
 				</div>
 			</div>
 			<!-- 我发布的商品 -->
@@ -51,7 +51,7 @@
 				<div class="row">
 				<c:forEach items="${publishgoods}" var="good">
 				 	<div class="col-md-2">
-		  			<a href="/ShSite/Good/Details?id=${good.getGood().getGoodId()}">
+		  			<a href="/ShSite/Account/GoodDeal?id=${good.getGood().getGoodId()}">
 				   	<img style="width:200px;height:200px;" alt="${good.getGood().getGoodName()}" src="/ShSite/goodimages/${good.getGood().getGoodId()}.jpg"/>
 			        <div class="goodbottom">
 			         <span class="namespan">${good.getGood().getGoodName()}</span>

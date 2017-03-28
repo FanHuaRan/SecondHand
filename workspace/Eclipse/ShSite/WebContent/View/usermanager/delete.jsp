@@ -50,7 +50,7 @@
 			<input type="submit" value="确定删除"/>
 		</form>
 		    <a href="/ShiSite/UserManager/Edit?id=${album.getAlbumId()}">编辑</a>
-		     <a href="/ShiSite/UserManager">返回管理主页</a>
+		     <a href="/ShiSite/UserManager">返回人员管理主页</a>
 		</div>
 	</div>
 	<%@ include file="../footer.jsp" %>

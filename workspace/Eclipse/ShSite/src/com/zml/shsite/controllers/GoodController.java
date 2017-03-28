@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zml.shsite.components.exception.GoodNotFoundException;
 import com.zml.shsite.components.exception.GoodtypeNotFoundException;
 import com.zml.shsite.components.exception.UserNotFoundException;
@@ -77,7 +78,9 @@ public class GoodController {
 		model.addAttribute("comments",goodCommentService.findGoodCommentByGoodId(id));
 		if(httpSession.getValue("user")!=null){
 			Shuser shuser=(Shuser)httpSession.getValue("user");
-			model.addAttribute("iscollect",goodCollectService.isCollect(id,shuser.getShUserId()));
+			int collectId=goodCollectService.isCollect(id,shuser.getShUserId());
+			model.addAttribute("iscollect",collectId>0);
+			model.addAttribute("collectId",collectId);
 		}
 		else{
 			model.addAttribute("iscollect",false);
@@ -108,19 +111,29 @@ public class GoodController {
 	}
 	
 	//商品收藏post
-	@Secured({"Admin","User"})
 	@RequestMapping(value="/GoodCollect",
 					method=RequestMethod.POST)
 	@ResponseBody
-	public boolean goodCollect(Integer goodId,Integer userId){
+	public int goodCollect(Integer goodId,Integer userId){
 		if(goodId==null||goodService.findById(goodId)==null){
-			return false;
+			return -1;
 		}
 		if(userId==null||userService.findById(userId)==null){
-			return false;
+			return -1;
 		}
 		Goodcollect goodcollect=new Goodcollect(userId, goodId);
 		goodCollectService.saveGoodCollect(goodcollect);
+		return goodcollect.getGoodCollectId();
+	}
+
+	// 取消商品收藏post
+	@RequestMapping(value = "/CancelCollect", method = RequestMethod.POST)
+	@ResponseBody
+	public boolean cancelCollect(Integer collectId) {
+		if (collectId == null || goodCollectService.findById(collectId) == null) {
+			return false;
+		}
+		goodCollectService.remove(collectId);
 		return true;
 	}
 	//商品评论post
