@@ -25,12 +25,20 @@ public class HomeController {
 	private IGoodService goodService=null;
 	@Autowired
 	private ICreateGoodViewModel createGoodViewModel=null;
+	@RequestMapping("/")
+	public String home(Model model){
+		dealModels(model);
+		return "index";
+	}
 	@RequestMapping("/index")
 	public String index(Model model){
+		dealModels(model);
+		return "index";
+	}
+	private void dealModels(Model model) {
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("announcements", announcementService.findAll());
 		List<Good> goods=goodService.findTopOrderByTime(4);
 		model.addAttribute("goods",createGoodViewModel.create(goods));
-		return "index";
 	}
 }

@@ -20,6 +20,7 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+		<h3></h3>
 		<div>
 		    <dl class="dl-horizontal">
 		        <dt>用户编号:</dt>
@@ -44,8 +45,8 @@
 		    </dl>
 		    </div>
 		    <p>
-		    <a href="/ShiSite/UserManager/Edit?id=${album.getAlbumId()}">编辑</a>
-		    <a href="/ShiSite/UserManager">返回管理主页</a>
+		    <a href="/ShSite/UserManager/Edit?id=${shuser.getShUserId()}">编辑</a>
+		    <a href="/ShSite/UserManager">返回管理主页</a>
 			</p>
 	</div>
 	<%@ include file="../footer.jsp" %>

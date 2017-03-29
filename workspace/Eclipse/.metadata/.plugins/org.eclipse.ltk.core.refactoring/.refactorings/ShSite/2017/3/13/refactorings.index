@@ -38,3 +38,9 @@
 1490707222413	Delete element
 1490707230419	Copy file
 1490709649249	Copy file
+1490773648466	Copy compilation unit
+1490773844298	Delete element
+1490774009036	Copy file
+1490777853050	Extract method 'dealModels'
+1490777948473	Delete element
+1490780222740	Encapsulate field 'shUserId'

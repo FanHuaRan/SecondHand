@@ -20,6 +20,7 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+		<h3></h3>
 		<div class="table-responsive">
             <table class="table table-striped">
              <thead>

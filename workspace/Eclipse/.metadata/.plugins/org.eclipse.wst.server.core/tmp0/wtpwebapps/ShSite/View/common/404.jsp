@@ -19,6 +19,7 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+			<h3></h3>
 			<div class="">
     			<h4>Http Status:404</h4>
 			    <p>您可能输入了<em>错误的访问地址 </em></p>

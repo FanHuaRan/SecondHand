@@ -21,7 +21,8 @@
 	     <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
-		  <form 	  method="post" action="/ShSite/UserManager/Create" enctype="multipart/form-data"
+		<h3>创建新用户</h3>
+				  <form 	  method="post" action="/ShSite/UserManager/Create" enctype="multipart/form-data"
 		  			  id="defaultForm" class="form-horizontal"
                       data-bv-message="This value is not valid"
                       data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
@@ -65,12 +66,12 @@
                         <div class="col-lg-5">
                             <div class="radio">
                                 <label>
-                                    <input path="Gender" type="radio" name="Gender" value="0" required data-bv-notempty-message="The gender is required" /> 男
+                                    <input type="radio" name="Gender" value="0" required data-bv-notempty-message="The gender is required" /> 男
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input path="Gender" type="radio" name="gender" value="1" /> 女
+                                    <input  type="radio" name="Gender" value="1" /> 女
                                 </label>
                             </div>
                         </div>

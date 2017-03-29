@@ -15,11 +15,14 @@
   	  <security:intercept-url pattern="/Account/PersonCenter/*" access="hasRole('Admin') or hasRole('User')"/>
   	  <security:intercept-url pattern="/Account/CollectCenter/*" access="hasRole('Admin') or hasRole('User')"/>
   	  <security:intercept-url pattern="/Account/PersonInfoUpdate/*" access="hasRole('Admin') or hasRole('User')"/>
+  	   <security:intercept-url pattern="/Account/PersonInfoUpdate" access="hasRole('Admin') or hasRole('User')"/>
   	  <security:intercept-url pattern="/Account/GoodDeal" access="hasRole('Admin') or hasRole('User')"/>
   	  <security:intercept-url pattern="/Account/GoodDelete" access="hasRole('Admin') or hasRole('User')"/> 
   	  <security:intercept-url pattern="/Account/GoodEdit" access="hasRole('Admin') or hasRole('User')"/>
   	  <security:intercept-url pattern="/Account/PasswordUpdate/*" access="hasRole('Admin') or hasRole('User')"/>
- 	
+ 	  <security:intercept-url pattern="/Account/PasswordUpdate" access="hasRole('Admin') or hasRole('User')"/>
+ 	  <security:intercept-url pattern="/Account/CheckOldPassword" access="hasRole('Admin') or hasRole('User')"/>
+ 	    
   	  <security:intercept-url pattern="/Announcement/Announcement/Manager" access="hasRole('Admin')"/>
   	  <security:intercept-url pattern="/Announcement/Announcement/Create" access="hasRole('Admin')"/>
   	  <security:intercept-url pattern="/Announcement/Announcement/Edit" access="hasRole('Admin')"/>

@@ -4,15 +4,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.http.HTTPException;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zml.shsite.components.exception.GoodNotFoundException;
 import com.zml.shsite.components.exception.UserNotFoundException;
 import com.zml.shsite.models.Good;
@@ -30,6 +35,7 @@ import com.zml.shsite.viewmodels.RegisterViewModel;
 @Controller
 @RequestMapping("/Account")
 public class AccountController {
+	private static final Logger logger=Logger.getLogger(AccountController.class);
 	@Autowired
 	private IGoodtypeService goodtypeService=null;
 	@Autowired
@@ -98,6 +104,41 @@ public class AccountController {
 		model.addAttribute("shuser", shuser);
 		return "personinfoupdate";
 	}
+	@RequestMapping(value="/PersonInfoUpdate",
+					method=RequestMethod.POST)
+	public String personInfoUpdatePost(RegisterViewModel registerViewModel,HttpSession httpSession){
+		try{
+			Shuser shuser=registerViewModel.toShuser();
+			userService.update(shuser);
+			httpSession.putValue("user", shuser);
+			if(!registerViewModel.getImgFile().isEmpty()){
+				fileService.saveOrUpdateUserImage(registerViewModel.getImgFile(),shuser.getShUserId());
+			}
+			return "redirect:/Account/PersonCenter/"+shuser.getShUserId();
+		}catch(Exception e){
+			logger.error(e.getMessage());
+			throw new HTTPException(500);
+		}
+	}
+	@RequestMapping("/PasswordUpdate/{id}")
+	public String passwordUpdate(@PathVariable Integer id,Model model){
+		Shuser shuser=null;
+		if(id==null||(shuser=userService.findById(id))==null){
+			throw new UserNotFoundException();
+		}
+		model.addAttribute("goodTypes", goodtypeService.findAll());
+		model.addAttribute("shuser", shuser);
+		return "passwordupdate";
+	}
+	@RequestMapping(value="/PasswordUpdate",
+					method=RequestMethod.POST)
+	public String passwordUpdatePost(String Password,HttpSession httpSession){
+		Shuser shuser=(Shuser)httpSession.getAttribute("user");
+		shuser.setPassword(Password);
+		userService.update(shuser);
+		httpSession.putValue("user", shuser);
+		return "redirect:/Account/PersonCenter/"+shuser.getShUserId();
+	}
 	@RequestMapping("/GoodDeal")
 	public String goodDeal(Integer id,Model model){
 		Good good=null;
@@ -134,7 +175,17 @@ public class AccountController {
 			return "goodmanager/edit";
 		}
 	}
-	
+	//bootstrap远程校验
+	@RequestMapping(value="/CheckOldPassword",
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Object checkOldPassword(String oldPassword,HttpSession httpSession){
+		Shuser currentUser=(Shuser)httpSession.getAttribute("user");
+		String pass=currentUser.getPassword();
+		JSONObject jsonObject=new JSONObject();
+		jsonObject.put("valid", pass.equals(oldPassword));
+		return jsonObject;
+	}
 	private List<GoodViewModel> getGoodCollectViewModels(Integer id) {
 		List<Goodcollect> goodcollects=goodCollectService.findGoodCollectsByUserId(id);
 		List<Good> goods=goodcollects.stream().map(goodcollect->goodcollect.getGood()).collect(Collectors.toList());

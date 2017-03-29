@@ -10,6 +10,7 @@ public class RegisterViewModel implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 5164200378794949862L;
 	// Fields
+	private Integer shUserId;
 	private String shUserName;
 	private String password;
 	private Short gender;
@@ -61,6 +62,13 @@ public class RegisterViewModel implements java.io.Serializable {
 	}
 	public Shuser toShuser(){
 		Shuser shuser=new Shuser(shUserName, password, gender, introduce, phone, address);
+		shuser.setShUserId(this.shUserId);
 		return shuser;
+	}
+	public Integer getShUserId() {
+		return shUserId;
+	}
+	public void setShUserId(Integer shUserId) {
+		this.shUserId = shUserId;
 	}
 }

@@ -21,14 +21,14 @@
 	    <%@ include file="catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
-			<!-- 个人中心 -->
+			<h3>个人中心 </h3>
 			<!-- 个人信息 -->
 			<div class="row" style="height:250px;margin-top:20px;">
 				<div class="col-md-3">
 					<img alt="头像" style="width:200px;height:200px;" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
 				</div>
 				<div class="col-md-4" style="font-size:18px; line-height:24px;">
-					<p style="width:200px;"><span style="font-size:35px;"><strong>${sessionScope.user.getShUserName()}</strong></span>
+					<p style="width:350px;"><span style="font-size:35px;"><strong>${sessionScope.user.getShUserName()}</strong></span>
 						 <c:if test="${sessionScope.user.getGender()==0}">
 			       		 <span style="float:right">男</span>
 						</c:if>

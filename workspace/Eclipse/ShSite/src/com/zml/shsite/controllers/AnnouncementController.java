@@ -61,7 +61,7 @@ public class AnnouncementController {
 		try{
 			announcement.setAnnoTime(new Timestamp(System.currentTimeMillis()));
 			announcementService.save(announcement);
-			return "redirect:/";
+			return "redirect:/Announcement/Manager";
 		}catch (Exception e) {
 			logger.error(e.getMessage());
 			return "anno/create";
@@ -84,7 +84,7 @@ public class AnnouncementController {
 	public String editAnnoPost(Announcement announcement){
 		try{
 			announcementService.update(announcement);
-			return "redirect:/Announcement";
+			return "redirect:/Announcement/Manager";
 		}catch (Exception e) {
 			logger.error(e.getMessage());
 			return "anno/edit";
@@ -112,6 +112,6 @@ public class AnnouncementController {
 			throw new AnnounceNotFoundException();
 		}
 		announcementService.removeById(id);
-		return "redirect:/Announcement";
+		return "redirect:/Announcement/Manager";
 	}
 }

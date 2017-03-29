@@ -21,23 +21,24 @@
 	     <%@ include file="catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+		   <h3></h3>
 		  <p><a href="/ShSite/Account/PasswordUpdate/${sessionScope.user.getShUserId()}"><button type="button" class="btn btn-sm btn-info">修改密码</button></p></a>
-		  <form 	  method="post" action="/ShSite/UserManager/Create" enctype="multipart/form-data"
+		
+		  <form 	  method="post" action="/ShSite/Account/PersonInfoUpdate" enctype="multipart/form-data"
 		  			  id="defaultForm" class="form-horizontal"
                       data-bv-message="This value is not valid"
                       data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
                       data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
                       data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
                     <input type="hidden" name="Password" value="${shuser.getPassword()}"/>
+                     <input type="hidden" name="ShUserId" value="${shuser.getShUserId()}"/>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">用户名</label>
                         <div class="col-lg-5">
-                            <input path="shUserName" type="text" class="form-control" name="ShUserName" value="${shuser.getShUserName()}"
+                            <input type="text" class="form-control" name="ShUserName" value="${shuser.getShUserName()}"
                                    data-bv-message="用户名无效"
                                    required data-bv-notempty-message="用户名不能为空"
-                                   data-bv-stringlength="true" data-bv-stringlength-min="5" data-bv-stringlength-max="20" data-bv-stringlength-message="用户名必须保证在5到20个字符"
-                                   data-bv-different="true" data-bv-different-field="Password" data-bv-different-message="用户名不能够与密码相同"
-                           			/>
+                                   data-bv-stringlength="true" data-bv-stringlength-min="5" data-bv-stringlength-max="20" data-bv-stringlength-message="用户名必须保证在5到20个字符"/>
                         </div>
                     </div>
                  
@@ -46,33 +47,28 @@
                         <div class="col-lg-5">
                         	 <c:if test="${shuser.getGender()==0}">
                                 <div class="radio">
-                                <label>
-                                    <input type="radio" name="Gender" value="0" checked="checked" required data-bv-notempty-message="The gender is required" /> 男
-                                </label>
+                                <label><input type="radio" name="Gender" value="0" checked="checked" required data-bv-notempty-message="The gender is required" /> 男 </label>
 	                            </div>
 	                            <div class="radio">
-	                                <label><input type="radio" name="gender" value="1"/> 女</label>
+	                                <label><input type="radio" name="Gender" value="1"/> 女</label>
 	                            </div>
                              </c:if>
                              
                               <c:if test="${shuser.getGender()!=0}">
                                 <div class="radio">
-                                <label>
-                                    <input type="radio" name="Gender" value="0"  required data-bv-notempty-message="The gender is required" /> 男
-                                </label>
+                                <label><input type="radio" name="Gender" value="0"  required data-bv-notempty-message="The gender is required" /> 男</label>
 	                            </div>
-	                            <div class="radio">
-	                                <label><input type="radio" name="gender" value="1" checked="checked" />女</label>
-	                            </div>
+	                            <div class="radio"><label><input type="radio" name="gender" value="1" checked="checked" />女</label> </div>
                              </c:if>
                         </div>
-                    </div>
+                     </div>
+                    
 					 <div class="form-group">
                         <label class="col-lg-3 control-label">联系电话</label>
                         <div class="col-lg-5">
                             <input path="Phone" type="text" class="form-control" name="Phone" value="${shuser.getPhone()}"
                               data-bv-stringlength="true" data-bv-stringlength-min="5" data-bv-stringlength-max="20" data-bv-stringlength-message="联系电话必须保证在5到15个字符"
-                             required data-bv-notempty-message="联系电话不能够为空" /> 
+                              required data-bv-notempty-message="联系电话不能够为空" /> 
                         </div>
                     </div>
                     

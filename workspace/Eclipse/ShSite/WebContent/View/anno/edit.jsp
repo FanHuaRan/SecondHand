@@ -20,6 +20,7 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+			<h3>公告修改</h3>
 			<form 	  method="post" action="/ShSite/Announcement/Edit"
 		  			  id="defaultForm" class="form-horizontal"
                       data-bv-message="This value is not valid"
@@ -45,7 +46,7 @@
                             <textarea name="AnnoContent" style="height:100px;width:400px;" type="text" class="form-control"
                             		 required data-bv-notempty-message="内容不能够为空"
                             		 data-bv-stringlength="true" data-bv-stringlength-min="10"
-                            		 data-bv-stringlength-max="50" data-bv-stringlength-message="内容必须保证在5到20个字符">${announcement.getAnnoContent()}</textarea>
+                            		 data-bv-stringlength-max="200" data-bv-stringlength-message="内容必须保证在10到200个字符">${announcement.getAnnoContent()}</textarea>
                         </div>
                     </div>
                     

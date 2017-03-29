@@ -19,6 +19,7 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+			<h3></h3>
 			<div>
     				Http Status:500<br>
 				       对不起 ! 服务器发生了错误! 请联系管理员!<br>

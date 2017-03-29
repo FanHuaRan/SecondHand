@@ -21,6 +21,7 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+			<h3></h3>
 			<c:if test="${goods.size()==0}">
 				<div class="alert alert-info" style="margin-top:50px;">
 		        <strong>对不起</strong>当前没有搜索到任何商品!到我们<a href="/ShSite/Good">商品主页</a>看看？

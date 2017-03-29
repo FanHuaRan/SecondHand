@@ -124,7 +124,7 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
-			
+			<h3></h3>
 			<!-- 商品信息 -->
 			<div class="row" style="height:250px;margin-top:20px;">
 				<div class="col-md-3">

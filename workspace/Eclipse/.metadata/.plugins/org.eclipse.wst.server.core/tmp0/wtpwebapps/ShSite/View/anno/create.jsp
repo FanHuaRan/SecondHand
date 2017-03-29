@@ -41,8 +41,7 @@
                         <div class="col-lg-5">
                             <textarea name="AnnoContent" style="height:100px;width:400px;" type="text" class="form-control"
                             		 required data-bv-notempty-message="内容不能够为空"
-                            		 data-bv-stringlength="true" data-bv-stringlength-min="10" data-bv-stringlength-max="50" data-bv-stringlength-message="内容必须保证在5到20个字符">
-                        	</textarea>
+                            		 data-bv-stringlength="true" data-bv-stringlength-min="10" data-bv-stringlength-max="200" data-bv-stringlength-message="内容必须保证在10到200个字符"></textarea>
                         </div>
                     </div>
                     

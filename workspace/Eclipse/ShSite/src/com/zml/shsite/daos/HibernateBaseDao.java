@@ -18,8 +18,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 /**
  * Hibernate Dao泛型基类
  * 基本的增删改查实现
- * @author fhr
- *
+ * @author zml
  * @param <T>
  */
 public class HibernateBaseDao<T extends Object> extends HibernateDaoSupport {

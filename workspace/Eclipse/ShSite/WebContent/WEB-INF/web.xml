@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <display-name>校园二手商店</display-name>
-  <welcome-file-list>
-    <welcome-file>/index</welcome-file>
-  </welcome-file-list>
+	<welcome-file-list>
+	  <welcome-file>index</welcome-file>
+	</welcome-file-list>
   <!-- 加载spring上下文 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>

@@ -21,12 +21,14 @@
 	     <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+		<h3>修改用户信息</h3>
 		  <form 	  method="post" action="/ShSite/UserManager/Create" enctype="multipart/form-data"
 		  			  id="defaultForm" class="form-horizontal"
                       data-bv-message="This value is not valid"
                       data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
                       data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
                       data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                    <input type="hidden" name="ShUserId" value="${shuser.getShUserId()}"/>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">用户名</label>
                         <div class="col-lg-5">
@@ -45,7 +47,6 @@
                             <input path="Password" type="password" class="form-control" name="Password" value="${shuser.getPassword()}"
                                    required data-bv-notempty-message="密码不能够为空"
                                    data-bv-stringlength="true" data-bv-stringlength-min="8" data-bv-stringlength-max="20" data-bv-stringlength-message="密码必须保证在8到20个字符"
-                                   data-bv-identical="true" data-bv-identical-field="confirmPassword" data-bv-identical-message="密码必须一致"
                                    data-bv-different="true" data-bv-different-field="ShUserName" data-bv-different-message="密码不能够与用户名相同"/>
                         </div>
                     </div>
@@ -60,7 +61,7 @@
                                 </label>
 	                            </div>
 	                            <div class="radio">
-	                                <label><input type="radio" name="gender" value="1"/> 女</label>
+	                                <label><input type="radio" name="Gender" value="1"/> 女</label>
 	                            </div>
                              </c:if>
                              

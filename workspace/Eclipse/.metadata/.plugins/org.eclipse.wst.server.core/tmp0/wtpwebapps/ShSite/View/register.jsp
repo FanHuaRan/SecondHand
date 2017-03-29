@@ -21,6 +21,7 @@
 	     <%@ include file="catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+		  <h3>用户注册8</h3>
 		  <form 	  method="post" action="/ShSite/Account/Register" enctype="multipart/form-data"
 		  			  id="defaultForm" class="form-horizontal"
                       data-bv-message="This value is not valid"
@@ -70,7 +71,7 @@
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input path="Gender" type="radio" name="gender" value="1" /> 女
+                                    <input path="Gender" type="radio" name="Gender" value="1" /> 女
                                 </label>
                             </div>
                         </div>
