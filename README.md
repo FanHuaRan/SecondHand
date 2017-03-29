@@ -28,10 +28,10 @@ MySQL 5.7
 * run the shdb.sql
 * build workspace
 
-##licence
+##　licence
 * none
 
-##About Author
+##　About Author
 ```javascript
   var author = {
     nickName  : "RanRanDemo",
