@@ -1,6 +1,7 @@
 package com.zml.shsite.controllers;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -32,6 +33,7 @@ import com.zml.shsite.services.IGoodtypeService;
 import com.zml.shsite.services.IUserService;
 import com.zml.shsite.services.impl.GoodCollectServiceImpl;
 import com.zml.shsite.services.impl.UserServiceImpl;
+import com.zml.shsite.viewmodels.GoodViewModel;
 
 @Controller
 @RequestMapping("/Good")
@@ -59,7 +61,10 @@ public class GoodController {
 	@RequestMapping(value="/Search",method=RequestMethod.POST)
 	public String search(String key,Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
-		model.addAttribute("goods", createGoodViewModel.create(goodService.findByNameKey(key)));
+		if(key==null||key.equals("")){
+			model.addAttribute("goods",new ArrayList<GoodViewModel>());
+		}
+		else model.addAttribute("goods", createGoodViewModel.create(goodService.findByNameKey(key)));
 		return "good/search";
 	}
 	

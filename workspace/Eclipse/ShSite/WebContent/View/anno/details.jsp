@@ -14,22 +14,22 @@
 <title>校园二手交易系统</title>
 <style type="text/css">
 .detaildiv{
-	 width:1500px;
+	 width:1200px;
 	 height:800px;
 	 background:url("/ShSite/resources/images/009.jpg");
 	 }
 .detaildiv2{
-	 width:1400px;
+	 width:1200px;
 	 height:50px;
 	 }
 .detaildiv3{
   text-align:center;
-  width:1400px;
+  width:1200px;
   height:700px;
   padding:2px;
   }	 
  .detaildiv4{
-	 width:1400px;
+	 width:1200px;
 	 height:650px;
 	 margin:40px;
 	 }
@@ -79,12 +79,9 @@
 		<div style="width:1450px;text-align:center;">
         <div class="row marketing">
         <div class="col-lg-6">
-          <h4><strong class="pull-left"">公告编号</strong></h4><br/><br/>
-          <p><strong class="pull-left">${announcement.getAnnouncementId()}</strong></p><br/>
-          <h4><strong class="pull-left">公告标题</strong></h4><br/><br/>
-          <p><strong class="pull-left">${announcement.getAnnounceTitle()}</strong></p><br/>
-          <h4><strong class="pull-left">发布时间</strong></h4><br/><br/>
-          <p class="pull-left">${announcement.getAnnoTime()}</p><br/>
+          <div><h4><strong class="pull-left">公告编号:</strong></h4><strong class="pull-left">${announcement.getAnnouncementId()}</strong><br/><br/></div>
+          <div><h4><strong class="pull-left">公告标题:</strong></h4><strong class="pull-left">${announcement.getAnnounceTitle()}</strong><br/><br/></div>
+          <div><h4><strong class="pull-left">发布时间:</strong></h4><strong class="pull-left">${announcement.getAnnoTime()}</strong><br/><br/></div>
         </div>
         </div>
 		    </div>

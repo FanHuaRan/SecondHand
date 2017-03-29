@@ -3,7 +3,6 @@
 <fullyQualifiedTypeName name="com.zml.shsite.daos.CommonStatistics"/>
 <fullyQualifiedTypeName name="org.springframework.orm.hibernate3.support.HibernateDaoSupport"/>
 <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.zml.shsite.test.CreateGoodViewModelTestCase"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.ICreateGoodViewModel"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.CreateGoodViewModelImpl"/>
@@ -17,7 +16,6 @@
 <fullyQualifiedTypeName name="org.hibernate.impl.CriteriaImpl"/>
 <fullyQualifiedTypeName name="org.springframework.orm.hibernate3.HibernateCallback"/>
 <fullyQualifiedTypeName name="com.google.inject.internal.FinalizablePhantomReference"/>
-<fullyQualifiedTypeName name="com.zml.shsite.viewmodels.GoodViewModel"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.impl.GoodServiceImpl"/>
 <fullyQualifiedTypeName name="com.zml.shsite.services.IGoodService"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="com.alibaba.fastjson.JSONObject"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
 <fullyQualifiedTypeName name="com.zml.shsite.models.Shuser"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.zml.shsite.viewmodels.GoodViewModel"/>
 </qualifiedTypeNameHistroy>
