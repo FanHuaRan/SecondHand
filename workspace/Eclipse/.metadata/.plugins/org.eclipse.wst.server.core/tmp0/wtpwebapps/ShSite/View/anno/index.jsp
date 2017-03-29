@@ -30,7 +30,7 @@
 			    ${fn:length(announcement.getAnnoContent())>20?'...':'' }
 				<em class="text-danger">${announcement.getAnnoTime()}s</em>
 				<a class="btn btn-info pull-right" href="/ShSite/Announcement/Details?id=${announcement.getAnnouncementId()}" 
-					role="button" >详细&raquo;</a>
+				   style="margin-top:-8px;"	role="button" >详细&raquo;&raquo;</a>
 				</li>
 			</ul>
 		     </div>

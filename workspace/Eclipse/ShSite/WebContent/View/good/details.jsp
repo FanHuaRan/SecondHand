@@ -106,7 +106,7 @@
                           console.log(data);
                           if(data==true){
                         	  alert("评价成功");
-                        	  $("#commentdivs").append('<div><img alt="头像" height="50" width="40" src="/ShSite/headportraits/'+userId.toString()+'.jpg"/><textarea readonly="readonly">'+comment.toString()+'</textarea></div>');
+                        	  $(".commentdivs").append('<div class="singlecommentdiv"><img alt="头像"  src="/ShSite/headportraits/'+userId.toString()+'.jpg"/><textarea readonly="readonly"> '+comment.toString()+'</textarea></div>');
                         	  $("#commetText").val("");
                           }
                           else{
@@ -121,7 +121,7 @@
 	<%@ include file="../header.jsp" %>
 	<div class="row" id="main">
 		<!-- 商品导航 -->
-	    <%@ include file="../catalogue.jsp" %>
+	    <%@ include file="../catalogue.jsp" %>	
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
 			<h3></h3>
@@ -138,6 +138,7 @@
 		         	<p>卖家：${good.getShuser().getShUserName()}</p>
 		            <p>联系方式：${good.getShuser().getPhone()}</p>
 		            <p>交易地址：${good.getShuser().getAddress()}</p>
+		            <p>商品状态：${good.getIsSell()==0?'未交易':'已交易'}</p>
 		            <p id="collectp">
 			         <c:if test="${iscollect==true}">
 			         	<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	
@@ -149,35 +150,39 @@
 			         </c:if>
 			         </p>
 		         </security:authorize>
+		         
 		         <security:authorize ifNotGranted="Admin,User">
 	           		<p>卖家：XXX</p>
 			        <p>联系方式: XXXXXXXXX</p>
 			        <p>交易地址：XXXXXXXXX</p>
+			        <p>商品状态：${good.getIsSell().equals(0)?'未交易':'已交易'}</p>
            		</security:authorize>
 		     
 				</div>
 			</div>
 			
-			<div style="border: 1px solid #8A8575;width:600px;">
-			<strong>商品描述</strong>
+			<div class="bigintroduce">
+			<h2 style="margin:0px;">商品描述</h2>
 			<p>${good.getDescription()}</p>
 			</div>
 			   
-			<div  id="commentdivs" style="border: 1px solid #8A8575;width:600px;margin-top:20px;">
-				<h2>留言板：</h2>
+			<div  class="commentdivs">	
+				<h2>留言板</h2>
 				<security:authorize access="isAuthenticated()">
-				<div>
-					<img alt="头像" height="50" width="50"
-					 src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
-					<textarea id="commetText" style="width:450px;" placeholder="请留言"></textarea>
+				<div class="singlecommentdiv">
+					<img alt="头像" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
+					<textarea id="commetText"  placeholder="请留言"></textarea>
 					<button type="button" class="btn btn-sm btn-info" 
 							id="sendCommentBtt" data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">发表评论</button>
 				</div>
 				</security:authorize>
+				
+				<c:if test="${comments.size()==0}">
+					<p>暂无任何用户对其进行评论</p>
+				</c:if>
 				<c:forEach items="${comments}" var="goodComment">
-					<div>
-					<img alt="头像" height="50" width="40" 
-					src="/ShSite/headportraits/${goodComment.getShuser().getShUserId()}.jpg"/>
+					<div class="singlecommentdiv">
+					<img alt="头像" src="/ShSite/headportraits/${goodComment.getShuser().getShUserId()}.jpg"/>
 					<textarea readonly="readonly">${goodComment.getComContent()}</textarea>
 				   </div>
 				</c:forEach>

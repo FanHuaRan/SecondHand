@@ -1,7 +1,0 @@
-package com.zml.shsite.services.impl;
-
-import com.zml.shsite.services.ICreateGoodViewModel;
-
-public class CreateGoodViewModelImpl implements ICreateGoodViewModel{
-
-}

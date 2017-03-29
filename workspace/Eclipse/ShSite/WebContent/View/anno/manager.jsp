@@ -21,6 +21,7 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+		<h3>公告管理站点</h3>
 		<div class="table-responsive">
 			<a href="/ShSite/Announcement/Create"><button type="button"  style="font-size:20px;" class="btn btn-xs btn-link">发布公告</button></a>
             <table class="table table-striped">
