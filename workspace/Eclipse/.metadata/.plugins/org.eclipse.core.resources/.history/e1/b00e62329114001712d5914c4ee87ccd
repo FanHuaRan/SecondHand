@@ -171,7 +171,7 @@
 				<security:authorize access="isAuthenticated()">
 				<div class="singlecommentdiv">
 					<img alt="头像" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
-					<textarea id="commetText"  style="border-style:groove;" placeholder="请留言"></textarea>
+					<textarea id="commetText"  style="border:1px;" placeholder="请留言"></textarea>
 					<button type="button" class="btn btn-sm btn-info" 
 							id="sendCommentBtt" data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">发表评论</button>
 				</div>

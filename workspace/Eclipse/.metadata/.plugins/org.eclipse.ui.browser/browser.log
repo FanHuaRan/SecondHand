@@ -1867,3 +1867,76 @@
 3月 29, 2017 22:55:58.76 [2336:3432:0329/225558.763:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
 3月 29, 2017 22:56:08.77 [2336:3432:0329/225608.770:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
 3月 29, 2017 22:56:08.77 [2336:4848:0329/225608.771:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+
+3月 29, 2017 23:04:16.66 NEW SESSION
+3月 29, 2017 23:04:16.66 [7688:10968:0329/230416.659:ERROR:angle_platform_impl.cc(33)] ANGLE Display::initialize error 5: DXGI 1.2 required to present to HWNDs owned by another process.
+3月 29, 2017 23:04:16.66 [7688:10968:0329/230416.659:ERROR:gl_surface_egl.cc(646)] eglInitialize D3D11 failed with error EGL_NOT_INITIALIZED, trying next display type
+3月 29, 2017 23:04:17.06 [9100:4832:0329/230417.068:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:17.07 [9100:4832:0329/230417.076:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:17.10 [9100:4832:0329/230417.102:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:17.10 [9100:4832:0329/230417.102:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:17.75 [9100:4832:0329/230417.756:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -103
+3月 29, 2017 23:04:18.59 [9100:4832:0329/230418.596:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:18.60 [9100:4832:0329/230418.603:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:21.17 [9100:4832:0329/230421.178:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:21.19 [9100:4832:0329/230421.193:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:26.35 [9100:4832:0329/230426.358:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:26.36 [9100:4832:0329/230426.361:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:26.37 [9100:4832:0329/230426.374:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:26.38 [9100:4832:0329/230426.380:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:29.21 [9100:4832:0329/230429.218:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:29.23 [9100:4832:0329/230429.229:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:51.32 [9100:4832:0329/230451.326:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:04:51.33 [9100:4832:0329/230451.338:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:05:44.39 [9100:4832:0329/230544.393:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:05:44.42 [9100:4832:0329/230544.426:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:05:52.92 [9100:4832:0329/230552.923:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:05:52.93 [9100:4832:0329/230552.932:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:05:57.99 [9100:4832:0329/230557.991:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:05:57.99 [9100:4832:0329/230557.999:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:05:58.00 [9100:4832:0329/230558.005:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:05:58.02 [9100:4832:0329/230558.023:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:06.28 [9100:4832:0329/230706.287:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:06.30 [9100:4832:0329/230706.306:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:06.30 [9100:10496:0329/230706.308:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+3月 29, 2017 23:07:06.31 [9100:4832:0329/230706.317:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:06.33 [9100:4832:0329/230706.336:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:26.53 [9100:4832:0329/230726.529:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:26.55 [9100:4832:0329/230726.554:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:26.55 [9100:10496:0329/230726.556:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+3月 29, 2017 23:07:26.58 [9100:4832:0329/230726.579:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:26.59 [9100:4832:0329/230726.591:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:34.41 [9100:4832:0329/230734.415:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:34.45 [9100:4832:0329/230734.452:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:34.46 [9100:4832:0329/230734.468:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:07:34.48 [9100:4832:0329/230734.479:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:08:14.65 [9100:4832:0329/230814.653:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:08:14.66 [9100:4832:0329/230814.661:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:08:14.66 [9100:10496:0329/230814.662:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
+3月 29, 2017 23:08:14.67 [9100:4832:0329/230814.676:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:08:14.68 [9100:4832:0329/230814.683:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:08:34.56 [9100:4832:0329/230834.566:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:08:34.57 [9100:4832:0329/230834.574:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:08:34.58 [9100:4832:0329/230834.582:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:08:34.59 [9100:4832:0329/230834.595:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:16.99 [9100:4832:0329/230916.999:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.02 [9100:4832:0329/230917.022:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.64 [9100:4832:0329/230917.646:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.68 [9100:4832:0329/230917.680:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.71 [9100:4832:0329/230917.713:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.72 [9100:4832:0329/230917.725:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.73 [9100:4832:0329/230917.732:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.75 [9100:4832:0329/230917.757:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.76 [9100:4832:0329/230917.768:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.77 [9100:4832:0329/230917.774:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.78 [9100:4832:0329/230917.782:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.79 [9100:4832:0329/230917.791:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.79 [9100:4832:0329/230917.796:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:17.80 [9100:4832:0329/230917.801:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:23.85 [9100:4832:0329/230923.856:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:23.87 [9100:4832:0329/230923.869:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:25.61 [9100:4832:0329/230925.611:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:25.63 [9100:4832:0329/230925.633:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:53.67 [9100:4832:0329/230953.674:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:53.68 [9100:4832:0329/230953.682:ERROR:ssl_client_socket_impl.cc(1101)] handshake failed; returned -1, SSL error code 1, net_error -101
+3月 29, 2017 23:09:53.68 [9100:10496:0329/230953.683:ERROR:gcm_channel_status_request.cc(89)] GCM channel request failed.
