@@ -15,11 +15,11 @@ MySQL 5.7
 
 * Spring 4.3
 
-*　Hibernate 3.3
+* Hibernate 3.3
 
-*　Spring Security 3.2
+* Spring Security 3.2
 
-*　C3p0 v2
+* C3p0 v2
 
 ## getting started
 
@@ -28,10 +28,9 @@ MySQL 5.7
 * run the shdb.sql
 * build workspace
 
-##　licence
+## licence
 * none
-
-##　About Author
+## About author
 ```javascript
   var author = {
     nickName  : "RanRanDemo",
