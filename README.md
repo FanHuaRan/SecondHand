@@ -34,6 +34,6 @@ MySQL 5.7
 ```javascript
   var author = {
     nickName  : "RanRanDemo",
-    email : "8341711@gmail.com"
+    email : "ranrandemo@gmail.com"
   }
 ```
