@@ -5,11 +5,11 @@ It can provide a platform for publishing and trading second-hand goods.
 
 ## tools
 
-Eclipse Mars1
+* Eclipse Mars1
 
-Tomcat 8.0
+* Tomcat 8.0
 
-MySQL 5.7
+* MySQL 5.7
 
 ## framework
 
