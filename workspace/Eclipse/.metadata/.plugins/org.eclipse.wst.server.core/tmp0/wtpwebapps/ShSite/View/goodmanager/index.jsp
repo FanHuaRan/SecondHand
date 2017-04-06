@@ -22,7 +22,7 @@
 		<div class="container col-lg-10">
 		<div class="table-responsive">
 			<a href="/ShSite/GoodManager/Create"><button type="button"  style="font-size:20px;" class="btn btn-xs btn-link">新增商品</button></a>
-            <table class="table table-striped">
+            <table class="table table-bordered" style="width:1100px;">
              <thead>
 			    <tr>
 			    	<th>商品编号</th>

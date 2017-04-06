@@ -108,6 +108,7 @@
                         	  alert("评价成功");
                         	  $(".commentdivs").append('<div class="singlecommentdiv"><img alt="头像"  src="/ShSite/headportraits/'+userId.toString()+'.jpg"/><textarea readonly="readonly"> '+comment.toString()+'</textarea></div>');
                         	  $("#commetText").val("");
+                        	  $("#nocommentp").remove();
                           }
                           else{
                         	  alert("评价失败");
@@ -162,28 +163,28 @@
 			</div>
 			
 			<div class="bigintroduce">
-			<h2 style="margin:0px;">商品描述</h2>
-			<p>${good.getDescription()}</p>
+			<h2 >商品描述:</h2>
+			<p>&nbsp;&nbsp;&nbsp;${good.getDescription()}</p>
 			</div>
 			   
 			<div  class="commentdivs">	
-				<h2>留言板</h2>
+				<h2>留言板:</h2>
 				<security:authorize access="isAuthenticated()">
-				<div class="singlecommentdiv">
+				<div  id="commentdiv">
 					<img alt="头像" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
 					<textarea id="commetText"  style="border-style:groove;" placeholder="请留言"></textarea>
 					<button type="button" class="btn btn-sm btn-info" 
 							id="sendCommentBtt" data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">发表评论</button>
 				</div>
 				</security:authorize>
-				
+				<hr />
 				<c:if test="${comments.size()==0}">
-					<p>暂无任何用户对其进行评论</p>
+					<p id="nocommentp">暂无任何用户对其进行评论</p>
 				</c:if>
 				<c:forEach items="${comments}" var="goodComment">
 					<div class="singlecommentdiv">
 					<img alt="头像" src="/ShSite/headportraits/${goodComment.getShuser().getShUserId()}.jpg"/>
-					<textarea readonly="readonly">${goodComment.getComContent()}</textarea>
+					<textarea r>${goodComment.getComContent()}</textarea>
 				   </div>
 				</c:forEach>
 			</div>

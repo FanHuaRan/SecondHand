@@ -20,6 +20,7 @@
 	    <%@ include file="../catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+			<h3></h3>
 			<form method="post" action="/ShSite/GoodManager/Edit" enctype="multipart/form-data"
 		  		id="defaultForm" class="form-horizontal"
                 data-bv-message="This value is not valid"

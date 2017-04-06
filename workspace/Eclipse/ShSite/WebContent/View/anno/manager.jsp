@@ -24,7 +24,7 @@
 		<h3></h3>
 		<div class="table-responsive">
 			<a href="/ShSite/Announcement/Create"><button type="button"  style="font-size:20px;" class="btn btn-xs btn-link">发布公告</button></a>
-            <table class="table table-striped">
+            <table class="table table-bordered" style="width:1100px;">
              <thead>
 			    <tr>
 			    	<th>公告编号</th>

@@ -22,7 +22,7 @@
 		<div class="container col-lg-10">
 		<h3></h3>
 		<div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-bordered" style="width:1100px;">
              <thead>
 			    <tr>
 			    	<th>编号</th>

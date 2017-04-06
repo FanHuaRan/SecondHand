@@ -22,28 +22,50 @@
 	line-height:50px;
 	font-size:17px;
 }
-.goods{
-	
-}
 .goodbottom{
 	width:100%;
 	text-align:center; 
 }
 .bigintroduce {
 	border: 1px solid #8A8575;
-	width: 600px;
+	width: 800px;
 	margin-top: 20px;
 	height: 100px;
 }
+.bigintroduce h2{
+	margin-top:3px;
+}
 .commentdivs {
 	border: 1px solid #8A8575;
-	width: 600px;
+	width: 800px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+.commentdivs h2{
+	margin-top:3px;
+}
+#commentdiv{
+	height:80px;
+	margin-top:20px;
+	margin-left:10px;
+	padding:5px;
+}
+#commentdiv img {
+	width: 40px;
+	height: 40px;
+	vertical-align: middle
+}
+#commentdiv textarea {
+	height:70px;
+	width: 620px;
+	vertical-align: middle;
+	margin-left:15px;
+	border: 1px solid #8A8575;
+}
 .singlecommentdiv{
 	height:50px;
-	margin-top:5px;
+	margin-top:20px;
+	margin-left:10px;
 	padding:5px;
 }
 .singlecommentdiv img {
@@ -51,8 +73,9 @@
 	height: 40px;
 	vertical-align: middle
 }
-
 .singlecommentdiv textarea {
-	width: 450px;
-	vertical-align: middle
+	width: 620px;
+	vertical-align: middle;
+	margin-left:15px;
+	border: 1px solid #8A8575;
 }

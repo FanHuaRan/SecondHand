@@ -21,7 +21,6 @@
 	    <%@ include file="catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
-			<h3></h3>
 			 <%@ include file="announcecarousel.jsp" %>
 		     <%@ include file="goodlist.jsp" %>
 		</div>

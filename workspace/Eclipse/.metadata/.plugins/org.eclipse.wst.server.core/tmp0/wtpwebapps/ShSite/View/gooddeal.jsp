@@ -20,6 +20,7 @@
 	    <%@ include file="catalogue.jsp" %>
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
+			<h3></h3>
 			<form action="/ShSite/Account/GoodDelete" method="post">
 				<input type="hidden" name="id" value="${good.getGoodId()}"/>
 				<input type="submit" value="删除该商品"/>

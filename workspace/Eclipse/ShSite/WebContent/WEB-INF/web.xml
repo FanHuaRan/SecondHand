@@ -122,10 +122,8 @@
 	    <location>/Status/404</location>
   </error-page>
   <!-- 便于观察错误 所以500响应暂时不配置错误页 -->
-  <!--  
   <error-page>
 	    <error-code>500</error-code>
 	    <location>/Status/500</location>
   </error-page>
-  -->
 </web-app>

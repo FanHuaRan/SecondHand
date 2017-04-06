@@ -15,11 +15,11 @@
       <div class="carousel-inner">
       		<c:forEach items="${announcements}" var="announcement" varStatus="idx">
           		<div  <c:if test="${idx.index==0}">class="item active"</c:if><c:if test="${idx.index!=0}">class="item"</c:if>> 
-        		   <img data-src="holder.js/800x500/auto/#777:#7a7a7a/text:">
+        		 <!--<img data-src="holder.js/500x500/#777:#F5DEB3/text:"> -->
 		          	<div class="container">
 		           		 <div class="carousel-caption">
-		             	 <h1>${announcement.getAnnounceTitle()}</h1>
-		              		<p>${announcement.getAnnoContent()}</p>
+		             	 <h1 style="color:#EE2C2C;">${announcement.getAnnounceTitle()}</h1>
+		                 <p  style="color:#EE2C2C;">${announcement.getAnnoContent()}</p>
 		            	 </div>
 		         	</div>
 		        </div>
