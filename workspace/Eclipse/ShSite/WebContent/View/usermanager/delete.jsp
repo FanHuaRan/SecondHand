@@ -45,12 +45,12 @@
 	        <dd>${shuser.getAddress()}</dd>
 	    </dl>
 		</div>
-		<form action="/ShiSite/UserManager/Delete"  method="POST">
+		<form action="/ShSite/UserManager/Delete"  method="POST">
 			<input type="hidden" name="id" value="${shuser.getShUserId()}"/>
 			<input type="submit" value="确定删除"/>
 		</form>
-		    <a href="/ShiSite/UserManager/Edit?id=${album.getAlbumId()}">编辑</a>
-		     <a href="/ShiSite/UserManager">返回人员管理主页</a>
+		    <a href="/ShSite/UserManager/Edit?id=${album.getAlbumId()}">编辑</a>
+		     <a href="/ShSite/UserManager">返回人员管理主页</a>
 		</div>
 	</div>
 	<%@ include file="../footer.jsp" %>

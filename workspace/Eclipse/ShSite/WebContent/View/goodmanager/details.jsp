@@ -29,6 +29,19 @@
                           if(data>0){
                         	  alert("收藏成功");
                         	  $("#collectp").html('<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	data-id="'+data+'">取消收藏</button>');
+                        	  $("#cancelBtt").click(function () {
+                              	var collectId=$(this).attr("data-id");
+                                  $.post("/ShSite/Good/CancelCollect"
+                                            , {collectId: collectId}
+                                            , function (data) {
+                                                console.log(data);
+                                                if(data==true){
+                                              	  var goodId=$("#sendCommentBtt").attr("data-goodid");
+                                                	  var userId=$("#sendCommentBtt").attr("data-id");
+                                              	  $("#collectp").html('<button type="button" id="collectBtt" class="btn btn-sm btn-info" data-goodid="'+goodId+'" data-id="'+userId+'">加入收藏</button>');
+                                                }
+                                            });
+                                  });
                           }
                           else{
                         	  alert("收藏失败");
@@ -45,6 +58,37 @@
                         	  var goodId=$("#sendCommentBtt").attr("data-goodid");
                           	  var userId=$("#sendCommentBtt").attr("data-id");
                         	  $("#collectp").html('<button type="button" id="collectBtt" class="btn btn-sm btn-info" data-goodid="'+goodId+'" data-id="'+userId+'">加入收藏</button>');
+                        	  $("#collectBtt").click(function () {
+                              	var goodId=$(this).attr("data-goodid");
+                              	var userId=$(this).attr("data-id");
+                                  $.post("/ShSite/Good/GoodCollect"
+                                            , { goodId: goodId,userId:userId}
+                                            , function (data) {
+                                                // Successful requests get here
+                                                // Update the page elements
+                                                console.log(data);
+                                                if(data>0){
+                                              	  alert("收藏成功");
+                                              	  $("#collectp").html('<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	data-id="'+data+'">取消收藏</button>');
+                                              	  $("#cancelBtt").click(function () {
+                                                    	var collectId=$(this).attr("data-id");
+                                                        $.post("/ShSite/Good/CancelCollect"
+                                                                  , {collectId: collectId}
+                                                                  , function (data) {
+                                                                      console.log(data);
+                                                                      if(data==true){
+                                                                    	  var goodId=$("#sendCommentBtt").attr("data-goodid");
+                                                                      	  var userId=$("#sendCommentBtt").attr("data-id");
+                                                                    	  $("#collectp").html('<button type="button" id="collectBtt" class="btn btn-sm btn-info" data-goodid="'+goodId+'" data-id="'+userId+'">加入收藏</button>');
+                                                                      }
+                                                                  });
+                                                        });
+                                                }
+                                                else{
+                                              	  alert("收藏失败");
+                                                }
+                                            });
+                                  });
                           }
                       });
             });
@@ -62,8 +106,9 @@
                           console.log(data);
                           if(data==true){
                         	  alert("评价成功");
-                        	  $("#commentdivs").append('<div><img alt="头像" height="50" width="40" src="/ShSite/headportraits/'+userId.toString()+'.jpg"/><textarea readonly="readonly">'+comment.toString()+'</textarea></div>');
+                        	  $(".commentdivs").append('<div class="singlecommentdiv"><img alt="头像"  src="/ShSite/headportraits/'+userId.toString()+'.jpg"/><textarea readonly="readonly"> '+comment.toString()+'</textarea></div>');
                         	  $("#commetText").val("");
+                        	  $("#nocommentp").remove();
                           }
                           else{
                         	  alert("评价失败");
@@ -77,10 +122,10 @@
 	<%@ include file="../header.jsp" %>
 	<div class="row" id="main">
 		<!-- 商品导航 -->
-	    <%@ include file="../catalogue.jsp" %>
+	    <%@ include file="../catalogue.jsp" %>	
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
-			
+			<h3></h3>
 			<!-- 商品信息 -->
 			<div class="row" style="height:250px;margin-top:20px;">
 				<div class="col-md-3">
@@ -90,41 +135,56 @@
 				<div class="col-md-4" style="font-size:18px; line-height:24px;">
 		         <h2>${good.getGoodName()}</h2>
 		         <p style="color:#F00">¥${good.getGoodPrice()}</p> 
-		         <p>卖家：${good.getShuser().getShUserName()}</p>
-		         <p>联系方式：${good.getShuser().getPhone()}</p>
-		         <p>交易地址：${good.getShuser().getAddress()}</p>
-		         <p id="collectp">
-		         <c:if test="${iscollect==true}">
-		         	<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	
-		         			data-id="${collectId}">取消收藏</button>
-		         </c:if>
-		         <c:if test="${iscollect==false}">
-		         	<button type="button" id="collectBtt" class="btn btn-sm btn-info"	
-		         			 data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">加入收藏</button>
-		         </c:if>
-		         </p>
+		         <security:authorize access="isAuthenticated()">
+		         	<p>卖家：${good.getShuser().getShUserName()}</p>
+		            <p>联系方式：${good.getShuser().getPhone()}</p>
+		            <p>交易地址：${good.getShuser().getAddress()}</p>
+		            <p>商品状态：${good.getIsSell()==0?'未交易':'已交易'}</p>
+		            <p id="collectp">
+			         <c:if test="${iscollect==true}">
+			         	<button type="button" id="cancelBtt" class="btn btn-sm btn-info"	
+			         			data-id="${collectId}">取消收藏</button>
+			         </c:if>
+			         <c:if test="${iscollect==false}">
+			         	<button type="button" id="collectBtt" class="btn btn-sm btn-info"	
+			         			 data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">加入收藏</button>
+			         </c:if>
+			         </p>
+		         </security:authorize>
+		         
+		         <security:authorize ifNotGranted="Admin,User">
+	           		<p>卖家：XXX</p>
+			        <p>联系方式: XXXXXXXXX</p>
+			        <p>交易地址：XXXXXXXXX</p>
+			        <p>商品状态：${good.getIsSell().equals(0)?'未交易':'已交易'}</p>
+           		</security:authorize>
+		     
 				</div>
 			</div>
 			
-			<div style="border: 1px solid #8A8575;width:600px;">
-			<strong>商品描述</strong>
-			<p>${good.getDescription()}</p>
+			<div class="bigintroduce">
+			<h2 >商品描述:</h2>
+			<p>&nbsp;&nbsp;&nbsp;${good.getDescription()}</p>
 			</div>
-			
-			<div  id="commentdivs" style="border: 1px solid #8A8575;width:600px;margin-top:20px;">
-				<h2>留言板：</h2>
-				<div>
-					<img alt="头像" height="50" width="50"
-					 src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
-					<textarea id="commetText" style="width:450px;" placeholder="请留言"></textarea>
+			   
+			<div  class="commentdivs">	
+				<h2>留言板:</h2>
+				<security:authorize access="isAuthenticated()">
+				<div  id="commentdiv">
+					<img alt="头像" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
+					<textarea id="commetText"  style="border-style:groove;" placeholder="请留言"></textarea>
 					<button type="button" class="btn btn-sm btn-info" 
 							id="sendCommentBtt" data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">发表评论</button>
 				</div>
+				</security:authorize>
+				<hr />
+				<c:if test="${comments.size()==0}">
+					<p id="nocommentp">暂无任何用户对其进行评论</p>
+				</c:if>
 				<c:forEach items="${comments}" var="goodComment">
-					<div>
-					<img alt="头像" height="50" width="40" 
-					src="/ShSite/headportraits/${goodComment.getShuser().getShUserId()}.jpg"/>
-					<textarea readonly="readonly">${goodComment.getComContent()}</textarea>
+					<div class="singlecommentdiv">
+					<img alt="头像" src="/ShSite/headportraits/${goodComment.getShuser().getShUserId()}.jpg"/>
+					<textarea r>${goodComment.getComContent()}</textarea>
 				   </div>
 				</c:forEach>
 			</div>

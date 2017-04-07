@@ -36,7 +36,7 @@
                                    value="${announcement.getAnnounceTitle()}"
                                    data-bv-message="标题无效"
                                    required data-bv-notempty-message="标题不能为空"
-                                   data-bv-stringlength="true" data-bv-stringlength-min="5" data-bv-stringlength-max="20" data-bv-stringlength-message="标题必须保证在5到20个字符"
+                                   data-bv-stringlength="true" data-bv-stringlength-min="4" data-bv-stringlength-max="20" data-bv-stringlength-message="标题必须保证在4到20个字符"
                            		/>
                         </div>
                     </div>  

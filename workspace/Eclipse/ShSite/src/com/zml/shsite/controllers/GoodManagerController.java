@@ -1,5 +1,9 @@
 package com.zml.shsite.controllers;
 
+import java.sql.Timestamp;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -13,6 +17,8 @@ import com.zml.shsite.components.exception.UserNotFoundException;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.models.Shuser;
 import com.zml.shsite.services.IFileService;
+import com.zml.shsite.services.IGoodCollectService;
+import com.zml.shsite.services.IGoodCommentService;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
 import com.zml.shsite.services.IUserService;
@@ -30,6 +36,10 @@ public class GoodManagerController {
 	private IUserService userService=null;
 	@Autowired
 	private IFileService fileService=null;
+	@Autowired
+	private IGoodCollectService goodCollectService=null;
+	@Autowired
+	private IGoodCommentService goodCommentService=null;
 	@RequestMapping
 	public String index(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
@@ -37,28 +47,43 @@ public class GoodManagerController {
 		return "goodmanager/index";
 	}
 	@RequestMapping("/Details")
-	public String detail(Integer id,Model model){
+	public String detail(Integer id,Model model,HttpSession httpSession){
 		Good good=null;
 		if(id==null||(good=goodService.findById(id))==null){
 			throw new GoodNotFoundException();
 		}
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("good", good);
+		model.addAttribute("comments",goodCommentService.findGoodCommentByGoodId(id));
+		if(httpSession.getValue("user")!=null){
+			Shuser shuser=(Shuser)httpSession.getValue("user");
+			int collectId=goodCollectService.isCollect(id,shuser.getShUserId());
+			model.addAttribute("iscollect",collectId>0);
+			model.addAttribute("collectId",collectId);
+		}
+		else{
+			model.addAttribute("iscollect",false);
+		}
 		return "goodmanager/details";
 	}
 	@RequestMapping("/Create")
 	public String create(Model model){
+		model.addAttribute("users",userService.findAll());
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("good",new Good());
 		return "goodmanager/create";
 	}
 	@RequestMapping(value="/Create",
 					method=RequestMethod.POST)
-	public String create(Good good,Model model){
-		try{
+	public String create(Good good,MultipartFile imgFile,Model model){
+		try {
+			good.setDesTime(new Timestamp(System.currentTimeMillis()));
 			goodService.save(good);
-	        return "redirect:/UserManager";
-		}catch(Exception e){
+			if (!imgFile.isEmpty()) {
+				fileService.saveOrUpdateGoodImage(imgFile, good.getGoodId());
+			}
+			return "redirect:/GoodManager";
+		} catch (Exception e) {
 			model.addAttribute("goodTypes", goodtypeService.findAll());
 			return "goodmanager/create";
 		}

@@ -27,14 +27,13 @@
                 data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
                 data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
                 data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
-                <input type="hidden" name="DesTime" value="${good.getDesTime()}"/>
                 <div class="row">
 	                <div class="col-md-4" id="left">
 	                <img id="image" src="/ShSite/goodimages/${good.getGoodId()}.jpg" style="width:300px;height:300px;"/>
 	                <input type="file" name="imgFile" id="file" onchange="selectImage(this);"/>
 	                </div>
 	                <div class="col-md-4" id="right">
-	                		
+	                		<input type="hidden" name="DesTime" value="${good.getDesTime()}"/>
 	                		<input type="hidden" name="GoodId" value="${good.getGoodId()}" />
                     		<div class="form-group">
 		                        <label class="col-lg-4 control-label">商品发布人：</label>
