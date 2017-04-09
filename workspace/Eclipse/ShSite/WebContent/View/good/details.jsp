@@ -95,6 +95,7 @@
          $("#sendCommentBtt").click(function () {
         	 var goodId=$(this).attr("data-goodid");
          	 var userId=$(this).attr("data-id");
+         	 var userName=$(this).attr("data-name");
          	 var comment=$("#commetText").val();
              $.post("/ShSite/Good/GoodComment"
                       , { goodId: goodId,
@@ -106,9 +107,9 @@
                           console.log(data);
                           if(data==true){
                         	  alert("评价成功");
-                        	  $(".commentdivs").append('<div class="singlecommentdiv"><img alt="头像"  src="/ShSite/headportraits/'+userId.toString()+'.jpg"/><textarea readonly="readonly"> '+comment.toString()+'</textarea></div>');
-                        	  $("#commetText").val("");
                         	  $("#nocommentp").remove();
+                        	  $("#commenthr").after('<div class="singlecommentdiv"><img alt="'+userName+'" src="/ShSite/headportraits/'+userId.toString()+'.jpg"/><span> '+userName+'：</span><span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;<textarea readonly="readonly"> '+comment.toString()+'</textarea></div>');
+                        	  $("#commetText").val("");
                           }
                           else{
                         	  alert("评价失败");
@@ -172,19 +173,23 @@
 				<security:authorize access="isAuthenticated()">
 				<div  id="commentdiv">
 					<img alt="头像" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/>
-					<textarea id="commetText"  style="border-style:groove;" placeholder="请留言"></textarea>
+					<textarea id="commetText"  style="border-style:groove;" placeholder="请在此发布留言"></textarea>
 					<button type="button" class="btn btn-sm btn-info" 
-							id="sendCommentBtt" data-goodid="${good.getGoodId()}" data-id="${sessionScope.user.getShUserId()}">发表评论</button>
+							id="sendCommentBtt" data-goodid="${good.getGoodId()}" 
+							data-name="${sessionScope.user.getShUserName()}"
+							data-id="${sessionScope.user.getShUserId()}">发表评论</button>
 				</div>
 				</security:authorize>
-				<hr />
+				<hr id="commenthr" />
 				<c:if test="${comments.size()==0}">
 					<p id="nocommentp">暂无任何用户对其进行评论</p>
 				</c:if>
 				<c:forEach items="${comments}" var="goodComment">
 					<div class="singlecommentdiv">
-					<img alt="头像" src="/ShSite/headportraits/${goodComment.getShuser().getShUserId()}.jpg"/>
-					<textarea r>${goodComment.getComContent()}</textarea>
+					<img alt="${goodComment.getShuser().getShUserName()}" src="/ShSite/headportraits/${goodComment.getShuser().getShUserId()}.jpg"/>
+				    <span>${goodComment.getShuser().getShUserName()}：</span>
+				    <span class="glyphicon glyphicon-hand-right"></span>
+				    <textarea readonly="readonly">${goodComment.getComContent()}</textarea>
 				   </div>
 				</c:forEach>
 			</div>

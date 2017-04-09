@@ -22,7 +22,9 @@ public class GoodCommentServiceImpl implements IGoodCommentService{
 
 	@Override
 	public List<Goodcomment> findGoodCommentByGoodId(int id) {
-		return goodcommentDAO.findByGoodId(id);
+		String hql="from Goodcomment goodcomment order by goodcomment.comTime desc"; 
+		return goodcommentDAO.findByHQL(hql);
+		//return goodcommentDAO.findByGoodId(id);
 	}
 
 	@Override

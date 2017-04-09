@@ -3369,3 +3369,14 @@
 4月 07, 2017 08:58:32.91 [10120:9648:0407/085832.909:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
 4月 07, 2017 08:58:32.91 [10120:9648:0407/085832.910:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
 4月 07, 2017 08:58:34.38 [10120:9648:0407/085834.380:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+
+4月 09, 2017 12:51:03.79 NEW SESSION
+4月 09, 2017 12:51:03.79 [10460:5784:0409/125103.793:ERROR:angle_platform_impl.cc(33)] ANGLE Display::initialize error 0: No available renderers.
+4月 09, 2017 12:51:03.83 [10460:5784:0409/125103.793:ERROR:gl_surface_egl.cc(676)] eglInitialize D3D11 failed with error EGL_NOT_INITIALIZED, trying next display type
+4月 09, 2017 12:51:03.93 [10460:5784:0409/125103.932:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+4月 09, 2017 12:54:28.55 [8992:6420:0409/125428.553:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+4月 09, 2017 12:54:28.99 [8992:6420:0409/125428.993:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+4月 09, 2017 12:55:42.33 [8992:6420:0409/125542.331:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+4月 09, 2017 12:57:13.43 [8992:6420:0409/125713.435:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+4月 09, 2017 12:57:23.44 [8992:6420:0409/125723.444:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101
+4月 09, 2017 12:59:13.00 [8992:6420:0409/125913.003:ERROR:ssl_client_socket_impl.cc(1136)] handshake failed; returned -1, SSL error code 1, net_error -101

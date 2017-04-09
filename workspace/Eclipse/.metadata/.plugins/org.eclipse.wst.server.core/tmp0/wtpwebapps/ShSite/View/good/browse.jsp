@@ -22,6 +22,11 @@
 	    <!-- 主框架 -->
 		<div class="container col-lg-10">
 			 <h3></h3>
+			<c:if test="${goods.size()==0}">
+				<div class="alert alert-info" style="margin-top:50px;">
+		        	该类目下暂无商品!到我们<a href="/ShSite/Good">商品主页</a>看看？
+		        </div>
+			</c:if>
 		     <%@ include file="../goodlist.jsp" %>
 		</div>
 	</div>
