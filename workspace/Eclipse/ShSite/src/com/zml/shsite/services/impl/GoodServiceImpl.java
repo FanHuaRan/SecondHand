@@ -30,7 +30,7 @@ public  class GoodServiceImpl implements IGoodService {
 
 	@Override
 	public List<Good> findTopOrderByTime(int count) {
-		return goodDao.findTopNByHQL("from Good order by desTime asc ", 4);
+		return goodDao.findTopNByHQL("from Good order by desTime desc ", 4);
 	}
 
 	@Override

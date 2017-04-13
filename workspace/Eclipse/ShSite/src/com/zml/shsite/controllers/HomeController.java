@@ -38,7 +38,7 @@ public class HomeController {
 	private void dealModels(Model model) {
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("announcements", announcementService.findAll());
-		List<Good> goods=goodService.findTopOrderByTime(4);
+		List<Good> goods=goodService.findTopOrderByTime(10);
 		model.addAttribute("goods",createGoodViewModel.create(goods));
 	}
 }

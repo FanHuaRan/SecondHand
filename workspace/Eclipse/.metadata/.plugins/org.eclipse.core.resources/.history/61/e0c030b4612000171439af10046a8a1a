@@ -25,7 +25,7 @@
 			 <%@ include file="announcecarousel.jsp" %>
 			 <hr style="width:99%">
 		     <%@ include file="goodlist.jsp" %>
-		     <h4 style="margin-top:-2px;"><a href="/ShSite/Good">更多商品</a></h4>
+		     <a>更多商品</a>
 		</div>
 	</div>
 	<%@ include file="footer.jsp" %>
