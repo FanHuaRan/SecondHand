@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-	 <h3>
-	  <!--<span class="label label-success">最新公告<a href="/ShSite/Announcement">&raquo;</a></span>-->
-	  <button type="button" class="btn btn-lg btn-link"><a href="/ShSite/Announcement">更多公告</a></button>
-	 </h3>
+
+	 <div class="notice_title"><a href="/ShSite/Announcement">Notice</a></div>
+	 
      <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">

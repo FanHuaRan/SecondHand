@@ -40,7 +40,7 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
  
- <!-- 权限拦截器 -->
+ <!-- 权限过滤器 -->
     <filter>
       <filter-name>springSecurityFilterChain</filter-name>
      <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -50,8 +50,8 @@
       <url-pattern>/*</url-pattern>
    </filter-mapping>
    
-  <!-- 关键字替换拦截器 -->
-  <filter>  
+  <!-- 关键字替换过滤器 最好配置在权限和编码过滤器之后效率更高,url写慎重点,不要对所有页面都替换 -->
+   <filter>  
 	   <filter-name>keyDealFilter</filter-name>  
 	   <filter-class>com.zml.shsite.components.ResponeKeyDealFilter</filter-class>  
   </filter>  
@@ -59,7 +59,7 @@
 	   <filter-name>keyDealFilter</filter-name>  
 	   <url-pattern>/*</url-pattern>  
   </filter-mapping>  
- 
+  
    <!-- 配置静态资源访问 -->
   <servlet-mapping>
     <servlet-name>default</servlet-name>
@@ -105,6 +105,7 @@
     <servlet-name>default</servlet-name>
     <url-pattern>*.woff</url-pattern>
   </servlet-mapping>
+  
   <!-- web前端控制器 可以返回视图 同时也支持返回json-->
   <servlet>
     <servlet-name>springweb</servlet-name>

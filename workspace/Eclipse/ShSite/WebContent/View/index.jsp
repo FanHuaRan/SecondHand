@@ -12,6 +12,7 @@
 <script type="text/javascript" src="/ShSite/js/bootstrapValidator.js"></script>
 <link rel="stylesheet" type="text/css" href="/ShSite/css/site.css">
 <link href="/ShSite/css/carousel.css" rel="stylesheet">
+<link rel="stylesheet" href="/ShSite/css/main.css">
 <title>校园二手交易系统</title>
 </head>
 <body>
@@ -20,8 +21,9 @@
 		<!-- 商品导航 -->
 	    <%@ include file="catalogue.jsp" %>
 	    <!-- 主框架 -->
-		<div class="container col-lg-10">
+		<div class="container col-lg-10" id="content">
 			 <%@ include file="announcecarousel.jsp" %>
+			 <hr style="width:99%">
 		     <%@ include file="goodlist.jsp" %>
 		</div>
 	</div>

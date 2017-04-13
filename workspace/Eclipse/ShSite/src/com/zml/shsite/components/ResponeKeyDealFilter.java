@@ -42,11 +42,17 @@ public class ResponeKeyDealFilter implements Filter {
 		//对返回内容进行包装
         ResponseWrapper wrapper = new ResponseWrapper((HttpServletResponse)response);  
         //方形http请求,二个参数是我们的包装器而不是response  
+        //chain.doFilter(request, response);//放行让其走到下个链或目标资源中 
         chain.doFilter(request,wrapper);  
-        // 处理截获的结果并进行处理   chain.doFilter(request, response);//放行。让其走到下个链或目标资源中 
-        String result = dealResult(wrapper.getResult()); 
-        // 输出最终的结果  
-        outPutResult(response, result);  
+        // 处理截获的结果并进行处理 
+       //获取返回内容
+        String orgin=wrapper.getResult();
+        //如果不是空串就要进行处理，
+        //其一是防止静态文件，其二是不对空字符串进行处理
+        if(orgin!=null&&!orgin.equals("")){
+             // 输出最终的结果  
+             outPutResult(response,dealResult(orgin));  
+        }
 	}
 	/**
 	 * 输出处理后的内容

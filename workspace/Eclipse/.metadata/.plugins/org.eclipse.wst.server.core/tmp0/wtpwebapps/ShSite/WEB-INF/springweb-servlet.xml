@@ -40,6 +40,14 @@
 		<property name="prefix" value="/View/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<!-- 
+	 <mvc:interceptors>  
+        <mvc:interceptor>  
+            <mvc:mapping path="/*"/>  
+            <bean class="com.zml.shsite.components.ResponeKeyDealInterceptor" />  
+        </mvc:interceptor>  
+    </mvc:interceptors>  
+     -->
 	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="UTF-8"/>

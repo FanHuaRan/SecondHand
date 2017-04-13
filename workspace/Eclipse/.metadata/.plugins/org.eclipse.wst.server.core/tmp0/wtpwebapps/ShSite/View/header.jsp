@@ -1,9 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-      	
+		  <div class="banner_box">
+				<div class="banner dropdown">
+					<img src="/ShSite/resources/images/logo.png" class="img1" />
+					  <!-- 如果已经授权则显示退出链接 -->
+		            <security:authorize access="isAuthenticated()">
+		                <div class="online_user dropdown-toggle" data-toggle="dropdown">
+							<img src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg" class="img-circle" width="50">
+							<span>${sessionScope.user.getShUserName()}</span>
+						</div>
+							<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdown">
+			                    <li role="presentation" class="dropdown-header">嗨，${sessionScope.user.getShUserName()}</li>
+								<li><a href="/ShSite/Account/PersonCenter/${sessionScope.user.getShUserId()}">个人中心</a></li>
+				                <li><a href="/ShSite/Good/Publish">我要发布</a></li>
+				                <li><a href="/ShSite/Account/CollectCenter/${sessionScope.user.getShUserId()}">我的收藏</a></li>
+				                <li><a href="/ShSite/Account/LogOut">退出登录</a></li>
+			                </ul>
+		            </security:authorize>
+						 <!-- 不具有 Admin,User的权限则显示登录链接-->
+			           <security:authorize ifNotGranted="Admin,User">
+			           		<div class="online_user">
+			           		<a href="/ShSite/Account/LogOn">登录</a>
+			           		<a href="/ShSite/Account/Register">注册</a>
+			           		</div>
+			           </security:authorize>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2">
+				</div>
+				<div class="col-lg-10">
+					<nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
       	 <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -75,43 +104,26 @@
           </button>
           <a class="navbar-brand" href="/ShSite/Announcement/Manager">公告管理</a>
          </div>
-         
          </security:authorize>
-        
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-          	<!-- 搜索框 -->
-	          <li>
-	           	<form class="navbar-form" style="margin-top:2px;" role="search" action="/ShSite/Good/Search" method="post">
-		        <div class="form-group" >
-		            <input type="text" name="key" class="form-control" placeholder="请输入你想搜索的二货" style="width:400px;"/>
-		         </div>
-		            <button type="submit" class="btn btn-success navbar-btn">搜索</button>
-		        </form>
-		      </li>
-		    
-          	   <!-- 如果已经授权则显示退出链接 -->
-            <security:authorize access="isAuthenticated()">
-            	<li><img alt="头像" style="width:50px;height:50px;" src="/ShSite/headportraits/${sessionScope.user.getShUserId()}.jpg"/></li>
-            	<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-               		<security:authentication property="name"/> 
-               		 <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="/ShSite/Account/PersonCenter/${sessionScope.user.getShUserId()}">个人中心</a></li>
-                  <li><a href="/ShSite/Good/Publish">我要发布</a></li>
-                  <li><a href="/ShSite/Account/CollectCenter/${sessionScope.user.getShUserId()}">我的收藏</a></li>
-                  <li><a href="/ShSite/Account/LogOut">退出登录</a></li>
-                </ul>
-              </li>
-            </security:authorize>
-            <!-- 不具有 Admin,User的权限则显示登录链接-->
-           <security:authorize ifNotGranted="Admin,User">
-           		<li><a href="/ShSite/Account/LogOn">登录</a></li>
-           		<li><a href="/ShSite/Account/Register">注册</a></li>
-           </security:authorize>
-          </ul>
-        </div>
-      </div>
+         
+         <div class="navbar-header" style="margin-left:140px;">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+				<form class="search_box navbar-brand" action="/ShSite/Good/Search" method="post" style="margin-top:-10px;">
+					<div class="input_wr">
+						<input type="text" name="key" placeholder="搜索你想要的二货">
+						<span>
+	                	<input type="submit" value=""/>
+	                	</span>
+					</div>
+				</form>
+         </div>
+         </div>
  </nav>
+					
+				</div>
+			</div>
