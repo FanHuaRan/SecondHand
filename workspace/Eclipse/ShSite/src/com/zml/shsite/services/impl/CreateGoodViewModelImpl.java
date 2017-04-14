@@ -10,6 +10,12 @@ import com.zml.shsite.daos.CommonStatistics;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.services.ICreateGoodViewModel;
 import com.zml.shsite.viewmodels.GoodViewModel;
+/**
+ * GoodViewModel服务，也就是根据商品信息，
+ * 查询其评论数和收藏数，从而包装为GoodViewModel
+ * @author zml
+ *
+ */
 @Service
 public class CreateGoodViewModelImpl implements ICreateGoodViewModel {
 	@Autowired

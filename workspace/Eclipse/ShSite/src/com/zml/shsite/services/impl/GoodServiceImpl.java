@@ -10,6 +10,12 @@ import com.zml.shsite.daos.GoodcollectDAO;
 import com.zml.shsite.daos.GoodcommentDAO;
 import com.zml.shsite.models.Good;
 import com.zml.shsite.services.IGoodService; 
+/**
+ * 商品服务
+ * 主要包含商品的增删改查
+ * @author ASUS
+ *
+ */
 @Service
 public  class GoodServiceImpl implements IGoodService {
 	@Autowired
@@ -25,12 +31,13 @@ public  class GoodServiceImpl implements IGoodService {
 
 	@Override
 	public List<Good> findAll() {
-		return goodDao.findAll();
+//		return goodDao.findAll();
+		return goodDao.findByHQL("from Good order by desTime desc");
 	}
 
 	@Override
 	public List<Good> findTopOrderByTime(int count) {
-		return goodDao.findTopNByHQL("from Good order by desTime desc ", 4);
+		return goodDao.findTopNByHQL("from Good order by desTime desc ",count);
 	}
 
 	@Override
@@ -61,7 +68,8 @@ public  class GoodServiceImpl implements IGoodService {
 
 	@Override
 	public List<Good> findByGoodType(int goodTypeId) {
-		return goodDao.findBygoodTypeId(goodTypeId);
+//		return goodDao.findBygoodTypeId(goodTypeId);
+		return goodDao.findByHQL("from Good where goodTypeId=? order by desTime desc",goodTypeId);
 	}
 
 	@Override

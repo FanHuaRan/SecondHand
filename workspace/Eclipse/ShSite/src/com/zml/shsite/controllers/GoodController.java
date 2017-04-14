@@ -34,7 +34,11 @@ import com.zml.shsite.services.IUserService;
 import com.zml.shsite.services.impl.GoodCollectServiceImpl;
 import com.zml.shsite.services.impl.UserServiceImpl;
 import com.zml.shsite.viewmodels.GoodViewModel;
-
+/**
+ * 商品一般操作控制器
+ * @author ASUS
+ *
+ */
 @Controller
 @RequestMapping("/Good")
 public class GoodController {
@@ -52,12 +56,14 @@ public class GoodController {
 	private IGoodCollectService goodCollectService=null;
 	@Autowired
 	private IGoodCommentService goodCommentService=null;
+	//商品主页面请求
 	@RequestMapping
 	public String index(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("goods", createGoodViewModel.create(goodService.findAll()));
 		return "good/index";
 	}
+	//商品查询页面请求
 	@RequestMapping(value="/Search",method=RequestMethod.POST)
 	public String search(String key,Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
@@ -67,7 +73,7 @@ public class GoodController {
 		else model.addAttribute("goods", createGoodViewModel.create(goodService.findByNameKey(key)));
 		return "good/search";
 	}
-	
+	//商品分类页面请求
 	@RequestMapping("/Browse")
 	public String browse(Integer id,Model model){
 		if(id==null){
@@ -77,7 +83,7 @@ public class GoodController {
 		model.addAttribute("goods", createGoodViewModel.create(goodService.findByGoodType(id)));
 		return "good/browse";
 	}
-	
+	//商品详细信息页面请求
 	@RequestMapping("/Details")
 	public String details(Integer id,Model model,HttpSession httpSession){
 		Good good=null;
@@ -98,14 +104,14 @@ public class GoodController {
 		}
 		return "good/details";
 	}
-	//商品发布
+	//商品发布页面请求
 	@RequestMapping("/Publish")
 	public String publish(Integer id,Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		//model.addAttribute("good", good);
 		return "good/publish";
 	}
-	//商品发布post
+	//商品发布
 	@RequestMapping(value="/Publish",
 					method=RequestMethod.POST)
 	public String publishPost(Good good,MultipartFile imgFile,Model model){
@@ -119,7 +125,7 @@ public class GoodController {
 		return "good/publish";
 	}
 	
-	//商品收藏post
+	//商品收藏
 	@RequestMapping(value="/GoodCollect",
 					method=RequestMethod.POST)
 	@ResponseBody
@@ -135,7 +141,7 @@ public class GoodController {
 		return goodcollect.getGoodCollectId();
 	}
 
-	// 取消商品收藏post
+	// 取消商品收藏
 	@RequestMapping(value = "/CancelCollect", method = RequestMethod.POST)
 	@ResponseBody
 	public boolean cancelCollect(Integer collectId) {
@@ -145,7 +151,7 @@ public class GoodController {
 		goodCollectService.remove(collectId);
 		return true;
 	}
-	//商品评论post
+	//商品评论
 	@Secured({"Admin","User"})
 	@RequestMapping(value="/GoodComment",
 						method=RequestMethod.POST)

@@ -9,6 +9,12 @@ import org.springframework.stereotype.Service;
 import com.zml.shsite.daos.GoodcollectDAO;
 import com.zml.shsite.models.Goodcollect;
 import com.zml.shsite.services.IGoodCollectService;
+/**
+ * 商品收藏服务
+ * 主要包含收藏信息的增删改查
+ * @author zml
+ *
+ */
 @Service
 public class GoodCollectServiceImpl implements IGoodCollectService{
 	@Autowired

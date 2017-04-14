@@ -15,7 +15,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.zml.shsite.models.Authority;
 import com.zml.shsite.models.Shuser;
 import com.zml.shsite.services.IUserService;
-
+/**
+ * 用户登录服务
+ * 控制用户登录时的密码验证和权限授予的
+ * @author zml
+ *
+ */
 public class CustomUserDetailsServiceImpl implements UserDetailsService {
 	private static Logger logger = Logger.getLogger(CustomUserDetailsServiceImpl.class);
 	@Autowired

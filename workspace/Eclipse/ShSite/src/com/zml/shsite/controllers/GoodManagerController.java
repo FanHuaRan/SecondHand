@@ -23,8 +23,11 @@ import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
 import com.zml.shsite.services.IUserService;
 import com.zml.shsite.services.impl.FileServiceImpl;
-
-@Secured({"Admin"})
+/**
+ * 商品管理控制器
+ * @author zml
+ *
+ */
 @Controller
 @RequestMapping("/GoodManager")
 public class GoodManagerController {
@@ -40,12 +43,14 @@ public class GoodManagerController {
 	private IGoodCollectService goodCollectService=null;
 	@Autowired
 	private IGoodCommentService goodCommentService=null;
+	//商品管理主页面请求
 	@RequestMapping
 	public String index(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		model.addAttribute("goods", goodService.findAll());
 		return "goodmanager/index";
 	}
+	//商品详细页面请求
 	@RequestMapping("/Details")
 	public String detail(Integer id,Model model,HttpSession httpSession){
 		Good good=null;
@@ -66,6 +71,7 @@ public class GoodManagerController {
 		}
 		return "goodmanager/details";
 	}
+	//商品创建页面请求
 	@RequestMapping("/Create")
 	public String create(Model model){
 		model.addAttribute("users",userService.findAll());
@@ -73,6 +79,7 @@ public class GoodManagerController {
 		model.addAttribute("good",new Good());
 		return "goodmanager/create";
 	}
+	//商品创建
 	@RequestMapping(value="/Create",
 					method=RequestMethod.POST)
 	public String create(Good good,MultipartFile imgFile,Model model){
@@ -88,6 +95,7 @@ public class GoodManagerController {
 			return "goodmanager/create";
 		}
 	}
+	//商品编辑页面请求
 	@RequestMapping("/Edit")
 	public String edit(Model model,Integer id){
 		Good good=null;
@@ -99,6 +107,7 @@ public class GoodManagerController {
 		model.addAttribute("good",good);
 		return "goodmanager/edit";
 	}
+	//商品编辑
 	@RequestMapping(value="/Edit",
 			method=RequestMethod.POST)
 	public String edit(Good good,MultipartFile imgFile,Model model){
@@ -113,6 +122,7 @@ public class GoodManagerController {
 			return "goodmanager/edit";
 		}
 	}
+	//商品删除页面请求
 	@RequestMapping("/Delete")
     public String delete(Model model,Integer id){
 		Good good=null;
@@ -123,6 +133,7 @@ public class GoodManagerController {
         model.addAttribute("good",good);
         return "goodmanager/delete";
     }
+	//商品删除
 	@RequestMapping(value="/Delete",
 			method=RequestMethod.POST)
     public String deleteConfirmed(Integer id)

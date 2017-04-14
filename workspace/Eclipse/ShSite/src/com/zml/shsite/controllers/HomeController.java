@@ -13,7 +13,11 @@ import com.zml.shsite.services.IAnnouncementService;
 import com.zml.shsite.services.ICreateGoodViewModel;
 import com.zml.shsite.services.IGoodService;
 import com.zml.shsite.services.IGoodtypeService;
-
+/**
+ * 主页面控制器
+ * @author fhr
+ *
+ */
 @Controller
 public class HomeController {
 	private final static Logger logger = Logger.getLogger(HomeController.class);
@@ -25,11 +29,13 @@ public class HomeController {
 	private IGoodService goodService=null;
 	@Autowired
 	private ICreateGoodViewModel createGoodViewModel=null;
+	//站点默认页面 返回主页
 	@RequestMapping("/")
 	public String home(Model model){
 		dealModels(model);
 		return "index";
 	}
+	//也是主页
 	@RequestMapping("/index")
 	public String index(Model model){
 		dealModels(model);

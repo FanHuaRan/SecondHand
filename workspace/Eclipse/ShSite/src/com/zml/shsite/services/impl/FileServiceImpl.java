@@ -8,6 +8,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.zml.shsite.components.FileComponentUtil;
 import com.zml.shsite.services.IFileService;
+/**
+ * 文件服务
+ * 内含头像和商品图片的文件的上传、修改、删除逻辑
+ * @author zml
+ *
+ */
 @Service
 public class FileServiceImpl implements IFileService {
 	private static String HEAD_PORTRAITS="headportraits";

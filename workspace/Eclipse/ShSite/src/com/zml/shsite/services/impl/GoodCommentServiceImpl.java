@@ -9,7 +9,12 @@ import org.springframework.stereotype.Service;
 import com.zml.shsite.daos.GoodcommentDAO;
 import com.zml.shsite.models.Goodcomment;
 import com.zml.shsite.services.IGoodCommentService;
-
+/**
+ * 商品评论服务
+ * 主要包含评论信息的增删改查
+ * @author zml
+ *
+ */
 @Service
 public class GoodCommentServiceImpl implements IGoodCommentService{
 	private static final Logger logger=Logger.getLogger(GoodCommentServiceImpl.class);

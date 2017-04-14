@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import com.zml.shsite.daos.AnnouncementDAO;
 import com.zml.shsite.models.Announcement;
 import com.zml.shsite.services.IAnnouncementService;
+/**
+ * 公告服务 对数据库公告表的增删改查
+ * @author zml
+ *
+ */
 @Service
 public class AnnouncementServiceImpl implements IAnnouncementService {
 	@Autowired

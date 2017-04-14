@@ -14,6 +14,11 @@ import com.zml.shsite.daos.ShuserDAO;
 import com.zml.shsite.models.Authority;
 import com.zml.shsite.models.Shuser;
 import com.zml.shsite.services.IUserService;
+/**
+ * 用户信息的增加删除修改查询
+ * @author ASUS
+ *
+ */
 @Service
 public class UserServiceImpl implements IUserService {
 	@Autowired

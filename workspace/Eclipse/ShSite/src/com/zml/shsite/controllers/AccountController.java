@@ -31,7 +31,11 @@ import com.zml.shsite.services.IGoodtypeService;
 import com.zml.shsite.services.IUserService;
 import com.zml.shsite.viewmodels.GoodViewModel;
 import com.zml.shsite.viewmodels.RegisterViewModel;
-
+/**
+ * 与账号和个人相关的控制器
+ * @author zml
+ *
+ */
 @Controller
 @RequestMapping("/Account")
 public class AccountController {
@@ -48,7 +52,7 @@ public class AccountController {
 	private IGoodService goodService=null;
 	@Autowired
 	private ICreateGoodViewModel createGoodViewModel=null;
-	
+	//个人中心请求
 	@RequestMapping("/PersonCenter/{id}")
 	public String personCenter(@PathVariable Integer id,Model model){
 		Shuser shuser=null;
@@ -60,11 +64,13 @@ public class AccountController {
 		model.addAttribute("publishgoods", getPublishGoodViewModels(id));
 		return "personcenter";
 	}
+	//登录页面请求
 	@RequestMapping("/LogOn")
 	public String logOn(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
 		return "logon";
 	}
+	//注册页面请求
 	@RequestMapping("/Register")
 	public String register(Model model){
 		model.addAttribute("goodTypes", goodtypeService.findAll());
@@ -82,6 +88,7 @@ public class AccountController {
 		}
 		return "redirect:register";
 	}
+	//商品收藏中心页面请求
 	@RequestMapping("/CollectCenter/{id}")
 	public String goodCollectCenter(@PathVariable Integer id,Model model){
 		Shuser shuser=null;
@@ -93,7 +100,7 @@ public class AccountController {
 		model.addAttribute("goods", goodViewModels);
 		return "collectcenter";
 	}
-	
+	//个人信息修改页面请求
 	@RequestMapping("/PersonInfoUpdate/{id}")
 	public String personInfoUpdate(@PathVariable Integer id,Model model){
 		Shuser shuser=null;
@@ -104,6 +111,7 @@ public class AccountController {
 		model.addAttribute("shuser", shuser);
 		return "personinfoupdate";
 	}
+	//个人信息修改 
 	@RequestMapping(value="/PersonInfoUpdate",
 					method=RequestMethod.POST)
 	public String personInfoUpdatePost(RegisterViewModel registerViewModel,HttpSession httpSession){
@@ -120,6 +128,7 @@ public class AccountController {
 			throw new HTTPException(500);
 		}
 	}
+	//密码修改页面请求
 	@RequestMapping("/PasswordUpdate/{id}")
 	public String passwordUpdate(@PathVariable Integer id,Model model){
 		Shuser shuser=null;
@@ -130,6 +139,7 @@ public class AccountController {
 		model.addAttribute("shuser", shuser);
 		return "passwordupdate";
 	}
+	//密码修改
 	@RequestMapping(value="/PasswordUpdate",
 					method=RequestMethod.POST)
 	public String passwordUpdatePost(String Password,HttpSession httpSession){
@@ -139,6 +149,7 @@ public class AccountController {
 		httpSession.putValue("user", shuser);
 		return "redirect:/Account/PersonCenter/"+shuser.getShUserId();
 	}
+	//个人商品处理页面请求
 	@RequestMapping("/GoodDeal")
 	public String goodDeal(Integer id,Model model){
 		Good good=null;
@@ -149,6 +160,7 @@ public class AccountController {
 		model.addAttribute("good",good);
 		return "gooddeal";
 	}
+	//删除商品
 	@RequestMapping(value="/GoodDelete",
 					method=RequestMethod.POST)
 	public String goodDelete(Integer id,Model model,HttpSession httpSession){
@@ -160,6 +172,7 @@ public class AccountController {
 		Shuser shuser=(Shuser) httpSession.getAttribute("user");
 	    return "redirect:/Account/PersonCenter/"+shuser.getShUserId();
 	}
+	//编辑商品
 	@RequestMapping(value="/GoodEdit",
 			method=RequestMethod.POST)
 	public String edit(Good good,MultipartFile imgFile,Model model,HttpSession httpSession){
@@ -176,6 +189,7 @@ public class AccountController {
 		}
 	}
 	//bootstrap远程校验
+	//远程校验旧密码是否输入正确
 	@RequestMapping(value="/CheckOldPassword",
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
@@ -186,12 +200,14 @@ public class AccountController {
 		jsonObject.put("valid", pass.equals(oldPassword));
 		return jsonObject;
 	}
+	//获取用户收藏的商品及其评论数和收藏数
 	private List<GoodViewModel> getGoodCollectViewModels(Integer id) {
 		List<Goodcollect> goodcollects=goodCollectService.findGoodCollectsByUserId(id);
 		List<Good> goods=goodcollects.stream().map(goodcollect->goodcollect.getGood()).collect(Collectors.toList());
 		List<GoodViewModel> goodViewModels=createGoodViewModel.create(goods);
 		return goodViewModels;
 	}
+	//获取用户发布的商品的评论数及其收藏数
 	private List<GoodViewModel> getPublishGoodViewModels(Integer id) {
 		List<Good> goods=goodService.findByUserId(id);
 		List<GoodViewModel> goodViewModels=createGoodViewModel.create(goods);

@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 import com.zml.shsite.daos.GoodtypeDAO;
 import com.zml.shsite.models.Goodtype;
 import com.zml.shsite.services.IGoodtypeService;
+/**
+ * 商品类型服务 主要包含商品类型的查询
+ * @author zml
+ *
+ */
 @Service
 public class GoodtypeServiceImpl implements IGoodtypeService {
 	@Autowired
