@@ -15,7 +15,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 /**
  *  http拦截器,用于删除、替换返回内容正文关键字
- *  不适用！！！
   * @author fhr
  *  @date 2017/04/11
  */
@@ -30,8 +29,8 @@ public class ResponeKeyDealFilter implements Filter {
 	@SuppressWarnings("serial")
 	private static final Map<String, String> REPLACEKEYS=new HashMap<String,String>(){
 		{
-		 put("评论","xxx");  
-		 put("收藏", "yyy");
+//		put("评论","xxx");  
+//		put("收藏", "yyy");
 		}
 	};
 	/**
@@ -51,8 +50,8 @@ public class ResponeKeyDealFilter implements Filter {
         //如果不是空串就要进行处理，
         //其一是防止静态文件，其二是不对空字符串进行处理
         if(orgin!=null&&!orgin.equals("")){
-            // 输出最终的结果  
-            outPutResult(response,dealResult(orgin));  
+             // 输出最终的结果  
+             outPutResult(response,dealResult(orgin));  
         }
 	}
 	/**

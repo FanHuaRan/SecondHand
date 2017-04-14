@@ -15,7 +15,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 /**
  *  http拦截器,用于删除、替换返回内容正文关键字
- *  不适用！！！
   * @author fhr
  *  @date 2017/04/11
  */
